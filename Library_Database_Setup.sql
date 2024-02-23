@@ -11,272 +11,278 @@ CREATE TABLE authors(
 
 -- iteams that can be checked out
 CREATE TABLE books (
-	isbn VARCHAR(13) PRIMARY KEY,
-    title VARCHAR(100),
-    author VARCHAR(100),
-    publisher VARCHAR(100),
-    genre VARCHAR(20),
-    location VARCHAR(20),
-    call_number VARCHAR(20),
-    item_status VARCHAR(100),
-    reservation_id VARCHAR(100) DEFAULT NULL,
-    barcode VARCHAR(12),
-    INDEX (barcode),
-    creation_date DATE,
-    -- author identifies
-    author_id INT,
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+	author VARCHAR(100),
+	author_id INT, -- author identifies
+	b_barcode INT NOT NULL,
+	call_number VARCHAR(20),
+	creation_date DATE,
+	genre VARCHAR(20),
+	isbn VARCHAR(13),
+	item_status ENUM('available', 'unavailable'),
+	location VARCHAR(20),
+	publisher VARCHAR(100),
+	reservation_id VARCHAR(100) DEFAULT NULL,
+	title VARCHAR(100),
+    PRIMARY KEY(b_barcode),
+	FOREIGN KEY (author_id) REFERENCES authors(author_id)
 );
 
 CREATE TABLE ebooks (
-	isbn VARCHAR(13) PRIMARY KEY,
-    title VARCHAR(100),
-    author VARCHAR(100),
-    publisher VARCHAR(100),
-    genre VARCHAR(20),
-    location VARCHAR(20),
-    call_number VARCHAR(20),
-    item_status VARCHAR(100),
-    reservation_id VARCHAR(100) DEFAULT NULL,
-    barcode VARCHAR(12),
-    INDEX (barcode),
-    creation_date DATE,
-    -- author identifies
-    author_id INT,
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+	author VARCHAR(100),
+	author_id INT, -- author identifies
+	eb_barcode INT NOT NULL,
+	call_number VARCHAR(20),
+	creation_date DATE,
+	genre VARCHAR(20),
+	isbn VARCHAR(13),
+	item_status ENUM('available', 'unavailable'),
+	location VARCHAR(20),
+	publisher VARCHAR(100),
+	reservation_id VARCHAR(100) DEFAULT NULL,
+	title VARCHAR(100),
+    PRIMARY KEY(eb_barcode),
+	FOREIGN KEY (author_id) REFERENCES authors(author_id)
 );
 
 CREATE TABLE dvds (
+	author VARCHAR(100),
+	author_id INT, -- author identifies
+	dvd_barcode INT NOT NULL,
+	call_number VARCHAR(20),
+	creation_date DATE,
+	genre VARCHAR(20),
 	isbn VARCHAR(13) PRIMARY KEY,
-    title VARCHAR(100),
-    author VARCHAR(100),
-    publisher VARCHAR(100),
-    genre VARCHAR(20),
-    location VARCHAR(20),
-    call_number VARCHAR(20),
-    item_status VARCHAR(100),
+	item_status VARCHAR(100),
+	location VARCHAR(20),
+	publisher VARCHAR(100),
 	reservation_id VARCHAR(100) DEFAULT NULL,
-    barcode VARCHAR(12),
-	INDEX (barcode),
-    creation_date DATE,
-    -- author identifies
-    author_id INT,
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+	title VARCHAR(100),
+    PRIMARY KEY(dvd_barcode),
+	FOREIGN KEY (author_id) REFERENCES authors(author_id)
 );
 
 CREATE TABLE records (
+	author VARCHAR(100),
+	author_id INT, -- author identifies
+	r_barcode INT NOT NULL,
+	call_number VARCHAR(20),
+	creation_date DATE,
+	genre VARCHAR(20),
 	isbn VARCHAR(13) PRIMARY KEY,
-    title VARCHAR(100),
-    author VARCHAR(100),
-    publisher VARCHAR(100),
-    genre VARCHAR(20),
-    location VARCHAR(20),
-    call_number VARCHAR(20),
-    item_status VARCHAR(100),
-    reservation_id VARCHAR(100) DEFAULT NULL,
-    barcode VARCHAR(12),
-    INDEX (barcode),
-    creation_date DATE,
-    -- author identifies
-    author_id INT,
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+	item_status VARCHAR(100),
+	location VARCHAR(20),
+	publisher VARCHAR(100),
+	reservation_id VARCHAR(100) DEFAULT NULL,
+	title VARCHAR(100),
+    PRIMARY KEY(r_barcode),
+	FOREIGN KEY (author_id) REFERENCES authors(author_id)
 );
 
 CREATE TABLE laptops (
-    laptop_id INT PRIMARY KEY,
-    laptop_name VARCHAR(50),
-    make VARCHAR(100),
-    model VARCHAR(100),
-    location VARCHAR(20),
-    operating_system VARCHAR(100),
-    laptop_storage VARCHAR(100),
-    ram VARCHAR(100),
-    last_maintenance DATE,
-    network_connectivity BOOLEAN,
-    item_status VARCHAR(100),
-    access VARCHAR(20),
-    vendor_information VARCHAR(100),
-    installed_software VARCHAR(100),
-    laptop_security VARCHAR(100),
-    reservation_id VARCHAR(100) DEFAULT NULL,
-    num_checkouts SMALLINT,
-    barcode VARCHAR(12),
-    INDEX (barcode)
+	access VARCHAR(20),
+	l_barcode INT NOT NULL,
+	installed_software VARCHAR(100),
+	item_status VARCHAR(100),
+	laptop_id INT,
+	laptop_name VARCHAR(50),
+	laptop_security VARCHAR(100),
+	laptop_storage VARCHAR(100),
+	last_maintenance DATE,
+	location VARCHAR(20),
+	make VARCHAR(100),
+	model VARCHAR(100),
+	network_connectivity BOOLEAN,
+	num_checkouts SMALLINT,
+	operating_system VARCHAR(100),
+	ram VARCHAR(100),
+	reservation_id VARCHAR(100) DEFAULT NULL,
+	vendor_information VARCHAR(100),
+    PRIMARY KEY(l_barcode)
+
 );
 
 CREATE TABLE tablets (
-    tablet_id INT PRIMARY KEY,
-    tablet_name VARCHAR(50),
-    make VARCHAR(100),
-    model VARCHAR(100),
-    location VARCHAR(20),
-    operating_system VARCHAR(100),
-    tablet_storage VARCHAR(100),
-    ram VARCHAR(100),
-    last_maintenance DATE,
-    network_connectivity BOOLEAN,
-    item_status VARCHAR(100),
-    access VARCHAR(20),
-    vendor_information VARCHAR(100),
-    installed_software VARCHAR(100),
-    tablet_security VARCHAR(100),
-    reservation_id VARCHAR(100) DEFAULT NULL,
-    num_checkouts SMALLINT,
-    barcode VARCHAR(12),
-    INDEX (barcode)
+	access VARCHAR(20),
+	t_barcode INT NOT NULL,
+	installed_software VARCHAR(100),
+	item_status VARCHAR(100),
+	last_maintenance DATE,
+	location VARCHAR(20),
+	make VARCHAR(100),
+	model VARCHAR(100),
+	network_connectivity BOOLEAN,
+	num_checkouts SMALLINT,
+	operating_system VARCHAR(100),
+	ram VARCHAR(100),
+	reservation_id VARCHAR(100) DEFAULT NULL,
+	tablet_id INT,
+	tablet_name VARCHAR(50),
+	tablet_security VARCHAR(100),
+	tablet_storage VARCHAR(100),
+	vendor_information VARCHAR(100),
+    PRIMARY KEY(t_barcode)
+
 );
 
 CREATE TABLE chargers (
-    charger_id INT PRIMARY KEY,
-    charger_name VARCHAR(50),
-    charger_type VARCHAR(100),
-    vendor_information VARCHAR(100),
-    reservation_id VARCHAR(100) DEFAULT NULL,
-    num_checkouts SMALLINT,
-    barcode VARCHAR(12),
-    INDEX (barcode)
+	charge_barcode INT NOT NULL,
+	charger_id INT,
+	charger_name VARCHAR(50),
+	charger_type VARCHAR(100),
+	num_checkouts SMALLINT,
+	reservation_id VARCHAR(100) DEFAULT NULL,
+	vendor_information VARCHAR(100),
+    PRIMARY KEY(charge_barcode)
+
 );
 
 
 -- devices that can be used 
 CREATE TABLE printers (
+	print_barcode INT NOT NULL,
+	features VARCHAR(100),
+	location VARCHAR(20),
+	network_connectivity BOOLEAN,
+	number_print_jobs SMALLINT,
 	printer_id INT PRIMARY KEY,
-    printer_name VARCHAR(100),
-    location VARCHAR(20),
-    printer_type VARCHAR(100),
-    printer_status VARCHAR(100),
-    vendor_information VARCHAR(100),
-    number_print_jobs SMALLINT,
-    features VARCHAR(100),
-    barcode VARCHAR(12),
-    network_connectivity BOOLEAN
+	printer_name VARCHAR(100),
+	printer_status VARCHAR(100),
+	printer_type VARCHAR(100),
+	vendor_information VARCHAR(100)
+
 );
 
 CREATE TABLE computers (
-    computer_id INT PRIMARY KEY,
-    computer_name VARCHAR(50),
-    make VARCHAR(100),
-    model VARCHAR(100),
-    location VARCHAR(20),
-    operating_system VARCHAR(100),
-    computer_storage VARCHAR(100),
-    ram VARCHAR(100),
-    last_maintenance DATE,
-    network_connectivity BOOLEAN,
-    computer_status VARCHAR(100),
-    access VARCHAR(20),
-    vendor_information VARCHAR(100),
-    installed_software VARCHAR(100),
-    computer_security VARCHAR(100)
+	access VARCHAR(20),
+	computer_id INT PRIMARY KEY,
+	computer_name VARCHAR(50),
+	computer_security VARCHAR(100),
+	computer_status VARCHAR(100),
+	computer_storage VARCHAR(100),
+	installed_software VARCHAR(100),
+	last_maintenance DATE,
+	location VARCHAR(20),
+	make VARCHAR(100),
+	model VARCHAR(100),
+	network_connectivity BOOLEAN,
+	operating_system VARCHAR(100),
+	ram VARCHAR(100),
+	vendor_information VARCHAR(100),
 );
 
 
 -- users of the library
 CREATE TABLE members (
-    member_id INT PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    address VARCHAR(255),
-    email_address VARCHAR(100),
-    phone_number VARCHAR(15),
-    date_of_birth DATE,
-    member_type VARCHAR(20),
-    member_status VARCHAR(20),
-    registration_date DATE,
-    expiration_date DATE,
-    borrowing_history TEXT,
-    requests TEXT,
-    library_card_number VARCHAR(20),
-    fine_id INT
+	address VARCHAR(255),
+	borrowing_history TEXT,
+	date_of_birth DATE,
+	email_address VARCHAR(100),
+	expiration_date DATE,
+	fine_id INT,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	library_card_number VARCHAR(20),
+	member_id INT PRIMARY KEY,
+	member_status VARCHAR(20),
+	member_type VARCHAR(20),
+	phone_number VARCHAR(15),
+	registration_date DATE,
+	requests TEXT,
+
 );
 
 CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    address VARCHAR(255),
-    email_address VARCHAR(100),
-    phone_number VARCHAR(15),
-    date_of_birth DATE,
-    ssn VARCHAR(9),
-    employee_role VARCHAR(50),
-    department VARCHAR(50),
-    hire_date DATE,
-    employee_status VARCHAR(20),
-    supervisor INT,
-    salary DECIMAL(10, 2),
-    direct_deposit_routing_number INT
+	address VARCHAR(255),
+	date_of_birth DATE,
+	department VARCHAR(50),
+	direct_deposit_routing_number INT,
+	email_address VARCHAR(100),
+	employee_id INT PRIMARY KEY,
+	employee_role VARCHAR(50),
+	employee_status VARCHAR(20),
+	first_name VARCHAR(50),
+	hire_date DATE,
+	last_name VARCHAR(50),
+	phone_number VARCHAR(15),
+	salary DECIMAL(10, 2),
+	ssn VARCHAR(9),
+	supervisor INT
+
 );
 
 
 -- reservation entity 
 CREATE TABLE reservations (
-    reservation_id INT PRIMARY KEY,
-    member_id INT,
-    item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
-    item_barcode VARCHAR(12) DEFAULT NULL,  -- Barcode for items that have one
-    reservation_date DATETIME,
-    item_status VARCHAR(100),
-    pickup_deadline DATETIME,
-    notification_preference VARCHAR(20),
-    duration DECIMAL,
+	duration DECIMAL,
+	item_barcode INT NOT NULL,
+	item_status VARCHAR(100),
+	item_type VARCHAR(20),
+	member_id INT,
+	notification_preference VARCHAR(20),
+	pickup_deadline DATETIME,
+	reservation_date DATETIME,
+	reservation_id INT PRIMARY KEY,
+
     FOREIGN KEY (member_id) REFERENCES members(member_id),
-    FOREIGN KEY (item_barcode) REFERENCES books(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES ebooks(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES dvds(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES records(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES laptops(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES tablets(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES chargers(barcode)
+    FOREIGN KEY (item_barcode) REFERENCES books(b_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES ebooks(eb_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES dvds(dvd_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES records(r_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES laptops(l_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES tablets(t_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES chargers(charge_barcode)
 );
 
 
 -- monetary entities
 CREATE TABLE donations (
-    donation_id INT PRIMARY KEY,
+	amount DECIMAL(10, 2),
+	donation_id INT PRIMARY KEY,
+	donation_type VARCHAR(100),
+	email VARCHAR(100),
 	first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    email VARCHAR(100),
-    phone_number VARCHAR(15),
-    donation_type VARCHAR(100),
-    summary TEXT,
-    tax_deductible BOOLEAN,
-    tax_receipt VARCHAR(20),
-    amount DECIMAL(10, 2)
+	last_name VARCHAR(50),
+	phone_number VARCHAR(15),
+	summary TEXT,
+	tax_deductible BOOLEAN,
+	tax_receipt VARCHAR(20)
+
 );
 
 CREATE TABLE acquisitions (
-    acquisition_id INT PRIMARY KEY,
-    purchase_order_number BIGINT,
-    vendor_name VARCHAR(50),
-    invoice_number BIGINT,
-    acquisition_date DATE,
-    acquisition_type VARCHAR(100),
-    amount DECIMAL(10, 2),
-    created_by VARCHAR(100)
+	acquisition_date DATE,
+	acquisition_id INT PRIMARY KEY,
+	acquisition_type VARCHAR(100),
+	amount DECIMAL(10, 2),
+	created_by VARCHAR(100),
+	invoice_number BIGINT,
+	purchase_order_number BIGINT,
+	vendor_name VARCHAR(50)
+
 );
 
 CREATE TABLE fines (
-    fine_id INT PRIMARY KEY,
-    member_id INT,
-    item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
-    item_barcode VARCHAR(12) DEFAULT NULL,  -- Barcode for items that have one
-    ibsn VARCHAR(13),
-    dropoff_deadline DATETIME,
-    notification_preference VARCHAR(20),
-    amount INT,
-    fine_type VARCHAR(20),
-    fine_status VARCHAR(20),
-    payment_date DATETIME,
-    payment_amount DECIMAL(10, 2),
+	amount INT,
+	dropoff_deadline DATETIME,
+	fine_id INT PRIMARY KEY,
+	fine_status VARCHAR(20),
+	fine_type VARCHAR(20),
+	ibsn VARCHAR(13),
+	item_barcode VARCHAR(12) DEFAULT NULL,
+	item_type VARCHAR(20),
+	member_id INT,
+	notification_preference VARCHAR(20),
+	payment_amount DECIMAL(10, 2),
+	payment_date DATETIME,
+
     FOREIGN KEY (member_id) REFERENCES members(member_id),
-    FOREIGN KEY (item_barcode) REFERENCES books(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES ebooks(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES dvds(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES records(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES laptops(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES tablets(barcode),
-    FOREIGN KEY (item_barcode) REFERENCES chargers(barcode)
+    FOREIGN KEY (item_barcode) REFERENCES books(b_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES ebooks(eb_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES dvds(dvd_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES records(r_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES laptops(l_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES tablets(t_barcode),
+    FOREIGN KEY (item_barcode) REFERENCES chargers(charge_barcode)
 );
 
 
@@ -305,21 +311,21 @@ ALTER TABLE ebooks ADD CONSTRAINT fk_ebooks_author FOREIGN KEY (author_id) REFER
 ALTER TABLE dvds ADD CONSTRAINT fk_dvds_author FOREIGN KEY (author_id) REFERENCES authors(author_id);
 ALTER TABLE records ADD CONSTRAINT fk_records_author FOREIGN KEY (author_id) REFERENCES authors(author_id);
 ALTER TABLE reservations ADD CONSTRAINT fk_reservations_member FOREIGN KEY (member_id) REFERENCES members(member_id);
-ALTER TABLE reservations ADD CONSTRAINT fk_reservations_book FOREIGN KEY (item_barcode) REFERENCES books(barcode);
-ALTER TABLE reservations ADD CONSTRAINT fk_reservations_ebook FOREIGN KEY (item_barcode) REFERENCES ebooks(barcode);
-ALTER TABLE reservations ADD CONSTRAINT fk_reservations_dvd FOREIGN KEY (item_barcode) REFERENCES dvds(barcode);
-ALTER TABLE reservations ADD CONSTRAINT fk_reservations_record FOREIGN KEY (item_barcode) REFERENCES records(barcode);
-ALTER TABLE reservations ADD CONSTRAINT fk_reservations_laptop FOREIGN KEY (item_barcode) REFERENCES laptops(barcode);
-ALTER TABLE reservations ADD CONSTRAINT fk_reservations_tablet FOREIGN KEY (item_barcode) REFERENCES tablets(barcode);
-ALTER TABLE reservations ADD CONSTRAINT fk_reservations_charger FOREIGN KEY (item_barcode) REFERENCES chargers(barcode);
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_book FOREIGN KEY (item_barcode) REFERENCES books(b_barcode);
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_ebook FOREIGN KEY (item_barcode) REFERENCES ebooks(eb_barcode);
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_dvd FOREIGN KEY (item_barcode) REFERENCES dvds(dvd_barcode);
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_record FOREIGN KEY (item_barcode) REFERENCES records(r_barcode);
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_laptop FOREIGN KEY (item_barcode) REFERENCES laptops(l_barcode);
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_tablet FOREIGN KEY (item_barcode) REFERENCES tablets(t_barcode);
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_charger FOREIGN KEY (item_barcode) REFERENCES chargers(charge_barcode);
 ALTER TABLE fines ADD CONSTRAINT fk_fines_member FOREIGN KEY (member_id) REFERENCES members(member_id);
-ALTER TABLE fines ADD CONSTRAINT fk_fines_book FOREIGN KEY (item_barcode) REFERENCES books(barcode);
-ALTER TABLE fines ADD CONSTRAINT fk_fines_ebook FOREIGN KEY (item_barcode) REFERENCES ebooks(barcode);
-ALTER TABLE fines ADD CONSTRAINT fk_fines_dvd FOREIGN KEY (item_barcode) REFERENCES dvds(barcode);
-ALTER TABLE fines ADD CONSTRAINT fk_fines_record FOREIGN KEY (item_barcode) REFERENCES records(barcode);
-ALTER TABLE fines ADD CONSTRAINT fk_fines_laptop FOREIGN KEY (item_barcode) REFERENCES laptops(barcode);
-ALTER TABLE fines ADD CONSTRAINT fk_fines_tablet FOREIGN KEY (item_barcode) REFERENCES tablets(barcode);
-ALTER TABLE fines ADD CONSTRAINT fk_fines_charger FOREIGN KEY (item_barcode) REFERENCES chargers(barcode);
+ALTER TABLE fines ADD CONSTRAINT fk_fines_book FOREIGN KEY (item_barcode) REFERENCES books(b_barcode);
+ALTER TABLE fines ADD CONSTRAINT fk_fines_ebook FOREIGN KEY (item_barcode) REFERENCES ebooks(eb_barcode);
+ALTER TABLE fines ADD CONSTRAINT fk_fines_dvd FOREIGN KEY (item_barcode) REFERENCES dvds(dvd_barcode);
+ALTER TABLE fines ADD CONSTRAINT fk_fines_record FOREIGN KEY (item_barcode) REFERENCES records(r_barcode);
+ALTER TABLE fines ADD CONSTRAINT fk_fines_laptop FOREIGN KEY (item_barcode) REFERENCES laptops(l_barcode);
+ALTER TABLE fines ADD CONSTRAINT fk_fines_tablet FOREIGN KEY (item_barcode) REFERENCES tablets(t_barcode);
+ALTER TABLE fines ADD CONSTRAINT fk_fines_charger FOREIGN KEY (item_barcode) REFERENCES chargers(charge_barcode);
 
 -- Check constraints
 ALTER TABLE reservations ADD CONSTRAINT chk_reservation_duration CHECK (duration >= 0);
@@ -347,7 +353,19 @@ BEGIN
 END;
 //
 DELIMITER ;
+-- if a held book becomes available
+/*
+CREATE TRIGGER hold_pick_up_is_ready AFTER UPDATE ON reservations FOR EACH ROW
+BEGIN
+    IF OLD.item_status <> new.item_status THEN
+        INSERT INTO SalesChanges(salesId,beforeQuantity, afterQuantity)
+        VALUES(old.id, old.quantity, new.quantity);
+    END IF;
+END$$
 
+DELIMITER ;
+
+*/
 -- check for memebership
 DELIMITER //
 CREATE TRIGGER before_insert_members
