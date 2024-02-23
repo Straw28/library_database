@@ -51,7 +51,7 @@ CREATE TABLE dvds (
 	call_number VARCHAR(20),
 	creation_date DATE,
 	genre VARCHAR(20),
-	isbn VARCHAR(13) PRIMARY KEY,
+	isbn VARCHAR(13),
 	item_status VARCHAR(100),
 	location VARCHAR(20),
 	publisher VARCHAR(100),
@@ -68,7 +68,7 @@ CREATE TABLE records (
 	call_number VARCHAR(20),
 	creation_date DATE,
 	genre VARCHAR(20),
-	isbn VARCHAR(13) PRIMARY KEY,
+	isbn VARCHAR(13),
 	item_status VARCHAR(100),
 	location VARCHAR(20),
 	publisher VARCHAR(100),
@@ -167,7 +167,7 @@ CREATE TABLE computers (
 	network_connectivity BOOLEAN,
 	operating_system VARCHAR(100),
 	ram VARCHAR(100),
-	vendor_information VARCHAR(100),
+	vendor_information VARCHAR(100)
 );
 
 
@@ -187,7 +187,7 @@ CREATE TABLE members (
 	member_type VARCHAR(20),
 	phone_number VARCHAR(15),
 	registration_date DATE,
-	requests TEXT,
+	requests TEXT
 
 );
 
@@ -268,7 +268,7 @@ CREATE TABLE fines (
 	fine_status VARCHAR(20),
 	fine_type VARCHAR(20),
 	ibsn VARCHAR(13),
-	item_barcode VARCHAR(12) DEFAULT NULL,
+	item_barcode INT NOT NULL,
 	item_type VARCHAR(20),
 	member_id INT,
 	notification_preference VARCHAR(20),
@@ -284,7 +284,6 @@ CREATE TABLE fines (
     FOREIGN KEY (item_barcode) REFERENCES tablets(t_barcode),
     FOREIGN KEY (item_barcode) REFERENCES chargers(charge_barcode)
 );
-
 
 -- add library constraints
 -- unique constraints
