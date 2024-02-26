@@ -23,6 +23,7 @@ CREATE TABLE books (
 	publisher VARCHAR(100),
 	reservation_id VARCHAR(100) DEFAULT NULL,
 	title VARCHAR(100),
+    -- bool flag for mature or not
     PRIMARY KEY(b_barcode),
 	FOREIGN KEY (author_id) REFERENCES authors(author_id)
 );
@@ -188,7 +189,7 @@ CREATE TABLE members (
 	phone_number VARCHAR(15),
 	registration_date DATE,
 	requests TEXT
-
+	-- keep track of bday
 );
 
 CREATE TABLE employees (
@@ -357,8 +358,7 @@ DELIMITER ;
 CREATE TRIGGER hold_pick_up_is_ready AFTER UPDATE ON reservations FOR EACH ROW
 BEGIN
     IF OLD.item_status <> new.item_status THEN
-        INSERT INTO SalesChanges(salesId,beforeQuantity, afterQuantity)
-        VALUES(old.id, old.quantity, new.quantity);
+
     END IF;
 END$$
 
