@@ -148,7 +148,8 @@ CREATE TABLE members (
     phone_number VARCHAR(15),
     address VARCHAR(255),
 	date_of_birth DATE,
-    borrowing_history TEXT,
+    item_borrowing_history TEXT,
+    device_borrowing_history TEXT,
 	registration_date DATE,
     expiration_date DATE,
 	requests TEXT,
@@ -182,6 +183,7 @@ CREATE TABLE reservations (
     item_id INT NOT NULL,
     item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
     member_id INT NOT NULL,
+    employee_id INT,
     notification_preference VARCHAR(20),
     pickup_deadline DATETIME,
     reservation_date DATETIME,
@@ -189,7 +191,8 @@ CREATE TABLE reservations (
     item_status VARCHAR(100),
 	PRIMARY KEY (reservation_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id),
-    FOREIGN KEY (member_id) REFERENCES members(member_id)
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
 
@@ -213,11 +216,12 @@ CREATE TABLE acquisitions (
 	acquisition_type VARCHAR(100),
 	acquisition_date DATE,
 	amount DECIMAL(10, 2),
-	created_by VARCHAR(100),
+	employee_id INT,
 	invoice_number BIGINT,
 	purchase_order_number BIGINT,
 	vendor_name VARCHAR(50),
-    PRIMARY KEY (acquisition_id)
+    PRIMARY KEY (acquisition_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
 CREATE TABLE fines (
@@ -225,6 +229,7 @@ CREATE TABLE fines (
     item_id INT NOT NULL,
     item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
     member_id INT NOT NULL,
+    employee_id INT,
     notification_preference VARCHAR(20),
     dropoff_deadline DATETIME,
     amount INT,
@@ -234,16 +239,68 @@ CREATE TABLE fines (
     payment_amount DECIMAL(10, 2),
     PRIMARY KEY (fine_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id),
-    FOREIGN KEY (member_id) REFERENCES members(member_id)
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
+-- Relationships
+-- N:1 MEMBERS can borrow BOOKS, DVDS, E-BOOKS, RECORDS, LAPTOPS, CHARGERS, TABLETS
+ALTER TABLE books ADD CONSTRAINT fk_books_member FOREIGN KEY (item_id) REFERENCES items(item_id);
+ALTER TABLE ebooks ADD CONSTRAINT fk_ebooks_member FOREIGN KEY (item_id) REFERENCES items(item_id);
+ALTER TABLE dvds ADD CONSTRAINT fk_dvds_member FOREIGN KEY (item_id) REFERENCES items(item_id);
+ALTER TABLE records ADD CONSTRAINT fk_records_member FOREIGN KEY (item_id) REFERENCES items(item_id);
+ALTER TABLE laptops ADD CONSTRAINT fk_laptops_member FOREIGN KEY (item_id) REFERENCES items(item_id);
+ALTER TABLE chargers ADD CONSTRAINT fk_chargers_member FOREIGN KEY (item_id) REFERENCES items(item_id);
+ALTER TABLE tablets ADD CONSTRAINT fk_tablets_member FOREIGN KEY (item_id) REFERENCES items(item_id);
 
--- add library constraints
+-- N:1 MEMBERS can create RESERVATIONS to place items on hold for pickup
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_member FOREIGN KEY (member_id) REFERENCES members(member_id);
 
--- Check constraints
-ALTER TABLE reservations ADD CONSTRAINT chk_reservation_duration CHECK (duration >= 0);
-ALTER TABLE members ADD CONSTRAINT chk_member_borrow_limit CHECK (CHAR_LENGTH(borrowing_history) < 5);
-ALTER TABLE members ADD CONSTRAINT chk_member_device_limit CHECK (
-    (library_card_number IS NOT NULL AND member_type = 'resident') OR
-    (library_card_number IS NULL AND member_type != 'resident')
-);
+-- N:1 MEMBERS can have FINES on overdue materials
+ALTER TABLE fines ADD CONSTRAINT fk_fines_member FOREIGN KEY (member_id) REFERENCES members(member_id);
+
+-- N:1 MEMBERS can use PRINTERS and COMPUTERS
+ALTER TABLE printers ADD CONSTRAINT fk_printers_member FOREIGN KEY (printer_barcode) REFERENCES items(barcode);
+ALTER TABLE computers ADD CONSTRAINT fk_computers_member FOREIGN KEY (computer_id) REFERENCES items(item_id);
+
+-- N:1 EMPLOYEES can manage RESERVATIONS
+ALTER TABLE reservations ADD CONSTRAINT fk_reservations_employee FOREIGN KEY (employee_id) REFERENCES employees(employee_id);
+
+-- N:1 EMPLOYEES can make many ACQUISITIONS
+ALTER TABLE acquisitions ADD CONSTRAINT fk_acquisitions_employee FOREIGN KEY (employee_id) REFERENCES employees(employee_id);
+
+-- N:1 EMPLOYEES can renew BOOKS, DVDS, E-BOOKS, RECORDS
+ALTER TABLE fines ADD CONSTRAINT fk_fines_employee_renew FOREIGN KEY (employee_id) REFERENCES employees(employee_id);
+
+-- N:1 MEMBERS can renew BOOKS, DVDS, E-BOOKS, RECORDS
+ALTER TABLE fines ADD CONSTRAINT fk_fines_member_renew FOREIGN KEY (member_id) REFERENCES members(member_id);
+
+-- N:1 EMPLOYEES can check in BOOKS, DVDS, E-BOOKS, RECORDS, LAPTOPS, CHARGERS, TABLETS
+ALTER TABLE fines ADD CONSTRAINT fk_fines_employee_checkin FOREIGN KEY (employee_id) REFERENCES employees(employee_id);
+
+-- Additional Constraints
+-- An item can’t be checked out if the member has a fine on their record
+ALTER TABLE fines ADD CONSTRAINT chk_no_checkout_with_fine CHECK (item_id IS NULL);
+
+-- When an item is held or checked out, then the item can’t be borrowed
+ALTER TABLE items ADD CONSTRAINT chk_no_borrow_when_held_or_checked_out CHECK (reservation_id IS NULL AND item_status = 'Available');
+
+-- Members can only check out books, dvds, e-books, records, laptops, chargers, and tablets
+ALTER TABLE items ADD CONSTRAINT chk_allowed_item_types CHECK (item_type IN ('Book', 'E-Book', 'DVD', 'Record', 'Laptop', 'Charger', 'Tablet'));
+
+
+-- Library limitations
+-- Limit of 5 items borrowed per member
+ALTER TABLE members ADD CONSTRAINT chk_max_items_borrowed CHECK (CHAR_LENGTH(item_borrowing_history) < 5);
+
+-- Limit of 1 device per member
+ALTER TABLE members ADD CONSTRAINT chk_max_devices_borrowed CHECK (CHAR_LENGTH(device_borrowing_history) < 1);
+
+-- Limit of 1 library card per name & address
+ALTER TABLE members ADD CONSTRAINT unique_name_address_library_card UNIQUE (first_name, last_name, address, library_card_number);
+
+-- Non-residents can’t create a membership card
+ALTER TABLE members ADD CONSTRAINT chk_non_resident_membership CHECK (member_type != 'Non-Resident');
+
+-- Memberships will expire after 3 years
+ALTER TABLE members ADD CONSTRAINT chk_membership_expiration CHECK (expiration_date <= DATE_ADD(registration_date, INTERVAL 3 YEAR));
