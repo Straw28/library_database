@@ -28,6 +28,7 @@ CREATE TABLE books (
     publisher VARCHAR(100),
     PRIMARY KEY (book_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE SET CASCADE;
 );
 
 -- Child table for ebooks
