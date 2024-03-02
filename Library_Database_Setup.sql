@@ -8,7 +8,7 @@ CREATE TABLE items (
     item_type VARCHAR(20) NOT NULL, -- This column specifies the type of item (book, ebook, dvd, etc.)
     barcode INT NOT NULL UNIQUE,
     creation_date DATE,
-    item_status VARCHAR(100),
+    item_status ENUM('available', 'unavailable', 'on hold'),
     location VARCHAR(20),
     reservation_id VARCHAR(100) DEFAULT NULL,
     PRIMARY KEY (item_id)
@@ -112,7 +112,7 @@ CREATE TABLE chargers (
 CREATE TABLE printers (
 	printer_id INT UNIQUE,
 	printer_name VARCHAR(100),
-	printer_status VARCHAR(100),
+    printer_status ENUM('active', 'inactive'),
 	printer_type VARCHAR(100),
 	printer_barcode INT NOT NULL UNIQUE,
 	features VARCHAR(100),
@@ -127,7 +127,7 @@ CREATE TABLE computers (
 	computer_id INT UNIQUE,
 	computer_name VARCHAR(50),
 	computer_security VARCHAR(100),
-	computer_status VARCHAR(100),
+    computer_status ENUM('active', 'inactive'),
 	computer_storage VARCHAR(100),
 	access VARCHAR(20),
 	installed_software VARCHAR(100),
@@ -147,7 +147,7 @@ CREATE TABLE computers (
 CREATE TABLE members (
 	member_id INT UNIQUE,
     library_card_number VARCHAR(20) UNIQUE,
-	member_status VARCHAR(20),
+    member_status ENUM('active', 'inactive'),
 	member_type VARCHAR(20),
     first_name VARCHAR(50),
 	last_name VARCHAR(50),
@@ -167,7 +167,7 @@ CREATE TABLE members (
 CREATE TABLE employees (
 	employee_id INT UNIQUE,
 	employee_role VARCHAR(50),
-	employee_status VARCHAR(20),
+	employee_status ENUM('active', 'inactive'),
     first_name VARCHAR(50),
 	last_name VARCHAR(50),
     email_address VARCHAR(100),
@@ -187,7 +187,7 @@ CREATE TABLE employees (
 -- reservation entity
 CREATE TABLE reservations (
     reservation_id INT,
-    item_id INT NOT NULL,
+    item_id INT,
     item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
     member_id INT NOT NULL,
     employee_id INT,
@@ -195,7 +195,7 @@ CREATE TABLE reservations (
     pickup_deadline DATETIME,
     reservation_date DATETIME,
     duration DECIMAL,
-    item_status VARCHAR(100),
+    item_status ENUM('available', 'unavailable', 'on hold'),
 	PRIMARY KEY (reservation_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
 		ON DELETE SET NULL ON UPDATE CASCADE,
@@ -237,7 +237,7 @@ CREATE TABLE acquisitions (
 
 CREATE TABLE fines (
     fine_id INT,
-    item_id INT NOT NULL,
+    item_id INT,
     item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
     member_id INT NOT NULL,
     employee_id INT,
@@ -245,7 +245,7 @@ CREATE TABLE fines (
     dropoff_deadline DATETIME,
     amount INT,
     fine_type VARCHAR(20),
-    fine_status VARCHAR(20),
+    fine_status ENUM('active', 'no fines'),
     payment_date DATETIME,
     payment_amount DECIMAL(10, 2),
     PRIMARY KEY (fine_id),
@@ -294,10 +294,10 @@ ALTER TABLE fines ADD CONSTRAINT fk_fines_employee_checkin FOREIGN KEY (employee
 
 -- Additional Constraints
 -- An item can’t be checked out if the member has a fine on their record
-ALTER TABLE fines ADD CONSTRAINT chk_no_checkout_with_fine CHECK (item_id IS NULL);
+ALTER TABLE fines ADD CONSTRAINT chk_no_checkout_with_fine CHECK (fine_status = 'active');
 
 -- When an item is held or checked out, then the item can’t be borrowed
-ALTER TABLE items ADD CONSTRAINT chk_no_borrow_when_held_or_checked_out CHECK (reservation_id IS NULL AND item_status = 'Available');
+ALTER TABLE items ADD CONSTRAINT chk_no_borrow_when_held_or_checked_out CHECK (reservation_id IS NULL AND item_status = 'available');
 
 -- Members can only check out books, dvds, e-books, records, laptops, chargers, and tablets
 ALTER TABLE items ADD CONSTRAINT chk_allowed_item_types CHECK (item_type IN ('Book', 'E-Book', 'DVD', 'Record', 'Laptop', 'Charger', 'Tablet'));
