@@ -28,7 +28,7 @@ CREATE TABLE books (
     publisher VARCHAR(100),
     PRIMARY KEY (book_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
-		ON DELETE SET NULL ON UPDATE SET CASCADE;
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- Child table for ebooks
@@ -44,6 +44,7 @@ CREATE TABLE ebooks (
     publisher VARCHAR(100),
     PRIMARY KEY (ebook_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- Child table for DVDs
@@ -59,6 +60,7 @@ CREATE TABLE dvds (
     publisher VARCHAR(100),
     PRIMARY KEY (dvd_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- Child table for records
@@ -74,6 +76,7 @@ CREATE TABLE records (
     publisher VARCHAR(100),
     PRIMARY KEY (record_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- Child table for laptops
@@ -82,6 +85,7 @@ CREATE TABLE laptops (
     item_id INT,
     PRIMARY KEY (laptop_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- Child table for tablets
@@ -90,6 +94,7 @@ CREATE TABLE tablets (
     item_id INT,
     PRIMARY KEY (tablet_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- Child table for chargers
@@ -98,6 +103,7 @@ CREATE TABLE chargers (
     item_id INT,
     PRIMARY KEY (charger_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 
@@ -191,9 +197,12 @@ CREATE TABLE reservations (
     duration DECIMAL,
     item_status VARCHAR(100),
 	PRIMARY KEY (reservation_id),
-    FOREIGN KEY (item_id) REFERENCES items(item_id),
-    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+		ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+		ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
 
