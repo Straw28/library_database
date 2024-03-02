@@ -202,7 +202,7 @@ CREATE TABLE reservations (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 		ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
-		ON DELETE SET DEFAULT ON UPDATE CASCADE
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 
@@ -232,6 +232,7 @@ CREATE TABLE acquisitions (
 	vendor_name VARCHAR(50),
     PRIMARY KEY (acquisition_id),
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE fines (
@@ -248,9 +249,12 @@ CREATE TABLE fines (
     payment_date DATETIME,
     payment_amount DECIMAL(10, 2),
     PRIMARY KEY (fine_id),
-    FOREIGN KEY (item_id) REFERENCES items(item_id),
-    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (item_id) REFERENCES items(item_id)
+		ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+		ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- Relationships
