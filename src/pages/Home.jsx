@@ -1,6 +1,5 @@
-import Header from '../components/header' 
-import { useState } from 'react'
-
+import Header from '../components/header' ;
+import { useState } from 'react';
 
 function Home() {
 
@@ -8,7 +7,7 @@ function Home() {
       <div>
         <Header/>
       </div>
-    )
+    );
   }
   
   export default Home;

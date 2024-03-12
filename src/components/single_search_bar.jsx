@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../styles/search_style.css'
+import '../styles/search_style.css';
 
 function SingleSearchBar()
 {
@@ -23,7 +23,7 @@ return (
         <button type="submit" className="search-button">Search</button>
     </form>
     </div>
-)
+);
 
 }
 

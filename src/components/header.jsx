@@ -1,6 +1,6 @@
-import SearchBar from '../components/search_bar' 
-import { useState } from 'react'
-import Burger from '../components/hamburger'
+import SearchBar from '../components/search_bar'; 
+import { useState } from 'react';
+import Burger from '../components/hamburger';
 
 function Header() {
 
@@ -9,7 +9,7 @@ function Header() {
         <SearchBar/>
         <Burger/>
       </div>
-    )
+    );
   }
   
   export default Header;

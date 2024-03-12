@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Home from '../pages/Home'
+import Home from '../pages/Home';
 import Book_Catalog from "../pages/Book_Catalog";
 import "../styles/menu_styles.css";
 

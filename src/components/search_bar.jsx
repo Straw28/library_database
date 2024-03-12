@@ -9,7 +9,7 @@ function SearchBar()
             <SingleSearchBar/>
             <SingleSearchBar/>
         </div>
-    )
+    );
 }
 
 export default SearchBar;
