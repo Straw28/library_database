@@ -28,10 +28,11 @@
     cursor: pointer;
     background: transparent;
     border: transparent;
-    position: inherit;
+    position: fixed;
     top: 0px;
     left: 10px;
     display: flex;
+    margin: 20px;
   }
   
   li {

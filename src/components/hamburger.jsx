@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Home from '../pages/Home';
 import Book_Catalog from "../pages/Book_Catalog";
 import "../styles/menu_styles.css";
@@ -39,10 +40,16 @@ function Burger() {
         <div className="hamburger-menu" ref={menuRef}>
           <ul>
             <li>
-              <a href="">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#">Books</a>
+            <Link to="/books">Books</Link>
+            </li>
+            <li>
+            <Link to="/ebooks">EBooks</Link>
+            </li>
+            <li>
+            <Link to="/dvds">DVDs</Link>
             </li>
           </ul>
         </div>
