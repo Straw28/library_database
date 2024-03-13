@@ -1,0 +1,32 @@
+import "../styles/menu_style.css";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import Home from '../pages/Home';
+import Book_Catalog from "../pages/Book_Catalog";
+
+function Menu(){
+    
+    return(
+        <div>
+        <div className="menu-box"></div>
+        <div className="menu-text">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+          <Link to="/books">Books</Link>
+          </li>
+          <li>
+          <Link to="/ebooks">EBooks</Link>
+          </li>
+          <li>
+          <Link to="/dvds">DVDs</Link>
+          </li>
+        </ul>
+      </div>
+      </div>
+    );
+}
+
+export default Menu;

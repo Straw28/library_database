@@ -1,15 +1,19 @@
-import SearchBar from '../components/search_bar'; 
-import { useState } from 'react';
-import Burger from '../components/hamburger';
+import React, { useState } from 'react';
+import SearchBar from './search_bar'; 
+import Top_Bar from './top_bar';
+
+import '../styles/header_styles.css';
+
+/*This component contains top_bar a line the nav_bar and the search bars*/ 
+
 
 function Header() {
 
-    return (
-      <div>
-        <SearchBar/>
-        <Burger/>
-      </div>
-    );
-  }
-  
-  export default Header;
+  return (
+    <div>
+      <Top_Bar/>
+    </div>
+  );
+}
+
+export default Header;
