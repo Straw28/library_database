@@ -75,6 +75,7 @@ function TopBar() {
             <a href="#">Contact</a>
           </div>
           <SearchBar/>
+          <div className='search-line' style={{top:'105px'}}></div>
         </div>
     );
 }

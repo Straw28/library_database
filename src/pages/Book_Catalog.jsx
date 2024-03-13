@@ -1,13 +1,17 @@
-import SearchBar from '../components/search_bar' ;
-import { useState } from 'react';
+import React from "react";
+import TopBar from '../components/top_bar' ;
+import SearchBar from '../components/search_bar';
 
-function Book_Catalog() {
+
+const Book_Catalog=()=> {
 
     return (
-      <div>
-        <SearchBar/>
-      </div>
+    <>
+      <nav>
+        <TopBar/>
+      </nav>
+      </>
     );
-  }
+  };
   
   export default Book_Catalog;
