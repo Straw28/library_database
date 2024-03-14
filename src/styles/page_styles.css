@@ -1,0 +1,28 @@
+.container{
+    position:fixed;
+    top:200px;
+    right:-500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.book-container {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.books-list {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent books from wrapping to the next line */
+}
+
+.book {
+    margin-right: 20px; /* Add spacing between books */
+    flex: 0 0 auto; /* Ensure books maintain their size */
+    width: 200px; /* Set the width of each book */
+    border: 1px solid #ccc; /* Add borders for visual separation */
+    padding: 10px;
+}

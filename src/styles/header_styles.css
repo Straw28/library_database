@@ -146,7 +146,7 @@
   }
 
   .container {
-    position:fixed;
+    position:relative;
     top:200px;
     right:-500px;
     display: flex;
@@ -155,8 +155,18 @@
     width: 100%;
     
   }
-  
+
   .featured-box {
+    background-color: #971b32a1;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
+    padding: 0px;
+    width:850px;
+    height:500px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .book-cover{
     background-color: #971b32a1;
     box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
     padding: 0px;
