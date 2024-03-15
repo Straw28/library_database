@@ -2,14 +2,16 @@
 .book-container {
     width: 80%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the container */
+    margin-right:20px;
     overflow-x: auto; /* Enable horizontal scrolling */
-    position:fixed;
+    position:relative;
     top:200px;
-    right:-500px;
+    right:200px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+
 }
 
 .books-list {
