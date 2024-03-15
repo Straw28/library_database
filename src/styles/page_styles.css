@@ -1,4 +1,8 @@
-.container{
+
+.book-container {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container */
+    overflow-x: auto; /* Enable horizontal scrolling */
     position:fixed;
     top:200px;
     right:-500px;
@@ -6,12 +10,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-}
-
-.book-container {
-    width: 80%; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the container */
-    overflow-x: auto; /* Enable horizontal scrolling */
 }
 
 .books-list {

@@ -146,7 +146,7 @@
   }
 
   .container {
-    position:relative;
+    position:fixed;
     top:200px;
     right:-500px;
     display: flex;

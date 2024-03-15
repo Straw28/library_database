@@ -5,7 +5,6 @@ import '../styles/page_styles.css'
 
 const BookCatalog = () => {
     const [books, setBooks] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
 
@@ -22,7 +21,7 @@ const BookCatalog = () => {
             const newBooks = generateMockBooks(); // Generate mock books
             setBooks(prevBooks => [...prevBooks, ...newBooks]);
             setPage(prevPage => prevPage + 1);
-            setLoading(false);
+      
 
             // Simulating reaching the end of data
             if (page >= 3) {
@@ -47,7 +46,7 @@ const BookCatalog = () => {
     };
 
     const handleScroll = () => {
-        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || loading) {
+        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
             return;
         }
 
@@ -64,6 +63,9 @@ const BookCatalog = () => {
     }, []);
 
     return (
+      <>
+      <div><TopBar/></div>
+      
         <div className="book-container">
             <h1>Boston Public Library Catalog</h1>
             <div className="books-list">
@@ -75,9 +77,8 @@ const BookCatalog = () => {
                     </div>
                 ))}
             </div>
-            {loading && <p>Loading...</p>}
-            {!loading && !hasMore && <p>No more books to load</p>}
         </div>
+        </>
     );
 };
 
