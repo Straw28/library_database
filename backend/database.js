@@ -20,7 +20,7 @@ import mysql from '../node_modules/mysql2/promise.js';
 const pool = mysql.createPool({
   host: 'localhost', // your local houst
   user: 'root', // your username
-  password: 'Thatguy$hark56f', // your password
+  password: 'your_password', // your password
   database: 'Library_Database', 
   waitForConnections: true,
   connectionLimit: 10,
