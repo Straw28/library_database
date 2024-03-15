@@ -14,13 +14,13 @@
 
 
 // local mysql workbench
-// database.js
-import mysql from 'mysql2/promise';
+// backend/database.js
+import mysql from '../node_modules/mysql2/promise.js';
 
 const pool = mysql.createPool({
   host: 'localhost', // your local houst
   user: 'root', // your username
-  password: 'your_password', // your password
+  password: 'Thatguy$hark56f', // your password
   database: 'Library_Database', 
   waitForConnections: true,
   connectionLimit: 10,

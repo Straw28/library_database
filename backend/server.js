@@ -1,4 +1,4 @@
-// server.js
+// backend/server.js
 import http from 'http';
 import url from 'url';
 
@@ -19,7 +19,7 @@ const server = http.createServer(async (req, res) => {
   if (method === 'OPTIONS') {
     // Preflight request, respond with 200 OK
     res.writeHead(204, {
-      "Access-Control-Allow-Origin": "http://localhost:5173", // Adjust the origin to match your React URL
+      "Access-Control-Allow-Origin": "http://localhost:5173/", // Adjust the origin to match your React URL
       "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, PATCH",
       "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, authorization",
       "Access-Control-Max-Age": 2592000
