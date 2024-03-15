@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
-import TopBar from './top_bar' ;
-import '../styles/page_styles.css';
+import '../styles/catalog_styles.css';
 
 const Catalog = () => {
     const [books, setBooks] = useState([]);
@@ -63,21 +62,170 @@ const Catalog = () => {
 
     return (
       <>
-      <TopBar/>
-        <div className="book-container">
-            <h1>Boston Public Library Catalog</h1>
-            <div className="books-list">
-                {books.map(book => (
-                    <div key={book.id} className="book">
-                        <h2>{book.title}</h2>
-                        <p>{book.author}</p>
-                        {/* Add more book details as needed */}
-                    </div>
-                ))}
-            </div>
+    <div className="container">
+      <div className="card">
+        <h3 className="title">Card 1</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
         </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 2</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 4</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+      <div className="card">
+        <h3 className="title">Card 3</h3>
+        <div className="bar">
+          <div className="emptybar"></div>
+          <div className="filledbar"></div>
+        </div>
+        <div className="circle">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle className="stroke" cx="60" cy="60" r="50"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  
+
         </>
     );
 };
 
 export default Catalog;
+     
+        // <div className="book-container">
+        //     <h1>Boston Public Library Catalog</h1>
+        //     <div className="books-list">
+        //         {books.map(book => (
+        //             <div key={book.id} className="book">
+        //                 <h2>{book.title}</h2>
+        //                 <p>{book.author}</p>
+        //                 {/* Add more book details as needed */}
+        //                 </div>
+        //                 ))}
+        //             </div>
+        //         </div>
+               
