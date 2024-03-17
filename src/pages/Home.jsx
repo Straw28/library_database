@@ -10,9 +10,9 @@ import flowers from '../assets/flowers.jpg';
 function Home() {
 
   return (
-    <>
+    <div>
     <TopBar/>
-    <div className="page-body" style={{ overflowX: 'hidden', overflowY:'hidden' }}>
+    <div className="page-body" style={{ overflowX: 'hidden', overflowY:'auto' }}>
     <div style={{ fontFamily: 'Papyrus', fontWeight: '700', fontSize: '50px', top: '15%', marginLeft:'40%', position: 'fixed' }}>Featured</div>
 
       <div className="container" >
@@ -37,7 +37,7 @@ function Home() {
     </div>
     </div>
     </div>
-    </>
+    </div>
   );
   }
   

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from './search_bar';
 import {Link} from 'react-router-dom';
 import '../styles/header_styles.css'
-import Dropdown from '../components/dropdown-menu/dropdown';
+
 
 function TopBar() {
     const [loginVisible, setLoginVisible] = useState(false);
@@ -58,13 +58,13 @@ function TopBar() {
             
             <div className="navbar">
             <Link to='/'>Home</Link>
-            <Dropdown>
-                <p>Testing</p>
-                <Link to='/books'>Book Catalog</Link>
-            </Dropdown>
+        
+            <Link to='/books'>Book Catalog</Link>
+            
             <Link to='/about'>About</Link>
             <Link to='/contact'>Contact</Link>
             <Link to='/register'>Register</Link>
+
           </div>
           <SearchBar/>
         </div>
