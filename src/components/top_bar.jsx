@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from './search_bar';
+import {Link} from 'react-router-dom';
+import '../styles/header_styles.css'
 
 function TopBar() {
     const [loginVisible, setLoginVisible] = useState(false);
@@ -54,28 +56,12 @@ function TopBar() {
             )}
             <div className='search-line'></div>
             <div className="navbar">
-            <a href="#">Home</a>
-            <div className="dropdown">
-              <button className="dropbtn">Products</button>
-              <div className="dropdown-content">
-                <a href="#">Product 1</a>
-                <a href="#">Product 2</a>
-                <a href="#">Product 3</a>
-              </div>
-            </div>
-            <div className="dropdown">
-              <button className="dropbtn">Services</button>
-              <div className="dropdown-content">
-                <a href="#">Service 1</a>
-                <a href="#">Service 2</a>
-                <a href="#">Service 3</a>
-              </div>
-            </div>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <Link to='/'>Home</Link>
+            <Link to='/about'>About</Link>
+            <Link to='/about'>About</Link>
           </div>
           <SearchBar/>
-          <div className='search-line' style={{top:'105px'}}></div>
+          <div className='search-line' style={{top:'110px',zIndex:'10'}}></div>
         </div>
     );
 }

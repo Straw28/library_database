@@ -87,22 +87,23 @@
   .navbar {
     overflow: hidden;
     background-color: #971b32a1;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
     display:flex;
     justify-content: flex-start;
     left:0px;
     top:60px;
     position:absolute;
     width:100vw;
+    height:50px;
     z-index: -1;
   }
   
   .navbar a {
-    float: left;
-    display: block;
+    display: flexbox;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 20px;
-    text-decoration: none;
+    font-size: 30px;
   }
   
   .dropdown {
@@ -146,24 +147,30 @@
   }
 
   .container {
+ 
     position:relative;
     top:200px;
-    right:-500px;
+    right:200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    
+    width: 1500px;
+    height:1000px;
   }
 
   .featured-box {
-    background-color: #971b32a1;
-    box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
-    padding: 0px;
-    width:850px;
-    height:500px;
-    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    display:flex;
+    position:fixed;
+    flex-wrap: non-wrap;
+    padding: 10px;
+    width:1200px;
+    height:600px;
+    right:10px;
+    margin-right:100px;
     text-align: center;
+    border-radius: 2%;
   }
 
   .book-cover{
@@ -172,14 +179,14 @@
     padding: 0px;
     width:850px;
     height:500px;
-    border-radius: 10px;
     text-align: center;
   }
   
   .featured-image{
-    width: 250px;
-    height:360px;
+    width: 350px;
+    height:500px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius:25px;
   }
 
   .image-container {
@@ -190,6 +197,6 @@
   }
   
   .image-container img {
-    /*width: 100px;  Adjust image width as needed */
-    margin: 0 15px; /* Add space between images */
+    
+    margin: 0 25px; /* Add space between images */
   }
