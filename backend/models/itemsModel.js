@@ -1,12 +1,17 @@
-// models/itemsModel.js
-import pool from '../database.js';
+// backend/models/itemsModel.js
+import pool from './database.js';
 
-async function getAllItems() {
-  const [rows] = await pool.query('SELECT * FROM items');
-  return rows;
+class ItemsModel {
+  static async findAllItems() {
+    try {
+      const [result] = await pool.query('SELECT * FROM items');
+      return result;
+    } catch(err) {
+      console.log(err);
+      throw new Error('Failed to retrieve all items');
+    }
+  }
 }
 
-export default {
-  getAllItems,
-  // Add other model functions as needed
-};
+export default ItemsModel;
+

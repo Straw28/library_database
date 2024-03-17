@@ -15,7 +15,7 @@
 
 // local mysql workbench
 // backend/database.js
-import mysql from '../node_modules/mysql2/promise.js';
+import mysql from 'mysql2/promise.js';
 
 const pool = mysql.createPool({
   host: 'localhost', // your local houst
