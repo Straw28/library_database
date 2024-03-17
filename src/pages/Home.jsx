@@ -10,9 +10,9 @@ import flowers from '../assets/flowers.jpg';
 function Home() {
 
   return (
-    <div style={{overflowX:'hidden'}}>
+    <div style={{overflowX:'hidden', marginTop:'100px'}}>
     <TopBar/>
-    <div className="page-body" style={{ overflowX: 'hidden', overflowY:'hidden' }}>
+    <div className="page-body" style={{ overflowX: 'hidden', overflowY:'hidden', marginTop:'100px', display:'flex' }}>
  
 
       <div className="container" >

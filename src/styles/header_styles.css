@@ -141,8 +141,7 @@
   .container {
  
     position:relative;
-    top:200px;
-    right:200px;
+    top:-200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,13 +153,14 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     
     display:flex;
-    position:fixed;
+    position:absolute;
     flex-wrap: non-wrap;
     padding: 10px;
     width:1200px;
     height:600px;
     right:10px;
     margin-right:100px;
+    margin-left:100px;
     text-align: center;
     border-radius: 2%;
   }
