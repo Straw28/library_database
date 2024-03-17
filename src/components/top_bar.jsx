@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchBar from './search_bar';
-import {Link} from 'react-router-dom';
+import Navbar from './dropdown-menu/navbar';
 import '../styles/header_styles.css'
 
 
@@ -56,17 +56,9 @@ function TopBar() {
                 </div>
             )}
             
-            <div className="navbar">
-            <Link to='/'>Home</Link>
-        
-            <Link to='/books'>Book Catalog</Link>
-            
-            <Link to='/about'>About</Link>
-            <Link to='/contact'>Contact</Link>
-            <Link to='/register'>Register</Link>
+            <Navbar/>
 
-          </div>
-          <SearchBar/>
+            <SearchBar/>
         </div>
     );
 }
