@@ -11,14 +11,14 @@ const Book_Catalog=()=>{
     <Top_Bar/>
     </div>
 
-    <div className="catalog-container" style ={{display:'flex', flexDirection:'column',position:'fixed', marginTop:'100px'}}>
+    <div className="catalog-container" style ={{display:'flex', flexDirection:'column',position:'fixed', marginTop:'100px', width:'100vw', height:'80%'}}>
     
-    <div className='catalog-row' style={{position:'relative', marginBottom:'20px', marginTop:'0px',padding:'10px', display:'inline-block'}}>
+    <div className='catalog-row'>
         <div><h1>New Books </h1></div>
         <Catalog/>
     </div>
-
-    <div className='catalog-row'  style={{position:'relative', top:'100px', marginBottom:'20px', marginTop:'0px',padding:'10px'}}>
+ 
+    <div className='catalog-row'>
     <div><h1>New in Science Fiction/Fantasy </h1></div>
         <p>catalog will go here</p>
     </div>

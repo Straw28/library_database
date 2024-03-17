@@ -5,7 +5,7 @@ body {
   }
   
   .carousel-container{
-    position:absolute;
+    
     display:flex;
    margin-top: 20px;
    margin-bottom: 20px;
@@ -45,6 +45,15 @@ body {
       font-size: 18px;
     }
     
+
+    .catalog-row{
+      position: relative;
+      margin-bottom:20px; 
+      margin-top:0px;
+      padding:10px; 
+      display:inline-block;
+    }
+
     .button-30:focus {
       box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
     }
@@ -58,22 +67,8 @@ body {
       box-shadow: #D6D6E7 0 3px 7px inset;
       transform: translateY(2px);
     }
-}
 
-.button-29:focus {
-  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-}
 
-.button-29:hover {
-  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
-
-.button-29:active {
-  box-shadow: #3c4fe0 0 3px 7px inset;
-  transform: translateY(2px);
-}
-  }
   .container {
     position:relative;
     top:-200px;
@@ -96,7 +91,7 @@ body {
     margin-right:10px;
   /*   margin-left: -50px; */
     transition: 0.4s ease-out;
-    position: relative;
+    
     left: 0px;
   }
   
@@ -118,7 +113,7 @@ body {
   .title {
     color: white;
     font-weight: 300;
-    position: absolute;
+    position: relative;
     left: 20px;
     top: 15px;
   }

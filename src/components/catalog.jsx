@@ -77,7 +77,7 @@ const Catalog = () => {
         <h3 className="title">Book 1</h3>
       </div>
       
-      {/* <div className="card">
+       <div className="card">
         <h3 className="title">Book 2</h3>
       </div>
       
@@ -91,7 +91,7 @@ const Catalog = () => {
       
       <div className="card">
         <h3 className="title">Book 5</h3>
-      </div> */}
+      </div> 
       </div>
       
       <div className="carousel-buttons">
