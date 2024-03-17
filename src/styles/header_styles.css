@@ -72,16 +72,7 @@
 }
 
 
-  .search-line{
-    width: 100vw;
-    height: 3px;
-    background-color:#971b32a1;
-    position: fixed;
-    display: flex;
-    top: 60px;
-    margin-right:0%;
-    padding:0%;
-  }
+
 
 
   .navbar {

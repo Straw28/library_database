@@ -4,6 +4,9 @@ import Home from './pages/Home';
 import Book_Catalog from './pages/Book_Catalog';  
 import EBook_Catalog from './pages/EBook_Catalog';
 import DVD_Catalog from './pages/DVD_Catalog';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Register from './pages/Register';
 
 function App() {
   
@@ -17,6 +20,9 @@ function App() {
           <Route path="/books" element={<Book_Catalog/>}/>
           <Route path="/dvds" element={<DVD_Catalog/>}/>
           <Route path="/ebooks" element={<EBook_Catalog/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       
     </Router>
