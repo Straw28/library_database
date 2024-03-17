@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import SearchBar from './search_bar';
+import Navbar from './dropdown-menu/navbar';
+import '../styles/header_styles.css'
+
 
 function TopBar() {
     const [loginVisible, setLoginVisible] = useState(false);
@@ -52,30 +55,10 @@ function TopBar() {
                     <p><strong>Sun</strong>&nbsp;&nbsp;&nbsp;&nbsp;CLOSED</p>
                 </div>
             )}
-            <div className='search-line'></div>
-            <div className="navbar">
-            <a href="#">Home</a>
-            <div className="dropdown">
-              <button className="dropbtn">Products</button>
-              <div className="dropdown-content">
-                <a href="#">Product 1</a>
-                <a href="#">Product 2</a>
-                <a href="#">Product 3</a>
-              </div>
-            </div>
-            <div className="dropdown">
-              <button className="dropbtn">Services</button>
-              <div className="dropdown-content">
-                <a href="#">Service 1</a>
-                <a href="#">Service 2</a>
-                <a href="#">Service 3</a>
-              </div>
-            </div>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-          </div>
-          <SearchBar/>
-          <div className='search-line' style={{top:'105px'}}></div>
+            
+            <Navbar/>
+
+            <SearchBar/>
         </div>
     );
 }
