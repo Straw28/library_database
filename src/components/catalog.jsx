@@ -5,7 +5,8 @@ const Catalog = () => {
     const [books, setBooks] = useState([]);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
-
+    const panels = ['F', 'G', 'H', 'I', 'J'];
+    
     useEffect(() => {
         // Simulating fetching books
         fetchBooks();
@@ -60,31 +61,49 @@ const Catalog = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    
     return (
-      <>
-    <div className="container">
-      <div className="card">
-        <h3 className="title">Card 1</h3>
+      <div>
+    <div className='carousel-container' >
+    
+      <div className="carousel-buttons" >
+        <button className="carousel-button carousel-button_previous" data-carousel-button-previous>
+        {'<'}
+        </button>
       </div>
-      <div className="card">
-        <h3 className="title">Card 1</h3>
-      </div>
-      <div className="card">
-        <h3 className="title">Card 1</h3>
-      </div>
-      <div className="card">
-        <h3 className="title">Card 1</h3>
-      </div>
-      <div className="card">
-        <h3 className="title">Card 1</h3>
-      </div>
-      <div className="card">
-        <h3 className="title">Card 1</h3>
-      </div>
-    </div>
-  
 
-    </>
+      <div className="slide" style={{display:'flex'}}>
+      <div className="card">
+        <h3 className="title">Book 1</h3>
+      </div>
+      
+      {/* <div className="card">
+        <h3 className="title">Book 2</h3>
+      </div>
+      
+      <div className="card">
+        <h3 className="title">Book 3</h3>
+      </div>
+      
+      <div className="card">
+        <h3 className="title">Book 4</h3>
+      </div>
+      
+      <div className="card">
+        <h3 className="title">Book 5</h3>
+      </div> */}
+      </div>
+      
+      <div className="carousel-buttons">
+        <button className="carousel-button carousel-button_next" data-carousel-button-next>
+        {'>'}
+        </button>
+      </div>
+    
+    </div>
+
+  
+    </div>
     );
 };
 

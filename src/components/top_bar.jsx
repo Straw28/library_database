@@ -28,7 +28,7 @@ function TopBar() {
             <button className= 'top-bar-login-button' onClick={toggleLogin}>Login</button>
             <button className= 'top-bar-hours-button' onClick={toggleHours}>Hours</button>
             {loginVisible && (
-                <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px' }}>
+                <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999', flexDirection:'column', display:'flex'}}>
                     <form onSubmit={handleLogin}>
                         <label>
                             Username:
@@ -44,7 +44,7 @@ function TopBar() {
             )}
             <div className='lib-logo-and-text'>Madea Public Library</div>
             {hoursVisible && (
-                <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px' }}>
+                <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999' }}>
                     <h3>Library Hours</h3>
                     <p><strong>Mon</strong>&nbsp;&nbsp;&nbsp;&nbsp;12 pm – 9 pm</p>
                     <p><strong>Tue</strong>&nbsp;&nbsp;&nbsp;&nbsp;10 am – 9 pm</p>

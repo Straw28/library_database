@@ -37,11 +37,11 @@
     font-family: "Papyrus";
     font-weight: 700;
     font-size: 30px;
-    position:fixed;
+    position:absolute;
     top: 0px;
-    left:0px;
+    margin-right:77%;
     z-index: 10;
-    margin-left: 10px;
+    margin-left: 0px;
 
 }
 
@@ -87,6 +87,7 @@
     width:100vw;
     height:50px;
     z-index: -1;
+    
   }
   
   .navbar a {
