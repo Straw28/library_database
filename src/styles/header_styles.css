@@ -110,9 +110,10 @@
   background-color: #971b32;
 }
 
+
 .dropdown {
   display: none;
-  position: absolute;
+  position: relative;
   background-color: #971b32a1;
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
   z-index: 1;
@@ -141,8 +142,6 @@
 }
 
   
-
-
   .container {
  
     position:relative;

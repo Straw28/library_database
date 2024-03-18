@@ -42,7 +42,7 @@ function TopBar() {
                     </form>
                 </div>
             )}
-            <div className='lib-logo-and-text'>Madea Public Library</div>
+            {/* <div className='lib-logo-and-text'>Madea Public Library</div> */}
             {hoursVisible && (
                 <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999' }}>
                     <h3>Library Hours</h3>
