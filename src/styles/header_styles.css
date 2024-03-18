@@ -37,7 +37,7 @@
     font-family: "Papyrus";
     font-weight: 700;
     font-size: 30px;
-    position:fixed;
+    position:absolute;
     top: 0px;
     left:0px;
     z-index: 10;
@@ -71,80 +71,82 @@
   margin-left: 2px; /* Add space between input and button */
 }
 
-/* Nav Bar */
-.desktop-nav {
-  overflow: hidden;
-  background-color: #971b32a1;
-  box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
-  display:flex;
-  justify-content: flex-start;
-  left:0px;
-  top:60px;
-  position:absolute;
-  width:100vw;
-  height:50px;
-  z-index: -1;
-}
 
-.desktop-nav ul {
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+  .search-line{
+    width: 100vw;
+    height: 3px;
+    background-color:#971b32a1;
+    position: absolute;
+    display: flex;
+    top: 60px;
+    margin-right:0%;
+    padding:0%;
+  }
 
-.desktop-nav ul li {
-  position: relative;
-}
 
-.desktop-nav ul li a {
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 20px;
-  font-size: 20px;
-  text-decoration: none;
-}
-
-.desktop-nav ul li a:hover {
-  background-color: #971b32;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  background-color: #971b32a1;
-  box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
-  z-index: 1;
-}
-
-.desktop-nav ul li:hover .dropdown {
-  display: block;
-}
-
-.dropdown ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dropdown ul li a {
-  color: #f2f2f2;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown ul li a:hover {
-  background-color: #971b32;
-}
-
+  .navbar {
+    overflow: hidden;
+    background-color: #971b32a1;
+    display:flex;
+    justify-content: flex-start;
+    left:0px;
+    top:60px;
+    position:absolute;
+    width:100vw;
+    z-index: -1;
+  }
   
-
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #f2f2f2;
+    padding: 14px 20px;
+    background-color: inherit;
+    margin: 0;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: #f2f2f2;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
   .container {
-    position:relative;
+    position:fixed;
     top:200px;
     right:-500px;
     display: flex;

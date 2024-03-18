@@ -1,84 +1,38 @@
-import React, {useState, useEffect} from "react";
-import TopBar from '../components/top_bar' ;
+import React from 'react';
+import '../styles/header_styles.css';
+
 import Catalog from '../components/catalog';
-import '../styles/page_styles.css'
+import Top_Bar from '../components/top_bar';
 
-const BookCatalog = () => {
-    const [books, setBooks] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [page, setPage] = useState(1);
-    const [hasMore, setHasMore] = useState(true);
+const Book_Catalog=()=>{
+    return(
+    <div >
+    <div>
+    <Top_Bar/>
+    </div>
+    <div style={{position:'relative', top:'100px', left:'1600px'}}><button>View All Books</button></div>
+    <div>
+        <div style={{position:'relative', top:'100px'}}><h1>New Books </h1></div>
+        <Catalog/>;
+    </div>
+    <div>
+    <div style={{position:'relative', top:'100px'}}><h1>New in Science Fiction/Fantasy </h1></div>
+        <Catalog/>;
+    </div>
 
-    useEffect(() => {
-        // Simulating fetching books
-        fetchBooks();
+    <div>
+    <div style={{position:'relative', top:'100px'}}><h1>New in Romance </h1></div>
+        <Catalog/>;
+    </div>
+    
+    <div>
+    <div style={{position:'relative', top:'100px'}}><h1>New in Thriller </h1></div>
+        <Catalog/>;
+    </div>
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    const fetchBooks = async () => {
-        // Simulated delay to mimic fetching from an API
-        setTimeout(() => {
-            const newBooks = generateMockBooks(); // Generate mock books
-            setBooks(prevBooks => [...prevBooks, ...newBooks]);
-            setPage(prevPage => prevPage + 1);
-            setLoading(false);
-
-            // Simulating reaching the end of data
-            if (page >= 3) {
-                setHasMore(false);
-            }
-        }, 1000);
-    };
-
-    const generateMockBooks = () => {
-        // Generate mock books with random data
-        const newBooks = [];
-        for (let i = 0; i < 10; i++) {
-            const book = {
-                id: i,
-                title: `Book ${i + 1}`,
-                author: `Author ${i + 1}`,
-                // Add more mock data as needed
-            };
-            newBooks.push(book);
-        }
-        return newBooks;
-    };
-
-    const handleScroll = () => {
-        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || loading) {
-            return;
-        }
-
-        if (hasMore) {
-            fetchBooks();
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    return (
-        <div className="book-container">
-            <h1>Boston Public Library Catalog</h1>
-            <div className="books-list">
-                {books.map(book => (
-                    <div key={book.id} className="book">
-                        <h2>{book.title}</h2>
-                        <p>{book.author}</p>
-                        {/* Add more book details as needed */}
-                    </div>
-                ))}
-            </div>
-            {loading && <p>Loading...</p>}
-            {!loading && !hasMore && <p>No more books to load</p>}
-        </div>
+    </div>
+        
     );
 };
 
-export default BookCatalog;
+export default Book_Catalog;
