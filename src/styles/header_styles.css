@@ -119,6 +119,13 @@
   z-index: 1;
 }
 
+.dropdown-button {
+  position: relative;
+  background-color: #971b32a1;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
+  z-index: 1;
+}
+
 .desktop-nav ul li:hover .dropdown {
   display: block;
 }
