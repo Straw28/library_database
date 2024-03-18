@@ -90,6 +90,21 @@
     background-color:#971b32a1;
 }
 
+.login-container-box{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color:#971b32;
+  display:flex;
+  position:absolute;
+  flex-wrap: non-wrap;
+  padding: 10px;
+  width:1200px;
+  height:600px;
+  right:10px;
+  margin-right:100px;
+  margin-left:100px;
+  text-align: center;
+  border-radius: 2%;
+}
 .lib-logo-and-text{
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-weight: 700;
@@ -280,3 +295,5 @@
     
     margin: 0 25px; /* Add space between images */
   }
+
+
