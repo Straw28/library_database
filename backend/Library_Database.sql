@@ -318,3 +318,12 @@ ALTER TABLE members ADD CONSTRAINT chk_non_resident_membership CHECK (member_typ
 
 -- Memberships will expire after 3 years
 ALTER TABLE members ADD CONSTRAINT chk_membership_expiration CHECK (expiration_date <= DATE_ADD(registration_date, INTERVAL 3 YEAR));
+
+-- inserting some starter elements
+-- Inserting data into the items table
+INSERT INTO items (item_type, barcode, creation_date, item_status, location)
+VALUES ('Book', 123456, '2024-02-26', 'available', 'Shelf A');
+
+-- Inserting data into the books table
+INSERT INTO books (book_id, item_id, title, author, author_id, call_number, genre, isbn, publisher)
+VALUES (1, 1, 'The Great Gatsby', 'F. Scott Fitzgerald', 101, 'C123', 'Fiction', '9781234567890', 'Scribner');
