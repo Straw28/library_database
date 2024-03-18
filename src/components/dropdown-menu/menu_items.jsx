@@ -10,7 +10,7 @@ const MenuItems = ({ items }) => {
         <li className='menu-items'>
             {items.submenu ? (
                 <>
-                    <button className='dropdown-button' aria-haspopup='menu' aria-expanded={dropdown ? 'true' : 'false'} onClick={() => setDropdown((prev) => !prev)}>
+                    <button className='dropdown' aria-haspopup='menu' aria-expanded={dropdown ? 'true' : 'false'} onClick={() => setDropdown((prev) => !prev)}>
                         {items.title}{' '}
                     </button>
                     {dropdown && <Dropdown submenus={items.submenu} />}

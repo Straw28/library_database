@@ -25,8 +25,8 @@ function TopBar() {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
-            <button className= 'top-bar-login-button' onClick={toggleLogin}>Login</button>
-            <button className= 'top-bar-hours-button' onClick={toggleHours}>Hours</button>
+            <button className= 'button-17' onClick={toggleLogin} style={{position:'absolute', top:'1%', marginRight:'-20px'}}>Login</button>
+            <button className= 'button-17' onClick={toggleHours} style={{position:'absolute', top:'1%', marginRight:'85px'}}>Hours</button>
             {loginVisible && (
                 <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999', flexDirection:'column', display:'flex'}}>
                     <form onSubmit={handleLogin}>
@@ -42,7 +42,7 @@ function TopBar() {
                     </form>
                 </div>
             )}
-            {/* <div className='lib-logo-and-text'>Madea Public Library</div> */}
+            <div className='lib-logo-and-text'>Madea Public Library</div>
             {hoursVisible && (
                 <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999' }}>
                     <h3>Library Hours</h3>
