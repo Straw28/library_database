@@ -11,8 +11,9 @@ function Home() {
 
   return (
     <div>
-       <div > <TopBar/></div>
-    <div className="page-body" style={{ overflowX: 'hidden', overflowY:'hidden', marginTop:'100px', display:'flex' }}>
+
+    <div > <TopBar/></div>
+    <div className="page-body" style={{ overflowX: 'hidden', overflowY:'hidden',  position:'absolute', width:'100vw', marginTop:'1%', top:'150px', marginLeft:'1%'}}>
  
       <div style= {{ fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontWeight: '700', fontSize: '30px', marginTop:'3%', marginLeft:'45%',position: 'absolute' }}>Featured</div>
       <div className="container" >
@@ -33,10 +34,11 @@ function Home() {
           <div style={{fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontWeight: '700', fontSize: '30px', marginTop:'3%',position: 'relative' }}>Support us!</div>
           </Link>
           
-      </div>
+        </div>
     </div>
     </div>
     </div>
+
     </div>
   );
   }
