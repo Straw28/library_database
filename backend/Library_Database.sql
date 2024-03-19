@@ -175,6 +175,7 @@ CREATE TABLE employees (
 	address VARCHAR(255),
 	date_of_birth DATE,
     ssn VARCHAR(9) UNIQUE,
+    hourly_pay DECIMAL(3, 2),
     salary DECIMAL(10, 2),
 	direct_deposit_routing_number INT UNIQUE	,
     hire_date DATE,
@@ -318,6 +319,19 @@ ALTER TABLE members ADD CONSTRAINT chk_non_resident_membership CHECK (member_typ
 
 -- Memberships will expire after 3 years
 ALTER TABLE members ADD CONSTRAINT chk_membership_expiration CHECK (expiration_date <= DATE_ADD(registration_date, INTERVAL 3 YEAR));
+
+-- Triggers
+-- Update salary when hourly_pay is updated
+CREATE TRIGGER before_hourly_pay_update
+BEFORE UPDATE ON employees 
+FOR EACH ROW 
+SET NEW.salary = (NEW.hourly_pay * 2080);
+
+-- Update salary when a new employee is inserted
+CREATE TRIGGER before_hourly_pay_insert
+BEFORE INSERT ON employees
+FOR EACH ROW
+SET NEW.salary = (NEW.hourly_pay * 2080);
 
 -- inserting some starter elements
 -- Inserting data into the items table
