@@ -19,11 +19,11 @@ function TopBar() {
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
             
             <Link to='/login'> <button className='button-17' style={{top:'2%', marginRight:'50px', left:'95%'}}>Login</button> </Link> 
-            <button className= 'button-17' onClick={toggleHours} style={{top:'2%', marginRight:'5%' }}>Hours</button>
+            <button className='button-17' onClick={toggleHours} style={{top:'2%', marginRight:'5%' }}>Hours</button>
    
-            <div className='lib-logo-and-text' >Madea Public Library</div>
+            <div className='lib-logo-and-text'>Madea Public Library</div>
             {hoursVisible && (
-                <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999' }}>
+                <div style={{position: 'absolute', top: '70px', right: '55px', background: '#f2f2f2', padding: '10px', zIndex:'999', borderRadius: '10px'}}>
                     <h3>Library Hours</h3>
                     <p><strong>Mon</strong>&nbsp;&nbsp;&nbsp;&nbsp;12 pm – 9 pm</p>
                     <p><strong>Tue</strong>&nbsp;&nbsp;&nbsp;&nbsp;10 am – 9 pm</p>
