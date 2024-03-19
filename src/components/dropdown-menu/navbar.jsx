@@ -5,16 +5,24 @@ const menuItemsData = [
         title: 'Home',
         url: '/',
       },
-      {
-          title: 'Catalog',
-          url: '/catalog',
-          submenu: [
+      
+  
+          
             {
               title: 'Books',
               url: '/books',
             },
-          ],
-        },
+            {
+              title: 'EBooks',
+              url: '/ebooks',
+            },
+            {
+              title: 'DVDs',
+              url: '/dvds',
+            },
+          
+
+        
       {
         title: 'About',
         url: '/about',
@@ -23,10 +31,7 @@ const menuItemsData = [
         title: 'Contact',
         url: '/contact',
       },
-      {
-        title: 'Register',
-        url: '/register',
-      },
+
 ];
 
 const Navbar = () => {
