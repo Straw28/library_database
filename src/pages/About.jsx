@@ -5,7 +5,7 @@ function About(){
     <>
     <div>
  
-        <p>this is the about page :)</p>
+        <p>this is the about page :MFDAMBHDMFH</p>
     </div>
     </>
     );
