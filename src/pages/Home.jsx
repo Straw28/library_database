@@ -1,22 +1,22 @@
-import TopBar from '../components/top_bar' ;
 import React from 'react';
 import '../styles/header_styles.css'
 import {Link} from 'react-router-dom';
 import bookstack from '../assets/bookstack.jpg';
 import bpl from '../assets/bpl.jpg';
 import flowers from '../assets/flowers.jpg';
+import TopBar from '../components/top_bar';
 
 
 function Home() {
 
   return (
-    <div style={{overflowX:'hidden', marginTop:'100px'}}>
-    <TopBar/>
+    <div>
+       <div style={{overflowX:'hidden'}}> <TopBar/></div>
     <div className="page-body" style={{ overflowX: 'hidden', overflowY:'hidden', marginTop:'100px', display:'flex' }}>
  
-      <div style= {{ fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontWeight: '700', fontSize: '30px', marginTop:'-3%', marginLeft:'45%',position: 'absolute' }}>Featured</div>
+      <div style= {{ fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontWeight: '700', fontSize: '30px', marginTop:'2%', marginLeft:'45%',position: 'absolute' }}>Featured</div>
       <div className="container" >
-      <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px'}}>
+      <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'20%'}}>
         <div className="image-container">
           <Link to="/books">
             <img src={bookstack} alt="Image 1" className='featured-image'/>

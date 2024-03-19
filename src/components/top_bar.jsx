@@ -17,10 +17,11 @@ function TopBar() {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
-            <Link to='/login'> <button className= 'button-17' onClick={toggleLogin} style={{position:'absolute', top:'1%', marginRight:'-20px'}}>Login</button> </Link>
-            <button className= 'button-17' onClick={toggleHours} style={{position:'absolute', top:'1%', marginRight:'85px'}}>Hours</button>
+            
+            <Link to='/login'> <button className='button-17' style={{top:'2%', marginRight:'30px'}}>Login</button> </Link> 
+            <button className= 'button-17' onClick={toggleHours} style={{top:'2%', marginRight:'10px'}}>Hours</button>
    
-            <div className='lib-logo-and-text'>Madea Public Library</div>
+            <div className='lib-logo-and-text' >Madea Public Library</div>
             {hoursVisible && (
                 <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999' }}>
                     <h3>Library Hours</h3>
@@ -34,7 +35,7 @@ function TopBar() {
                 </div>
             )}
             
-            <Navbar/>
+            <Navbar/> 
 
             <SearchBar/>
         </div>

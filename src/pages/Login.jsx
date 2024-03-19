@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../styles/header_styles.css';
 import {Link} from 'react-router-dom';
-import TopBar from '../components/top_bar';
+
 
 function Login(){
     
@@ -14,7 +14,7 @@ function Login(){
     
     return(
         <>
-        <TopBar/>
+     
         <div className="login-container-box">
         <form onSubmit={handleLogin} style={{marginTop:'15%', marginLeft:'10%'}}>
                         <label>

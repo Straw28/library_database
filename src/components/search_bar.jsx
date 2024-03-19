@@ -3,7 +3,7 @@ import '../styles/header_styles.css';
 
 function SearchBar() {
   return (
-    <div className="search-container" style={{color: '#f2f2f2', textAlign: 'center', fontSize: '20px', textDecoration: 'none', marginTop:'-10px'}}>
+    <div className="search-container" style={{color: '#f2f2f2', textAlign: 'center', fontSize: '20px', textDecoration: 'none', marginTop:'120px'}}>
         <div style={{marginTop:'15px'}}>Search</div>
         <select style={{ marginRight: '10px', marginLeft:'10px',  left:'0px', top:'60px', color: '#3c4043;', textAlign: 'center', padding: '14px 20px', fontSize: '20px', textDecoration: 'none'}}>
         <option value="catalog">Catalog</option>
