@@ -7,6 +7,7 @@ import DVD_Catalog from './pages/DVD_Catalog';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
+import Login from './pages/Login';
 
 function App() {
   

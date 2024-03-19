@@ -92,16 +92,16 @@
 
 .login-container-box{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color:#971b32;
+  background-color:#971b32a1;
   display:flex;
-  position:absolute;
+  
   flex-wrap: non-wrap;
   padding: 10px;
-  width:1200px;
-  height:600px;
-  right:10px;
-  margin-right:100px;
-  margin-left:100px;
+  width:1000px;
+  height:500px;
+  margin-right:45%;
+  margin-left:20%;
+  margin-top: 8%;
   text-align: center;
   border-radius: 2%;
 }
@@ -111,7 +111,7 @@
     font-size: 30px;
     position:absolute;
     margin-top:-150px;
-   left:1%;
+    left:1%;
     z-index: 10;
     margin-left: 20px;
     display:flex;

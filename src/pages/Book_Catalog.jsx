@@ -2,13 +2,13 @@ import React from 'react';
 import '../styles/header_styles.css';
 import '../styles/catalog_styles.css';
 import Catalog from '../components/catalog';
-import Top_Bar from '../components/top_bar';
+import TopBar from '../components/top_bar';
 
 const Book_Catalog=()=>{
     return(
     <div >
-    <div>
-    <Top_Bar/>
+    <div style={{overflowX:'hidden', marginTop:'100px'}}>
+    <TopBar/>
     </div>
 
     <div className="catalog-container" style ={{display:'flex', flexDirection:'column',position:'fixed', marginTop:'100px', width:'100vw', height:'80%'}}>
@@ -40,5 +40,4 @@ const Book_Catalog=()=>{
     );
 };
 
-export default Book_Catalog;
 export default Book_Catalog;

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import '../styles/catalog_styles.css';
+import {Link} from 'react-router-dom';
 
 const Catalog = () => {
     const [books, setBooks] = useState([]);
@@ -66,12 +67,6 @@ const Catalog = () => {
       <div>
     <div className='carousel-container' >
     
-      <div className="carousel-buttons" >
-        <button className="carousel-button carousel-button_previous" data-carousel-button-previous>
-        {'<'}
-        </button>
-      </div>
-
       <div className="slide" style={{display:'flex'}}>
       <div className="card">
         <h3 className="title">Book 1</h3>
@@ -95,9 +90,11 @@ const Catalog = () => {
       </div>
       
       <div className="carousel-buttons">
+        <Link to='/'>
         <button className="carousel-button carousel-button_next" data-carousel-button-next>
         {'>'}
         </button>
+        </Link>
       </div>
     
     </div>

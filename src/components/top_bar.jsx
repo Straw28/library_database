@@ -1,47 +1,25 @@
 import React, { useState } from 'react';
 import SearchBar from './search_bar';
 import Navbar from './dropdown-menu/navbar';
+import {Link} from 'react-router-dom';
 import '../styles/header_styles.css'
 
 
 function TopBar() {
-    const [loginVisible, setLoginVisible] = useState(false);
-    const [hoursVisible, setHoursVisible] = useState(false);
 
-    const toggleLogin = () => {
-        setLoginVisible(!loginVisible);
-        setHoursVisible(false); // Hide hours if login is clicked
-    };
+    const [hoursVisible, setHoursVisible] = useState(false);
 
     const toggleHours = () => {
         setHoursVisible(!hoursVisible);
         setLoginVisible(false); // Hide login if hours is clicked
     };
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        // Your login logic here
-    };
 
     return (
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
-            <button className= 'button-17' onClick={toggleLogin} style={{position:'absolute', top:'1%', marginRight:'-20px'}}>Login</button>
+            <Link to='/login'> <button className= 'button-17' onClick={toggleLogin} style={{position:'absolute', top:'1%', marginRight:'-20px'}}>Login</button> </Link>
             <button className= 'button-17' onClick={toggleHours} style={{position:'absolute', top:'1%', marginRight:'85px'}}>Hours</button>
-            {loginVisible && (
-                <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999', flexDirection:'column', display:'flex'}}>
-                    <form onSubmit={handleLogin}>
-                        <label>
-                            Username:
-                            <input type="text" />
-                        </label>
-                        <label>
-                            Password:
-                            <input type="password" />
-                        </label>
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-            )}
+   
             <div className='lib-logo-and-text'>Madea Public Library</div>
             {hoursVisible && (
                 <div style={{ position: 'absolute', top: '50px', right: '10px', background: 'white', padding: '10px', zIndex:'999' }}>
