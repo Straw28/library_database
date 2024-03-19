@@ -33,6 +33,7 @@
   will-change: transform,opacity;
   z-index: 0;
   margin-right: 15px;
+  position:absolute;
   
 }
 
@@ -101,7 +102,7 @@
   height:500px;
   margin-right:45%;
   margin-left:20%;
-  margin-top: 8%;
+  margin-top: 10%;
   text-align: center;
   border-radius: 2%;
 }
@@ -110,12 +111,13 @@
     font-weight: 700;
     font-size: 30px;
     position:absolute;
-    margin-top:-5px;
-    left:1%;
+    margin-top:35px;
+    left:.5%;
     z-index: 10;
     margin-left: 20px;
     display:flex;
     color: #3c4043;
+  
 
 }
 
@@ -125,7 +127,7 @@
   position: absolute;
   margin-left:20px;
   margin-top: 10px;
- 
+ border-radius: 20px;
 
 }
 
