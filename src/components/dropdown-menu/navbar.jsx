@@ -40,6 +40,7 @@ const Navbar = () => {
                     return <MenuItems items={menu} key={index} />;
                 })}
             </ul>
+            
         </nav>
     );
 };

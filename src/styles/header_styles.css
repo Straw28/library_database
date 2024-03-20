@@ -32,9 +32,9 @@
   width: auto;
   will-change: transform,opacity;
   z-index: 0;
-  margin-right: 15px;
-  position:absolute;
-  
+  position: absolute;
+  display: flex;
+
 }
 
 .button-17:hover {
@@ -112,11 +112,9 @@
     font-weight: 700;
     font-size: 30px;
     position:absolute;
-    margin-top:1%;
     top:1%;
-    left: 3%;
     z-index: 10;
-    margin-left: 20px;
+    padding:10px;
     display:flex;
     color: #3c4043;
   
@@ -163,7 +161,7 @@
   width:100vw;
   height:50px;
   z-index: -1;
-  /* margin-left:10px; */
+  margin-left:-10px;
   margin-top:10px;
   padding:10px;
 }
@@ -172,8 +170,8 @@
   display: flex;
   list-style-type: none;
   margin: 0;
-  margin-left: 20px;
-  padding: 0;
+  margin-left: 0%;
+  padding-left: 0px;
 }
 
 .desktop-nav ul li {

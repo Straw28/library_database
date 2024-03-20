@@ -16,12 +16,14 @@ function TopBar() {
 
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px', marginLeft:'0%', overflowX:'hidden'}}>
+        <>
+        <div className='lib-logo-and-text' >Madea Public Library</div>
+        <div>
+            <div className='topbar-buttons-container' style={{position:'absolute', backgroundColor:'aqua', marginTop:'-4%',right:'0', width: '200px', height:'100px', display:'flex'}}>
+            <Link to='/login'> <button className='button-17'  style={{ marginLeft:'50%'}}>Login</button> </Link> 
+            <button className='button-17' onClick={toggleHours} style={{ marginLeft:'0%'}}>Hours</button>
             
-            <Link to='/login'> <button className='button-17' style={{top:'2%', marginRight:'50px', left:'96%'}}>Login</button> </Link> 
-            <button className='button-17' onClick={toggleHours} style={{top:'2%', marginRight:'5%' }}>Hours</button>
-   
-            <div className='lib-logo-and-text' style={{marginLeft:'1%'}}>Madea Public Library</div>
+            
             {hoursVisible && (
                 <div style={{position: 'absolute', top: '70px', right: '55px', background: '#f2f2f2', padding: '10px', zIndex:'999', borderRadius: '10px'}}>
                     <h3>Library Hours</h3>
@@ -34,11 +36,12 @@ function TopBar() {
                     <p><strong>Sun</strong>&nbsp;&nbsp;&nbsp;&nbsp;CLOSED</p>
                 </div>
             )}
-            
+            </div>
             <Navbar/> 
 
-            <SearchBar/>
+            {/* <SearchBar/> */}
         </div>
+        </>
     );
 }
 
