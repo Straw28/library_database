@@ -126,9 +126,10 @@
 /* Search Bar */
 .search-container {
   display: flex;
+  position: absolute;
   margin-left:20px;
-  margin-top:-3px;
-  border-radius:20px;
+  margin-top:10px;
+ border-radius:20px;
 
 }
 
