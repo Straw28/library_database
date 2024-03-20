@@ -112,7 +112,8 @@
     font-weight: 700;
     font-size: 30px;
     position:absolute;
-    margin-top:35px;
+    margin-top:1%;
+    top:1%;
     left: 3%;
     z-index: 10;
     margin-left: 20px;

@@ -31,9 +31,9 @@ function Register(){
 
     return(
         <>
-        <div > <TopBar/></div>
-        <div className="login-container-box">
-        <form onSubmit={handleSubmit} style={{marginTop:'15%', marginLeft:'10%'}}>
+        <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
+        <div className="login-container-box" style={{marginTop:'10%'}}>
+        {/* <form onSubmit={handleSubmit} style={{marginTop:'15%', marginLeft:'10%'}}>
             <div>
             <input
                 style={{
@@ -145,7 +145,7 @@ function Register(){
                 />
             </div>
             <button type="submit" style={{marginLeft: '205%'}}>Register</button>
-        </form>
+        </form> */}
         </div>
         </>
     );
