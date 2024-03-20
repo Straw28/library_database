@@ -16,9 +16,9 @@ function TopBar() {
 
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px', marginLeft:'0%', overflowX:'hidden'}}>
             
-            <Link to='/login'> <button className='button-17' style={{top:'2%', marginRight:'50px', left:'95%'}}>Login</button> </Link> 
+            <Link to='/login'> <button className='button-17' style={{top:'2%', marginRight:'50px', left:'96%'}}>Login</button> </Link> 
             <button className='button-17' onClick={toggleHours} style={{top:'2%', marginRight:'5%' }}>Hours</button>
    
             <div className='lib-logo-and-text' style={{marginLeft:'1%'}}>Madea Public Library</div>

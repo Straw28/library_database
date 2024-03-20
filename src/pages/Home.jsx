@@ -10,7 +10,7 @@ import TopBar from '../components/top_bar';
 function Home() {
 
   return (
-    <div>
+    <div style = {{overflowX:'hidden'}}>
     <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
     <div className="page-body" 
       style={{ 
@@ -33,7 +33,7 @@ function Home() {
     </div>
 
     <div className="container">
-    <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'20%', marginRight:'-5%'}}>
+    <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'20%', marginRight:'5%'}}>
 
     <div className="image-container">
       <Link to="/books" style={{ textDecoration: 'none'}}>
