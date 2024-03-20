@@ -2,6 +2,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     overflow:hidden;
+    overflow-y:auto;
   }
   
   .carousel-container{

@@ -16,26 +16,33 @@ function Home() {
       style={{ 
         overflowX:'hidden', 
         overflowY:'hidden',  
-        position:'absolute', width:'100vw', 
-        marginTop:'1%', 
+        position:'absolute', 
+        width:'100%', 
         top:'150px', 
-        marginLeft:'1%'
       }}>
   
+
+    <div className="container">
+    <div className="featured-box" 
+      style={{
+        backgroundColor:'#971b32a1;', 
+        padding:'20px', 
+        marginTop:'17%', 
+        transition: 'all 0.3s ease-in-out', 
+      }}>
+
     <div style={{ 
       fontFamily:'"Google Sans",Roboto,Arial,sans-serif', 
       fontWeight:'700', 
       fontSize:'40px', 
       marginTop:'2%', 
-      marginLeft:'46%',
+      marginLeft:'42%',
       position:'absolute', 
       textAlign:'center',
-      color:'#3c4043'
+      color:'#3c4043',
+      top: '-85px'
     }}>Featured
     </div>
-
-    <div className="container">
-    <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'17%', marginRight:'5%'}}>
 
     <div className="image-container">
       <Link to="/books" style={{ textDecoration: 'none', color:'black'}}>
@@ -84,7 +91,6 @@ function Home() {
     </div>
     </div>
     </div>
-
     </div>
   );
   }

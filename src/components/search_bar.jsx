@@ -27,13 +27,14 @@ function SearchBar() {
         style={{ 
           marginRight:'10px', 
           marginLeft:'10px',  
-          left:'0px', top:'60px', 
-          color: '#3c4043;', 
-          textAlign: 'center', 
-          padding: '14px 20px', 
-          fontSize: '20px', 
-          textDecoration: 'none',
-          borderRadius: '30px'
+          left:'0px', 
+          top:'60px', 
+          color:'#3c4043;', 
+          textAlign:'center', 
+          padding:'14px 20px', 
+          fontSize:'20px', 
+          textDecoration:'none',
+          borderRadius:'30px'
         }}>
         <option value="catalog">Keyword</option>
         <option value="website">Author</option>
@@ -44,11 +45,11 @@ function SearchBar() {
       <div className="search-with-button">
         <input type="text"
           style={{
-            color: '#f2f2f2', 
-            textAlign: 'center', 
-            fontSize: '20px', 
-            textDecoration: 'none', 
-            borderRadius: '30px',
+            color:'#f2f2f2', 
+            textAlign:'center', 
+            fontSize:'20px', 
+            textDecoration:'none', 
+            borderRadius:'30px',
           }}/>
         <button className='button-17' style={{left:'100%', top:'5%'}}>Search</button>
       </div>
