@@ -11,7 +11,7 @@ function Home() {
 
   return (
     <div>
-    <div><TopBar/></div>
+    <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
     <div className="page-body" 
       style={{ 
         overflowX:'hidden', 
