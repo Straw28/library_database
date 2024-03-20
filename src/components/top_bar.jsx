@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchBar from './search_bar';
+
 import Navbar from './dropdown-menu/navbar';
 import {Link} from 'react-router-dom';
 import '../styles/header_styles.css'
@@ -37,7 +37,7 @@ function TopBar() {
             
             <Navbar/> 
 
-            <SearchBar/>
+            
         </div>
     );
 }
