@@ -9,12 +9,30 @@ function Register(){
         email: '',
         password: '',
         confirmPassword: '',
-        birthdate: ''
+        birthdate: '',
+        address: {
+            street: '',
+            unit: '',
+            city: '',
+            state: 'TX',
+            postalCode: ''
+        }
     });
     
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        if (name.includes('address.')) {
+            const addressField = name.split('.')[1];
+            setFormData(prevState => ({
+                ...prevState,
+                address: {
+                    ...prevState.address,
+                    [addressField]: value
+                }
+            }));
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
     
     const handleSubmit = (e) => {
@@ -25,127 +43,270 @@ function Register(){
           email: '',
           password: '',
           confirmPassword: '',
-          birthdate: ''
+          birthdate: '',
+          address: {
+            street: '',
+            unit: '',
+            city: '',
+            state: 'TX',
+            postalCode: ''
+          }
         });
     };
 
     return(
         <>
-        <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
-        <div className="login-container-box" style={{marginTop:'10%'}}>
-        {/* <form onSubmit={handleSubmit} style={{marginTop:'15%', marginLeft:'10%'}}>
-            <div>
-            <input
-                style={{
-                    width: '200%', 
-                    padding: '12px 20px', 
-                    margin: '8px 0', 
-                    boxSizing: 'border-box', 
-                    position:'relative', 
-                    marginBottom:'5%', 
-                    marginLeft: '117%', 
-                    borderRadius: '50px',
-                    textAlign: 'center'
-                }}
-                placeholder="Username"
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-            />
-            </div>
-            <div>
-                <input
-                    style={{
-                        width:'200%',
-                        padding:'12px 20px',
-                        margin:'8px 0', 
-                        boxSizing:'border-box', 
-                        position:'relative',
-                        marginBottom:'5%',
-                        marginLeft: '117%', 
-                        borderRadius:'50px',
-                        textAlign: 'center'
-                    }}
-                    placeholder="Email"
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <input
-                    style={{
-                        width: '200%',
-                        padding: '12px 20px',
-                        margin: '8px 0', 
-                        boxSizing: 'border-box', 
-                        position:'relative',
-                        marginBottom:'5%', 
-                        marginLeft: '117%',
-                        borderRadius: '50px',
-                        textAlign: 'center'
-                    }}
-                    placeholder="Password"
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <input
-                    style={{
-                        width: '200%',
-                        padding: '12px 20px',
-                        margin: '8px 0', 
-                        boxSizing: 'border-box', 
-                        position:'relative',
-                        marginBottom:'5%', 
-                        marginLeft: '117%',
-                        borderRadius: '50px',
-                        textAlign: 'center'
-                    }}
-                    placeholder="Confrim Password"
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <input
-                    style={{
-                        width: '100%',
-                        padding: '12px 20px',
-                        margin: '8px 0', 
-                        boxSizing: 'border-box', 
-                        position:'relative',
-                        marginBottom:'5%',
-                        marginLeft: '170%', 
-                        borderRadius: '50px',
-                        textAlign: 'center'
-                    }}
-                    placeholder="Birthdate"
-                    type="date"
-                    id="birthdate"
-                    name="birthdate"
-                    value={formData.birthdate}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <button type="submit" style={{marginLeft: '205%'}}>Register</button>
-        </form> */}
+        <div style={{overflowX:'hidden', marginTop:'10px'}}><TopBar/></div>
+        <div className="register-container-box" style={{marginTop:'10%'}}>
+            <div style={{marginTop:'3%', marginLeft:'35%', marginTop:'5%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>eCard Registration</div>
+            { <form onSubmit={handleSubmit} style={{marginRight:'5%', marginLeft:'5%', width:'100%'}}>
+                <div class="input-container">
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center',
+                            marginRight:'20px'
+                        }}
+                        placeholder="First Name"
+                        type="text"
+                        id="Fname"
+                        name="Fname"
+                        value={formData.Fname}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center'
+                        }}
+                        placeholder="Last Name"
+                        type="text"
+                        id="Lname"
+                        name="Lname"
+                        value={formData.Lname}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div class="input-container">
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center',
+                            marginRight:'20px'
+                        }}
+                        placeholder="Username"
+                        type="text"
+                        id="username"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center'
+                        }}
+                        placeholder="Email"
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div class="input-container">
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center',
+                            marginRight:'20px'
+                        }}
+                        placeholder="StreetAddress"
+                        type="text"
+                        id="street"
+                        name="address.street"
+                        value={formData.address.street}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center'
+                        }}
+                        placeholder="Apt/Unit/Suite"
+                        type="text"
+                        id="unit"
+                        name="address.unit"
+                        value={formData.address.unit}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div class="input-container">
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center',
+                            marginRight:'20px'
+                        }}
+                        placeholder="City"
+                        type="text"
+                        id="city"
+                        name="address.city"
+                        value={formData.address.city}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center'
+                        }}
+                        placeholder="TX"
+                        className="placeholder-black"
+                        type="text"
+                        id="state"
+                        name="address.state"
+                        value={formData.address.state}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div class="input-container">
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center',
+                            marginRight:'20px'
+                        }}
+                        placeholder="Zip Code"
+                        type="text"
+                        id="postalCode"
+                        name="address.postalCode"
+                        value={formData.address.postalCode}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center'
+                        }}
+                        placeholder="Birthdate"
+                        type="date"
+                        id="birthdate"
+                        name="birthdate"
+                        value={formData.birthdate}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div class="input-container">
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center',
+                            marginRight:'20px'
+                        }}
+                        placeholder="Password"
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        style={{
+                            width:'70%', 
+                            padding:'12px 20px', 
+                            margin:'8px 0', 
+                            boxSizing:'border-box', 
+                            position:'relative', 
+                            marginBottom:'5%', 
+                            borderRadius:'50px',
+                            textAlign:'center'
+                        }}
+                        placeholder="Confrim Password"
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <button type="submit">Register</button>
+            </form> }
         </div>
         </>
     );

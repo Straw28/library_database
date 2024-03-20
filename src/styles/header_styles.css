@@ -157,13 +157,13 @@
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
   display:flex;
   justify-content: flex-start;
-  left:10px;
+  /* left:10px; */
   top:60px;
   position:absolute;
   width:100vw;
   height:50px;
   z-index: -1;
-  margin-left:10px;
+  /* margin-left:10px; */
   margin-top:10px;
   padding:10px;
 }
