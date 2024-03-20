@@ -4,7 +4,7 @@ import SearchBar from '../search_bar';
 const menuItemsData = [
     {
       title: 'Home',
-      url: '/',
+      url: '/home',
     },
       
     {

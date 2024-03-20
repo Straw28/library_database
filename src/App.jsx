@@ -21,7 +21,7 @@ function App() {
       
         <Routes> //makes sure only one route shows at a time
           <Route index element= {<Home />} />
-          <Route path="/" element={<Home/>}/>
+          <Route path="/home" element={<Home/>}/>
           <Route path="/books" element={<Book_Catalog/>}/>
           <Route path="/dvds" element={<DVD_Catalog/>}/>
           <Route path="/ebooks" element={<EBook_Catalog/>}/>

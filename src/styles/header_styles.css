@@ -145,28 +145,28 @@
 
 /* Search Bar */
 .search-container {
-  display: flex;
-  margin-left:20px;
+  display:flex;
   margin-top:-3px;
   border-radius:20px;
-
+  margin:5px 0;
+  text-align:center;
 }
 
 .search-container input {
-  flex: 1; /* Each search bar takes up equal space */
-  margin-right: 5px; /* Add space between search bars */
+  flex:1; /* Each search bar takes up equal space */
+  margin-right:5px; /* Add space between search bars */
 }
 
 .search-with-button {
-  display: flex;
+  display:flex;
 }
 
 .search-with-button input {
-  flex: 1; /* Input takes up remaining space */
+  flex:1; /* Input takes up remaining space */
 }
 
 .search-with-button button {
-  margin-left: 2px; /* Add space between input and button */
+  margin-left:2px; /* Add space between input and button */
 }
 
 /* Nav Bar */
@@ -187,7 +187,7 @@
 }
 
 .desktop-nav ul {
-  display: flex;
+  display:flex;
   list-style-type: none;
   margin: 0;
   margin-left: 20px;

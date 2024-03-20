@@ -29,7 +29,8 @@ function Home() {
       marginTop:'2%', 
       marginLeft:'46%',
       position:'absolute', 
-      textAlign:'center'
+      textAlign:'center',
+      color:'#3c4043'
     }}>Featured
     </div>
 
@@ -46,6 +47,7 @@ function Home() {
             fontSize:'30px', 
             marginTop:'3%',
             position:'relative',
+            color:'#3c4043'
           }}>New Releases
         </div>
       </Link>
@@ -58,7 +60,8 @@ function Home() {
             fontWeight:'700', 
             fontSize:'30px', 
             marginTop:'3%',
-            position:'relative' 
+            position:'relative',
+            color:'#3c4043'
           }}>Upcoming Events
         </div>
       </Link>
@@ -72,6 +75,7 @@ function Home() {
             fontSize: '30px', 
             marginTop:'3%',
             position: 'relative',
+            color:'#3c4043'
           }}>Support Us!
         </div>
       </Link>
