@@ -2,36 +2,34 @@ import MenuItems from "./menu_items";
 
 const menuItemsData = [
     {
-        title: 'Home',
-        url: '/',
-      },
+      title: 'Home',
+      url: '/',
+    },
       
-  
-          
-            {
-              title: 'Books',
-              url: '/books',
-            },
-            {
-              title: 'EBooks',
-              url: '/ebooks',
-            },
-            {
-              title: 'DVDs',
-              url: '/dvds',
-            },
-          
+    {
+      title: 'Books',
+      url: '/books',
+    },
 
-        
-      {
-        title: 'About',
-        url: '/about',
-      },
-      {
-        title: 'Contact',
-        url: '/contact',
-      },
+    {
+      title: 'EBooks',
+      url: '/ebooks',
+    },
 
+    {
+      title: 'DVDs',
+      url: '/dvds',
+    },
+            
+    {
+      title: 'About',
+      url: '/about',
+    },
+
+    {
+      title: 'Contact',
+      url: '/contact',
+    },
 ];
 
 const Navbar = () => {
@@ -42,8 +40,11 @@ const Navbar = () => {
                     return <MenuItems items={menu} key={index} />;
                 })}
             </ul>
+            
         </nav>
     );
 };
+
+
 
 export default Navbar;
