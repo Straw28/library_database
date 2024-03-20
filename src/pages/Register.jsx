@@ -32,42 +32,80 @@ function Register(){
     return(
         <>
         <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
-        <div className="login-container-box" style={{marginTop:'10%'}}>
-        {/* <form onSubmit={handleSubmit} style={{marginTop:'15%', marginLeft:'10%'}}>
-            <div>
-            <input
-                style={{
-                    width: '200%', 
-                    padding: '12px 20px', 
-                    margin: '8px 0', 
-                    boxSizing: 'border-box', 
-                    position:'relative', 
-                    marginBottom:'5%', 
-                    marginLeft: '117%', 
-                    borderRadius: '50px',
-                    textAlign: 'center'
-                }}
-                placeholder="Username"
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-            />
-            </div>
-            <div>
+        <div className="register-container-box" style={{marginTop:'10%'}}>
+        { <form onSubmit={handleSubmit} style={{marginTop:'10%', width:'100%'}}>
+            <div class="input-container">
                 <input
                     style={{
-                        width:'200%',
-                        padding:'12px 20px',
+                        width:'100%', 
+                        padding:'12px 20px', 
                         margin:'8px 0', 
                         boxSizing:'border-box', 
-                        position:'relative',
-                        marginBottom:'5%',
-                        marginLeft: '117%', 
+                        position:'relative', 
+                        marginBottom:'5%', 
                         borderRadius:'50px',
-                        textAlign: 'center'
+                        textAlign:'center',
+                        marginRight:'20px'
+                    }}
+                    placeholder="First Name"
+                    type="text"
+                    id="Fname"
+                    name="Fname"
+                    value={formData.Fname}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    style={{
+                        width:'100%', 
+                        padding:'12px 20px', 
+                        margin:'8px 0', 
+                        boxSizing:'border-box', 
+                        position:'relative', 
+                        marginBottom:'5%', 
+                        borderRadius:'50px',
+                        textAlign:'center'
+                    }}
+                    placeholder="Last Name"
+                    type="text"
+                    id="Lname"
+                    name="Lname"
+                    value={formData.Lname}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div class="input-container">
+                <input
+                    style={{
+                        width:'100%', 
+                        padding:'12px 20px', 
+                        margin:'8px 0', 
+                        boxSizing:'border-box', 
+                        position:'relative', 
+                        marginBottom:'5%', 
+                        borderRadius:'50px',
+                        textAlign:'center',
+                        marginRight:'20px'
+                    }}
+                    placeholder="Username"
+                    type="text"
+                    id="username"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    style={{
+                        width:'100%', 
+                        padding:'12px 20px', 
+                        margin:'8px 0', 
+                        boxSizing:'border-box', 
+                        position:'relative', 
+                        marginBottom:'5%', 
+                        borderRadius:'50px',
+                        textAlign:'center'
                     }}
                     placeholder="Email"
                     type="email"
@@ -78,18 +116,18 @@ function Register(){
                     required
                 />
             </div>
-            <div>
+            <div class="input-container">
                 <input
                     style={{
-                        width: '200%',
-                        padding: '12px 20px',
-                        margin: '8px 0', 
-                        boxSizing: 'border-box', 
-                        position:'relative',
+                        width:'100%', 
+                        padding:'12px 20px', 
+                        margin:'8px 0', 
+                        boxSizing:'border-box', 
+                        position:'relative', 
                         marginBottom:'5%', 
-                        marginLeft: '117%',
-                        borderRadius: '50px',
-                        textAlign: 'center'
+                        borderRadius:'50px',
+                        textAlign:'center',
+                        marginRight:'20px'
                     }}
                     placeholder="Password"
                     type="password"
@@ -99,19 +137,16 @@ function Register(){
                     onChange={handleChange}
                     required
                 />
-            </div>
-            <div>
                 <input
                     style={{
-                        width: '200%',
-                        padding: '12px 20px',
-                        margin: '8px 0', 
-                        boxSizing: 'border-box', 
-                        position:'relative',
+                        width:'100%', 
+                        padding:'12px 20px', 
+                        margin:'8px 0', 
+                        boxSizing:'border-box', 
+                        position:'relative', 
                         marginBottom:'5%', 
-                        marginLeft: '117%',
-                        borderRadius: '50px',
-                        textAlign: 'center'
+                        borderRadius:'50px',
+                        textAlign:'center'
                     }}
                     placeholder="Confrim Password"
                     type="password"
@@ -125,15 +160,15 @@ function Register(){
             <div>
                 <input
                     style={{
-                        width: '100%',
-                        padding: '12px 20px',
-                        margin: '8px 0', 
-                        boxSizing: 'border-box', 
+                        width:'50%',
+                        padding:'12px 20px',
+                        margin:'8px 0', 
+                        boxSizing:'border-box', 
                         position:'relative',
-                        marginBottom:'5%',
-                        marginLeft: '170%', 
-                        borderRadius: '50px',
-                        textAlign: 'center'
+                        marginBottom:'3%',
+                        marginLeft:'24%', 
+                        borderRadius:'50px',
+                        textAlign:'center'
                     }}
                     placeholder="Birthdate"
                     type="date"
@@ -144,8 +179,8 @@ function Register(){
                     required
                 />
             </div>
-            <button type="submit" style={{marginLeft: '205%'}}>Register</button>
-        </form> */}
+            <button type="submit" style={{marginLeft: '45%'}}>Register</button>
+        </form> }
         </div>
         </>
     );

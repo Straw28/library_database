@@ -27,7 +27,7 @@ function Home() {
       fontWeight: '700', 
       fontSize: '30px', 
       marginTop:'3%', 
-      marginLeft:'45%',
+      marginLeft:'46.5%',
       position: 'absolute' 
     }}>Featured
     </div>
@@ -36,7 +36,7 @@ function Home() {
     <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'20%', marginRight:'5%'}}>
 
     <div className="image-container">
-      <Link to="/books" style={{ textDecoration: 'none'}}>
+      <Link to="/books" style={{ textDecoration: 'none', color:'black'}}>
         <img src={bookstack} alt="Image 1" className='featured-image'/>
         <div 
           style={{ 
@@ -49,28 +49,28 @@ function Home() {
         </div>
       </Link>
             
-      <Link to="/" style={{ textDecoration: 'none'}}>
+      <Link to="/" style={{ textDecoration: 'none', color:'black'}}>
         <img src={bpl} alt="Image 2" className='featured-image'/>
         <div 
           style={{ 
-            fontFamily: '"Google Sans",Roboto,Arial,sans-serif', 
-            fontWeight: '700', 
-            fontSize: '30px', 
+            fontFamily:'"Google Sans",Roboto,Arial,sans-serif', 
+            fontWeight:'700', 
+            fontSize:'30px', 
             marginTop:'3%',
-            position: 'relative' 
+            position:'relative' 
           }}>Upcoming Events
         </div>
       </Link>
             
-      <Link to="/" style={{ textDecoration: 'none'}}>
-        <img src={flowers} alt="Image 3"className='featured-image' />
+      <Link to="/" style={{ textDecoration: 'none', color:'black'}}>
+        <img src={flowers} alt="Image 3"className='featured-image'/>
         <div 
           style={{
-            fontFamily: '"Google Sans",Roboto,Arial,sans-serif', 
-            fontWeight: '700', 
+            fontFamily:'"Google Sans",Roboto,Arial,sans-serif', 
+            fontWeight:'700', 
             fontSize: '30px', 
             marginTop:'3%',
-            position: 'relative' 
+            position: 'relative',
           }}>Support Us!
         </div>
       </Link>
