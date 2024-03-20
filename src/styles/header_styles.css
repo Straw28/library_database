@@ -88,23 +88,23 @@
     z-index:10;
     width:100vw;
     height:250px;
-    background-color:#971b32a1;
+    background-color:#c26f7fa1;
 }
 
 .login-container-box{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color:#971b32a1;
+  background-color:#c26f7fa1;
   display:flex;
-  flex-wrap: non-wrap;
+  flex-wrap:wrap;
   padding:10px;
   width:900px;
   height:500px;
-  margin-right:45%;
-  margin-left:20%;
+  margin-left:25%;
   margin-top:10%;
   margin-bottom:10%;
   border-radius:2%;
   justify-content:center;
+  text-align:center;
 }
 
 .lib-logo-and-text{
@@ -124,7 +124,7 @@
 /*Register*/
 .register-container-box{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color:#971b32a1;
+  background-color:#c26f7fa1;
   display:flex;
   flex-wrap:wrap;
   padding:10px;
@@ -172,7 +172,7 @@
 /* Nav Bar */
 .desktop-nav {
   overflow:hidden;
-  background-color: #971b32a1;
+  background-color: #c26f7fa1;
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
   display:flex;
   justify-content:flex-start;
@@ -208,20 +208,20 @@
 }
 
 .desktop-nav ul li a:hover {
-  background-color: #971b32;
+  background-color: #a57780;
 }
 
 
 .dropdown {
   display: none;
   position: relative;
-  background-color: #971b32a1;
+  background-color: #c26f7fa1;
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
   z-index: 1;
 }
 .dropdown-button {
   position: relative;
-  background-color: #971b32a1; /* Background color */
+  background-color: #c26f7fa1; /* Background color */
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px; /* Box shadow */
   z-index: 100;
   display: block;
@@ -233,7 +233,7 @@
 }
 
 .dropdown-button:hover {
-  background-color: #971b32; /* Background color on hover */
+  background-color: #a57780; /* Background color on hover */
 }
 
 .desktop-nav ul li:hover .dropdown {
@@ -256,7 +256,7 @@
 }
 
 .dropdown ul li a:hover {
-  background-color: #971b32;
+  background-color: #a57780;
 }
 
 .dropdown-show{
@@ -276,7 +276,7 @@
   }
 
   .featured-box {
-    background-color: #971b32a1;
+    background-color: #c26f7fa1;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display:flex;
     position:absolute;
@@ -290,7 +290,7 @@
   }
 
   .book-cover{
-    background-color: #971b32a1;
+    background-color: #c26f7fa1;
     box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
     padding: 0px;
     width:850px;
