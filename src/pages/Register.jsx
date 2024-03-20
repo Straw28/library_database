@@ -44,7 +44,8 @@ function Register(){
                     position:'relative', 
                     marginBottom:'5%', 
                     marginLeft: '117%', 
-                    borderRadius: '50px'
+                    borderRadius: '50px',
+                    textAlign: 'center'
                 }}
                 placeholder="Username"
                 type="text"
@@ -66,6 +67,7 @@ function Register(){
                         marginBottom:'5%',
                         marginLeft: '117%', 
                         borderRadius:'50px',
+                        textAlign: 'center'
                     }}
                     placeholder="Email"
                     type="email"
@@ -87,6 +89,7 @@ function Register(){
                         marginBottom:'5%', 
                         marginLeft: '117%',
                         borderRadius: '50px',
+                        textAlign: 'center'
                     }}
                     placeholder="Password"
                     type="password"
@@ -108,6 +111,7 @@ function Register(){
                         marginBottom:'5%', 
                         marginLeft: '117%',
                         borderRadius: '50px',
+                        textAlign: 'center'
                     }}
                     placeholder="Confrim Password"
                     type="password"
@@ -129,6 +133,7 @@ function Register(){
                         marginBottom:'5%',
                         marginLeft: '170%', 
                         borderRadius: '50px',
+                        textAlign: 'center'
                     }}
                     placeholder="Birthdate"
                     type="date"

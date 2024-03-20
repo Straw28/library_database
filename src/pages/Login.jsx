@@ -14,7 +14,7 @@ function Login(){
     
     return(
         <>
-        <div > <TopBar/></div>
+        <div ><TopBar/></div>
         <div className="login-container-box">
         <form onSubmit={handleLogin} style={{marginTop:'15%', marginLeft:'10%'}}>
                         <label>
@@ -30,7 +30,6 @@ function Login(){
                     </form>
         <Link to='/register'>
            <div style={{position:'relative',display:'flex',left:'-100%', marginTop:'175%'}}>Don't have an account? Register here</div> 
-          
         </Link>
         </div>
         </>

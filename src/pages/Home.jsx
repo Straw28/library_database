@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/header_styles.css'
 import {Link} from 'react-router-dom';
+import '../styles/header_styles.css'
 import bookstack from '../assets/bookstack.jpg';
 import bpl from '../assets/bpl.jpg';
 import flowers from '../assets/flowers.jpg';
@@ -33,7 +33,7 @@ function Home() {
     </div>
 
     <div className="container">
-    <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'20%'}}>
+    <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'20%', marginRight:'-5%'}}>
 
     <div className="image-container">
       <Link to="/books" style={{ textDecoration: 'none'}}>
