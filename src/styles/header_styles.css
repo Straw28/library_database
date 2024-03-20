@@ -112,9 +112,9 @@
     font-weight:700;
     font-size:30px;
     position:absolute;
-    margin-top:1%;
+    margin-top:0.5%;
     top:1%;
-    left:3%;
+    left:1%;
     z-index:10;
     margin-left:20px;
     display:flex;
@@ -171,15 +171,15 @@
 
 /* Nav Bar */
 .desktop-nav {
-  overflow: hidden;
+  overflow:hidden;
   background-color: #971b32a1;
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
   display:flex;
   justify-content:flex-start;
-  left:10px;
+  left:0px;
   top:60px;
   position:absolute;
-  width:100vw;
+  width:1000vw;
   height:51px;
   z-index: -1;
   margin-top:10px;
@@ -276,18 +276,16 @@
   }
 
   .featured-box {
+    background-color: #971b32a1;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    
     display:flex;
     position:absolute;
-    flex-wrap: non-wrap;
+    flex-wrap:wrap;
     padding: 10px;
     width:1200px;
     height:600px;
-    left:center;
-    margin-right:100px;
-    margin-left:100px;
-    text-align: center;
+    margin:0;
+    text-align:center;
     border-radius: 2%;
   }
 

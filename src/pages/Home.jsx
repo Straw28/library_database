@@ -11,7 +11,7 @@ function Home() {
 
   return (
     <div style = {{overflowX:'hidden'}}>
-    <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
+    <div style={{overflowX:'hidden', marginTop:'100px'}}><TopBar/></div>
     <div className="page-body" 
       style={{ 
         overflowX:'hidden', 
@@ -23,28 +23,29 @@ function Home() {
       }}>
   
     <div style={{ 
-      fontFamily: '"Google Sans",Roboto,Arial,sans-serif', 
-      fontWeight: '700', 
-      fontSize: '30px', 
-      marginTop:'3%', 
-      marginLeft:'46.5%',
-      position: 'absolute' 
+      fontFamily:'"Google Sans",Roboto,Arial,sans-serif', 
+      fontWeight:'700', 
+      fontSize:'40px', 
+      marginTop:'2%', 
+      marginLeft:'46%',
+      position:'absolute', 
+      textAlign:'center'
     }}>Featured
     </div>
 
     <div className="container">
-    <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'20%', marginRight:'5%'}}>
+    <div className="featured-box" style ={{backgroundColor:'#971b32a1;', padding:'20px', marginTop:'17%', marginRight:'5%'}}>
 
     <div className="image-container">
       <Link to="/books" style={{ textDecoration: 'none', color:'black'}}>
         <img src={bookstack} alt="Image 1" className='featured-image'/>
         <div 
           style={{ 
-            fontFamily: '"Google Sans",Roboto,Arial,sans-serif', 
-            fontWeight: '700', 
-            fontSize: '30px', 
+            fontFamily:'"Google Sans",Roboto,Arial,sans-serif', 
+            fontWeight:'700', 
+            fontSize:'30px', 
             marginTop:'3%',
-            position: 'relative',
+            position:'relative',
           }}>New Releases
         </div>
       </Link>

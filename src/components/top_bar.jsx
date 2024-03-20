@@ -23,7 +23,7 @@ function TopBar() {
    
             <div className='lib-logo-and-text'>Madea Public Library</div>
             {hoursVisible && (
-                <div style={{position: 'absolute', top: '70px', right: '55px', background: '#f2f2f2', padding: '10px', zIndex:'999', borderRadius: '10px'}}>
+                <div style={{position: 'absolute', top: '80px', right: '55px', background: '#f2f2f2', padding: '10px', zIndex:'999', borderRadius: '10px'}}>
                     <h3>Library Hours</h3>
                     <p><strong>Mon</strong>&nbsp;&nbsp;&nbsp;&nbsp;12 pm – 9 pm</p>
                     <p><strong>Tue</strong>&nbsp;&nbsp;&nbsp;&nbsp;10 am – 9 pm</p>
