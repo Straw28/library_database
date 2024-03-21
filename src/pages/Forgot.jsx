@@ -19,7 +19,7 @@ function Forgot(){
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="login-container-box">
           { <form onSubmit={handleSubmit} style={{marginTop:'6%', width:'100%'}}>
-                  <div style={{fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif', color:'#3c4043', marginBottom:'5%'}}>Forgot your username or password?</div>
+                  <div style={{fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif', color:'#3c4043', marginBottom:'5%', marginTop:'3%'}}>Forgot your username or password?</div>
                   <div class="input-container">
                       <input 
                       style={{
@@ -42,7 +42,9 @@ function Forgot(){
                       onChange={(e) => setEmail(e.target.value)} 
                       required 
                       />
-                      <button type="submit" className='button-17' style={{marginTop:'15%', marginLeft:'28%'}}>Send</button>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginLeft:'-24%', marginTop:'15%'}}>
+                        <button type="submit" className='button-17'>Send</button>
+                    </div>
                     </div>
                   </form> }
               </div>

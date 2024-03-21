@@ -58,7 +58,7 @@ function Register(){
         <>
         <div style={{overflowX:'hidden', marginTop:'10px'}}><TopBar/></div>
         <div className="register-container-box" style={{marginTop:'13%'}}>
-            <div style={{marginTop:'3%', marginLeft:'35%', marginBottom:'3%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif', color:'#3c4043'}}>eCard Registration</div>
+            <div style={{marginTop:'3%', marginBottom:'3%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif', color:'#3c4043'}}>eCard Registration</div>
             { <form onSubmit={handleSubmit} style={{marginRight:'5%', marginLeft:'5%', marginTop:'-10%', width:'90%'}}>
                 <div class="input-container">
                     <input
@@ -305,7 +305,9 @@ function Register(){
                         required
                     />
                 </div>
-                <button type="submit" className='button-17' style={{marginLeft:'-3.7%'}}>Register</button>
+                <div style={{ display: 'flex', justifyContent: 'center'}}>
+                    <button type="submit" className='button-17'>Send</button>
+                </div>
             </form> }
         </div>
         </>
