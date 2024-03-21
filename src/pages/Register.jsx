@@ -3,6 +3,7 @@ import '../styles/header_styles.css';
 import {Link} from 'react-router-dom';
 import TopBar from '../components/top_bar';
 
+
 function Register(){
 //     library_card_number varchar(20) 
 // member_status enum('active','inactive') 
@@ -20,17 +21,18 @@ function Register(){
 // requests text 
 // fine_id
     const [formData, setFormData] = useState({
-        username: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
         confirmPassword: '',
         birthdate: '',
         address: {
-            street: '',
-            unit: '',
-            city: '',
-            state: 'TX',
-            postalCode: ''
+          street: '',
+          unit: '',
+          city: '',
+          state: 'TX',
+          postalCode: ''
         }
     });
     
@@ -52,36 +54,45 @@ function Register(){
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-        console.log('Form submitted:', formData);
-        // setting form data
-        setFormData({
-          username: '',
-          email: '',
-          password: '',
-          confirmPassword: '',
-          birthdate: '',
-          address: {
-            street: '',
-            unit: '',
-            city: '',
-            state: 'TX',
-            postalCode: ''
-          }
-          })
-          //sending data to server
-          const response = await fetch("http://localhost:5000/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
+        try {
+            console.log('Form submitted:', formData);
+            // sending data to server
+            const response = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+    
+            if (response.ok) {
+                // Request was successful
+                console.log('Registration successful');
+                // Optionally, you can reset the form data after successful registration
+                setFormData({
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                    birthdate: '',
+                    address: {
+                        street: '',
+                        unit: '',
+                        city: '',
+                        state: 'TX',
+                        postalCode: ''
+                    }
+                });
+            } else {
+                // Request failed
+                console.error('Registration failed');
+            }
+        } catch (error) {
+            // Handle any network or fetch-related errors
+            console.error('Error:', error);
         }
-        catch{
-            console.log(error);
-        }
-        
     };
 
+    
     return(
         <>
         <div style={{overflowX:'hidden', marginTop:'10px'}}><TopBar/></div>
@@ -130,26 +141,6 @@ function Register(){
                     />
                 </div>
                 <div class="input-container">
-                    <input
-                        style={{
-                            width:'70%', 
-                            padding:'12px 20px', 
-                            margin:'8px 0', 
-                            boxSizing:'border-box', 
-                            position:'relative', 
-                            marginBottom:'5%', 
-                            borderRadius:'50px',
-                            textAlign:'center',
-                            marginRight:'20px'
-                        }}
-                        placeholder="Library card number"
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        required
-                    />
                     <input
                         style={{
                             width:'70%', 

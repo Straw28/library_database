@@ -1,7 +1,7 @@
 import MemberModel from '../models/memberModel.js';
 
 class MemberController{
-    
+
     //to get all the members
     async getAllMembers(req, res) {
         try {
@@ -10,6 +10,18 @@ class MemberController{
 
         } catch (error) {
             throw new Error(`Error getting all members.`);
+
+        }
+    }
+
+    //create a member:
+    async createMember(req, res) {
+        try {
+            let newmember = await MemberModel.createMember();
+            return newmember;
+
+        } catch (error) {
+            throw new Error(`Could not create member.`);
 
         }
     }
