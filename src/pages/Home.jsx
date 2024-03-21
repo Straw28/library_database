@@ -8,7 +8,7 @@ import TopBar from '../components/top_bar';
 
 
 function Home() {
-
+  
   return (
     <div style = {{overflowX:'hidden'}}>
     <div style={{overflowX:'hidden', marginTop:'100px'}}><TopBar/></div>

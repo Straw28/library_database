@@ -12,7 +12,7 @@ const Book_Catalog=()=>{
     <div className="catalog-container" style ={{display:'flex', flexDirection:'column',position:'fixed', marginTop:'100px', width:'100vw', height:'80%'}}>
     
     <div className='catalog-row'>
-        <div><h1>New Books </h1></div>
+        <div><h1>New Books</h1></div>
         <Catalog/>
     </div>
  

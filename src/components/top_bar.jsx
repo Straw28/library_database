@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Navbar from './dropdown-menu/navbar';
 import {Link} from 'react-router-dom';
 import '../styles/header_styles.css'
@@ -19,8 +18,7 @@ function TopBar() {
         <div style={{display:'flex', justifyContent:'flex-end', alignItems:'center', padding:'10px', overflowX:'hidden'}}>
             
             <Link to='/login'> <button className='button-17' style={{top:'1.5%', marginRight:'20px', left:'93%'}}>Login</button> </Link> 
-            <button className='button-17' onClick={toggleHours} style={{top:'1.5%', marginRight:'7%' }}>Hours</button>
-   
+            <button className='button-17' onClick={toggleHours} style={{top:'1.5%', marginRight:'7%'}}>Hours</button>
             <div className='lib-logo-and-text'>Madea Public Library</div>
             {hoursVisible && (
                 <div style={{position:'absolute', top:'75px', right:'80px', background:'#f2f2f2', padding:'10px', zIndex:'999', borderRadius:'10px', textAlign:'center'}}>
