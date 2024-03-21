@@ -2,7 +2,7 @@
 import http from 'http';
 import url from 'url';
 
-import itemsController from './controllers/itemsController.js';
+import itemsRoute from './routes/itemsRoute.js'
 
 const server = http.createServer((req, res) => {
   const path = url.parse(req.url, true).path;
@@ -21,8 +21,8 @@ const server = http.createServer((req, res) => {
     res.end();
     return;
 
-  } else if(path === '/api/items' && method === 'GET') {
-    itemsController.getItems(req, res);
+  } else if(path === '/api/items') {
+    itemsRoute(req, res, path, method);
 
   } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
