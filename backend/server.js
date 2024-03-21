@@ -1,7 +1,7 @@
 // backend/server.js
 import http from 'http';
 import url from 'url';
-
+import getAllMembers from './controllers/memberController.js';
 import itemsController from './controllers/itemsController.js';
 
 const server = http.createServer((req, res) => {
@@ -24,7 +24,22 @@ const server = http.createServer((req, res) => {
   } else if(path === '/api/items' && method === 'GET') {
     itemsController.getItems(req, res);
 
-  } else {
+
+  } 
+  
+  else if(path === '/member' && method === 'GET'){
+    memberController.getAllMembers(req, res);
+  }
+
+  else if(path === '/staff' && method === 'GET'){
+    // memberController.getAllMembers(req, res);
+  }
+  
+  else if(path === '/admin' && method === 'GET'){
+    // memberController.getAllMembers(req, res);
+  }
+  
+  else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Route Not Found'}));
 

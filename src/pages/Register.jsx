@@ -4,6 +4,21 @@ import {Link} from 'react-router-dom';
 import TopBar from '../components/top_bar';
 
 function Register(){
+//     library_card_number varchar(20) 
+// member_status enum('active','inactive') 
+// member_type varchar(20) 
+// first_name varchar(50) 
+// last_name varchar(50) 
+// email_address varchar(100) 
+// phone_number varchar(15) 
+// address varchar(255) 
+// date_of_birth date 
+// item_borrowing_history text 
+// device_borrowing_history text 
+// registration_date date 
+// expiration_date date 
+// requests text 
+// fine_id
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -35,9 +50,11 @@ function Register(){
         }
     };
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try{
         console.log('Form submitted:', formData);
+        // setting form data
         setFormData({
           username: '',
           email: '',
@@ -51,7 +68,18 @@ function Register(){
             state: 'TX',
             postalCode: ''
           }
+          })
+          //sending data to server
+          const response = await fetch("http://localhost:5000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
         });
+        }
+        catch{
+            console.log(error);
+        }
+        
     };
 
     return(
@@ -114,7 +142,7 @@ function Register(){
                             textAlign:'center',
                             marginRight:'20px'
                         }}
-                        placeholder="Username"
+                        placeholder="Library card number"
                         type="text"
                         id="username"
                         name="username"
