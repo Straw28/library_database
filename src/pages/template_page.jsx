@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/header_styles.css'
 import TopBar from '../components/top_bar';
 
 
-function Admin_Login() {
+function template() {
 
   return (
     <div style = {{overflowX:'hidden'}}>
@@ -12,5 +12,4 @@ function Admin_Login() {
     );
 }
 
-
-export default Admin_Login;
+export default template;
