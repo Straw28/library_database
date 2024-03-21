@@ -32,8 +32,9 @@
   width: auto;
   will-change: transform,opacity;
   z-index: 0;
-  margin-right: 15px;
-  
+  position: absolute;
+  display: flex;
+
 }
 
 .button-17:hover {
@@ -101,21 +102,22 @@
   height:500px;
   margin-right:45%;
   margin-left:20%;
-  margin-top: 8%;
+  margin-top: 10%;
   text-align: center;
   border-radius: 2%;
 }
+
 .lib-logo-and-text{
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-weight: 700;
     font-size: 30px;
     position:absolute;
-    margin-top:-150px;
-    left:1%;
+    top:1%;
     z-index: 10;
-    margin-left: 20px;
+    padding:10px;
     display:flex;
     color: #3c4043;
+  
 
 }
 
@@ -124,8 +126,8 @@
   display: flex;
   position: absolute;
   margin-left:20px;
-  margin-top: 10px;
- 
+  margin-top:10px;
+ border-radius:20px;
 
 }
 
@@ -153,14 +155,14 @@
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
   display:flex;
   justify-content: flex-start;
-  left:0px;
+  /* left:10px; */
   top:60px;
   position:absolute;
   width:100vw;
   height:50px;
   z-index: -1;
-  margin-left:20px;
-  margin-top: 10px;
+  margin-left:-10px;
+  margin-top:10px;
   padding:10px;
 }
 
@@ -168,7 +170,8 @@
   display: flex;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  margin-left: 0%;
+  padding-left: 0px;
 }
 
 .desktop-nav ul li {

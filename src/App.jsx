@@ -8,11 +8,15 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import TopBar from './components/top_bar';
+import React from 'react';
+import './styles/header_styles.css'
 
 function App() {
   
   return (
     <>
+    
     <Router>
       
         <Routes> //makes sure only one route shows at a time
