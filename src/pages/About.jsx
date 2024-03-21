@@ -12,23 +12,6 @@ function About(){
       
       <h3>Library Hours</h3>
       <p>We are open Monday through Friday from 9:00 AM to 6:00 PM, and on Saturdays from 10:00 AM to 4:00 PM. We are closed on Sundays and public holidays.</p>
-      
-      <h3>Contact Us</h3>
-      <p>If you have any questions or need assistance, feel free to contact us:</p>
-      <ul>
-        <li>Phone: 123-456-7890</li>
-        <li>Email: info@library.com</li>
-        <li>Address: 123 Library St, City, State, ZIP</li>
-      </ul>
-
-      <h3>Employee List</h3>
-      <ul>
-        <li>Drew </li>
-        <li>Maria</li>
-        <li>Enlee</li>
-        <li>Armmaan</li>
-        <li>Annette</li>
-      </ul>
     </div>
     </>
     );
