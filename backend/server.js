@@ -1,7 +1,7 @@
 // backend/server.js
 import http from 'http';
 import url from 'url';
-import getAllMembers from './controllers/memberController.js';
+import MemberController from './controllers/memberController.js';
 import itemsController from './controllers/itemsController.js';
 
 const server = http.createServer((req, res) => {
@@ -28,7 +28,23 @@ const server = http.createServer((req, res) => {
   } 
   
   else if(path === '/member' && method === 'GET'){
-    memberController.getAllMembers(req, res);
+    try {
+      // set the status code and content-type
+      res.writeHead(200, {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+      });
+      // get the users
+      const members =  new MemberController().getAllMembers();
+     
+      // send the data
+      res.end(JSON.stringify(members));
+  } catch (error) {
+      // set error status code and content-type
+      res.writeHead(500, { "Content-Type": "application/json" });
+      // send error
+      res.end(JSON.stringify({ message: error.message }));
+  }
   }
 
   else if(path === '/staff' && method === 'GET'){
@@ -38,7 +54,7 @@ const server = http.createServer((req, res) => {
   else if(path === '/admin' && method === 'GET'){
     // memberController.getAllMembers(req, res);
   }
-  
+
   else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Route Not Found'}));

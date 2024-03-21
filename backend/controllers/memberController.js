@@ -1,14 +1,19 @@
-const Member = require('../data/members')
+import MemberModel from '../models/memberModel.js';
 
-async function getAllMembers(req, res){
-    try{
-        const members = await Member.findAll()
+class MemberController{
+    
+    //to get all the members
+    async getAllMembers(req, res) {
+        try {
+            const members = await MemberModel.getAllMembers();
+            return members;
 
-        res.writeHead(200, {'Content-Type': 'application/json'})
-        res.end(JSON.stringify(products))
-    } catch(error){
-        console.log(error)
+        } catch (error) {
+            throw new Error(`Error getting all members.`);
+
+        }
     }
+    
 }
 
-export default getAllMembers;
+export default MemberController;
