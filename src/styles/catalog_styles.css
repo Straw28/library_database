@@ -1,11 +1,77 @@
+
 body {
   
     font-family: 'Open Sans', sans-serif;
   }
   
+  .carousel-container{
+    
+    display:flex;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   padding:5px;
+    top:200px;
+  }
+
+  .carousel-buttons{
+
+      align-items: center;
+      appearance: none;
+      background-color: #FCFCFD;
+      border-radius: 4px;
+      border-width: 0;
+      box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+      box-sizing: border-box;
+      color: #36395A;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: "JetBrains Mono",monospace;
+      height: 48px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding-left: 16px;
+      padding-right: 16px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 18px;
+    }
+    
+
+    .catalog-row{
+      position: relative;
+      margin-bottom:20px; 
+      margin-top:0px;
+      padding:10px; 
+      display:inline-block;
+    }
+
+    .button-30:focus {
+      box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    }
+    
+    .button-30:hover {
+      box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+      transform: translateY(-2px);
+    }
+    
+    .button-30:active {
+      box-shadow: #D6D6E7 0 3px 7px inset;
+      transform: translateY(2px);
+    }
+
+
   .container {
     position:relative;
-    top:100px;
+    top:-200px;
     right:20px;
     width: 80%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the container */
@@ -25,7 +91,7 @@ body {
     margin-right:10px;
   /*   margin-left: -50px; */
     transition: 0.4s ease-out;
-    position: relative;
+    
     left: 0px;
   }
   
@@ -47,46 +113,17 @@ body {
   .title {
     color: white;
     font-weight: 300;
-    position: absolute;
+    position: relative;
     left: 20px;
     top: 15px;
   }
   
-  .bar {
-    position: absolute;
-    top: 100px;
-    left: 20px;
-    height: 5px;
-    width: 150px;
-  }
-  
-  .emptybar {
-    background-color: #2e3033;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .filledbar {
-    position: absolute;
-    top: 0px;
-    z-index: 3;
-    width: 0px;
-    height: 100%;
-    background: rgb(0,154,217);
-    background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
-    transition: 0.6s ease-out;
-  }
   
   .card:hover .filledbar {
     width: 120px;
     transition: 0.4s ease-out;
   }
   
-  .circle {
-    position: absolute;
-    top: 150px;
-    left: calc(50% - 60px);
-  }
   
   .stroke {
     stroke: white;
@@ -94,11 +131,7 @@ body {
     stroke-dashoffset: 360;
     transition: 0.6s ease-out;
   }
-  
-  svg {
-    fill: #17141d;
-    stroke-width: 2px;
-  }
+
   
   .card:hover .stroke {
     stroke-dashoffset: 100;
