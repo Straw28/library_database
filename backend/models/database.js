@@ -18,9 +18,9 @@
 import mysql from 'mysql2/promise.js';
 
 const pool = mysql.createPool({
-  host: 'db-meada.cdmimase86m5.us-east-2.rds.amazonaws.com', 
-  user: 'meada_maria', // your username
-  password: 'p@ssW03d', // your password
+  host: 'localhost', 
+  user: 'root', // your username
+  password: 'Thatguy$hark56f', // your password
   database: 'Library_Database', 
   waitForConnections: true,
   connectionLimit: 10,
