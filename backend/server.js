@@ -3,8 +3,9 @@ import http from 'http';
 import url from 'url';
 import MemberController from './controllers/memberController.js';
 import itemsController from './controllers/itemsController.js';
+import getReqData from './utils.js';
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async(req, res) => {
   const path = url.parse(req.url, true).path;
   const method = req.method;
 
@@ -52,45 +53,32 @@ else if(path === '/member' && method === 'GET'){
 
   else if(path === '/register' && method === 'POST'){
     try {
-      let body = '';
-      
-      // Listen for data chunks and append them to the body
-      req.on('data', chunk => {
-          body += chunk.toString();
-      });
+ 
+            // set the status code and content-type
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Request-Method", "POST");
+            res.setHeader("Access-Control-Request-Headers", "Content-Type");
 
-      // When all data is received
-      req.on('end', async () => {
-          try {
-              // Parse the JSON data received from the frontend
-              const requestData = JSON.parse(body);
 
-              // Here you can manipulate the requestData object as needed
-              
-              // Send the parsed data to your backend
-              const response = await fetch("http://localhost:5000/register", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(requestData) // Send the parsed JSON data to the backend
-              });
+            // Receiving input data
+            const data = await getReqData(req);
+            console.log('Received data:', data);
+            
+            //parsing data
+            // const memberData = JSON.parse(data);
 
-              // Assuming the backend responds with JSON data
-              const responseData = await response.json();
-
-              // Send the response data received from the backend to the frontend
-              res.writeHead(200, { "Content-Type": "application/json" });
-              res.end(JSON.stringify(responseData));
-          } catch (error) {
-              // Handle any errors that occur during parsing or fetching
-              res.writeHead(500, { "Content-Type": "application/json" });
-              res.end(JSON.stringify({ message: error.message }));
-          }
-      });
-  } catch (error) {
-      // Handle any errors that occur
-      res.writeHead(500, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: error.message }));
-  }
+            //creating new member
+            const newMember = new MemberController().createMember(data);
+        
+            res.writeHead(201);
+            res.end(JSON.stringify(newMember));
+            
+            } catch (error) {
+            res.writeHead(404, { "Content-Type": "application/json" });
+            // send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+  
 
   }
 

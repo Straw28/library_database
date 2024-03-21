@@ -15,9 +15,9 @@ class MemberController{
     }
 
     //create a member:
-    async createMember(req, res) {
+    async createMember(memberData) {
         try {
-            let newmember = await MemberModel.createMember();
+            let newmember = await MemberModel.createMember(memberData);
             return newmember;
 
         } catch (error) {
