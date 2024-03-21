@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import TopBar from './components/top_bar';
 import React from 'react';
 import './styles/header_styles.css'
+import Admin_Login from "./pages/Admin_Login";
 
 function App() {
   
@@ -29,6 +30,7 @@ function App() {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/admin" element={<Admin_Login/>}/>
 
         </Routes>
       
