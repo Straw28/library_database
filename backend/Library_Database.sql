@@ -17,7 +17,7 @@ CREATE TABLE items (
 -- iteams that can be checked out
 -- Child table for books
 CREATE TABLE books (
-    book_id INT UNIQUE,
+    book_id INT AUTO_INCREMENT UNIQUE,
     item_id INT,
     title VARCHAR(100),
     author VARCHAR(100),
@@ -33,7 +33,7 @@ CREATE TABLE books (
 
 -- Child table for ebooks
 CREATE TABLE ebooks (
-    ebook_id INT UNIQUE,
+    ebook_id INT AUTO_INCREMENT UNIQUE,
     item_id INT,
 	title VARCHAR(100),
     author VARCHAR(100),
@@ -49,7 +49,7 @@ CREATE TABLE ebooks (
 
 -- Child table for DVDs
 CREATE TABLE dvds (
-    dvd_id INT UNIQUE,
+    dvd_id INT AUTO_INCREMENT UNIQUE,
     item_id INT,
     title VARCHAR(100),
     author VARCHAR(100),
@@ -65,7 +65,7 @@ CREATE TABLE dvds (
 
 -- Child table for records
 CREATE TABLE records (
-    record_id INT UNIQUE,
+    record_id INT AUTO_INCREMENT UNIQUE,
     item_id INT,
     title VARCHAR(100),
     author VARCHAR(100),
@@ -81,7 +81,7 @@ CREATE TABLE records (
 
 -- Child table for laptops
 CREATE TABLE laptops (
-    laptop_id INT UNIQUE,
+    laptop_id INT AUTO_INCREMENT UNIQUE,
     item_id INT,
     PRIMARY KEY (laptop_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
@@ -90,7 +90,7 @@ CREATE TABLE laptops (
 
 -- Child table for tablets
 CREATE TABLE tablets (
-    tablet_id INT UNIQUE,
+    tablet_id INT AUTO_INCREMENT UNIQUE,
     item_id INT,
     PRIMARY KEY (tablet_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
@@ -99,7 +99,7 @@ CREATE TABLE tablets (
 
 -- Child table for chargers
 CREATE TABLE chargers (
-    charger_id INT UNIQUE,
+    charger_id INT AUTO_INCREMENT UNIQUE,
     item_id INT,
     PRIMARY KEY (charger_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
@@ -110,7 +110,7 @@ CREATE TABLE chargers (
 
 -- devices that can be used 
 CREATE TABLE printers (
-	printer_id INT UNIQUE,
+	printer_id INT AUTO_INCREMENT UNIQUE,
 	printer_name VARCHAR(100),
     printer_status ENUM('active', 'inactive'),
 	printer_type VARCHAR(100),
@@ -124,7 +124,7 @@ CREATE TABLE printers (
 );
 
 CREATE TABLE computers (
-	computer_id INT UNIQUE,
+	computer_id INT AUTO_INCREMENT UNIQUE,
 	computer_name VARCHAR(50),
 	computer_security VARCHAR(100),
     computer_status ENUM('active', 'inactive'),
@@ -145,7 +145,7 @@ CREATE TABLE computers (
 
 -- users of the library
 CREATE TABLE members (
-	member_id INT UNIQUE,
+	member_id INT AUTO_INCREMENT UNIQUE,
     library_card_number VARCHAR(20) UNIQUE,
     member_status ENUM('active', 'inactive'),
 	member_type VARCHAR(20),
@@ -161,11 +161,12 @@ CREATE TABLE members (
     expiration_date DATE,
 	requests TEXT,
     fine_id INT,
+    password VARCHAR(255),
     PRIMARY KEY (member_id)
 );
 
 CREATE TABLE employees (
-	employee_id INT UNIQUE,
+	employee_id INT AUTO_INCREMENT UNIQUE,
 	employee_role VARCHAR(50),
 	employee_status ENUM('active', 'inactive'),
     first_name VARCHAR(50),
@@ -187,7 +188,7 @@ CREATE TABLE employees (
 
 -- reservation entity
 CREATE TABLE reservations (
-    reservation_id INT,
+    reservation_id INT AUTO_INCREMENT,
     item_id INT,
     item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
     member_id INT NOT NULL,
@@ -209,7 +210,7 @@ CREATE TABLE reservations (
 
 -- monetary entities
 CREATE TABLE donations (
-	donation_id INT,
+	donation_id INT AUTO_INCREMENT,
 	donation_type VARCHAR(100),
 	amount DECIMAL(10, 2),
     first_name VARCHAR(50),
@@ -223,7 +224,7 @@ CREATE TABLE donations (
 );
 
 CREATE TABLE acquisitions (
-	acquisition_id INT,
+	acquisition_id INT AUTO_INCREMENT,
 	acquisition_type VARCHAR(100),
 	acquisition_date DATE,
 	amount DECIMAL(10, 2),
@@ -237,7 +238,7 @@ CREATE TABLE acquisitions (
 );
 
 CREATE TABLE fines (
-    fine_id INT,
+    fine_id INT AUTO_INCREMENT,
     item_id INT,
     item_type VARCHAR(20),  -- Indicates the type of item (book, ebook, dvd, etc.)
     member_id INT NOT NULL,

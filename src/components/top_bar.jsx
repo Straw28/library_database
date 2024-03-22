@@ -17,12 +17,15 @@ function TopBar() {
 
     return (
         <>
-        <div className='topbar-buttons-container' style={{position:'relative', left:'83%', width: '200px', height:'100px', display:'flex', zIndex:'9999'}}>
-            <Link to='/login'> <button className='button-17'  style={{ marginLeft:'50%'}}>Login</button> </Link> 
-            <button className='button-17' onClick={toggleHours} style={{ marginLeft:'0%'}}>Hours</button>
+        <div className='top-container' style={{width:'auto', height: '65px', top:'0%', display:'flex', overflowX:'hidden', overflowY:'hidden', marginBottom:'1%', position:'relative'}}>
+            
+            <div className='topbar-buttons-container' style={{ marginTop: '0%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', width: '99.5%' }}>
+                <Link to='/login'> <button className='button-17'  style={{ }}>Login</button> </Link> 
+                <button className='button-17' onClick={toggleHours} style={{marginLeft:'25px'}}>Hours</button>
+            </div>
+            
+            <div className='lib-logo-and-text' >Madea Public Library</div>
         </div>
-
-        <div className='lib-logo-and-text' >Madea Public Library</div>
 
         <div>
             {hoursVisible && (

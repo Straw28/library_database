@@ -80,7 +80,7 @@ function Register() {
     
     return(
         <>
-        <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
+        <div> <TopBar/></div>
         <div className="register-container-box" style={{marginTop:'10%'}}>
             <div style={{marginTop:'3%', marginLeft:'35%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>eCard Registration</div>
             { <form style={{marginRight:'5%', marginLeft:'5%', width:'100%'}}>
@@ -238,7 +238,7 @@ function Register() {
                             borderRadius:'50px',
                             textAlign:'center'
                         }}
-                        placeholder="TX"
+                        placeholder="State"
                         className="placeholder-black"
                         type="text"
                         id="state"
