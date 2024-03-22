@@ -13,8 +13,8 @@ function Login(){
     };
     
     return(
-        <div style = {{overflowX:'hidden'}}>
-        <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
+        <>
+        <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
         <div className="page-body" 
         style={{ 
           overflowX:'hidden', 
@@ -34,14 +34,14 @@ function Login(){
                             <div style={{fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontSize: '20px',fontWeight: '500'}}>Password:</div>
                             <input type="password" style={{width: '100%', padding: '12px 20px', margin: '8px 0', boxSizing: 'border-box', position:'relative'}}/>
                         </label>
-                        <button type="submit" className='button-17' style={{marginTop:'5%', marginLeft:'-9%'}}>Login</button>
+                        <button type="submit" className='button-17' style={{position:'relative',marginTop:'5%', marginLeft:'25%'}}>Login</button>
                         <div style={{height: '400px', width:'1px', backgroundColor:'black', marginLeft:'120%', marginTop:'-110%', display:'flex'}}></div>
                     </form>
         <Link to='/register'>
-           <div style={{position:'relative',display:'flex',left:'-100%', marginTop:'175%'}}>Don't have an account? Register here</div> 
+           <div style={{position:'relative',display:'flex',left:'-100%', marginTop:'150%'}}>Don't have an account? Register here</div> 
         </Link>
         </div>
-        </div>
+    </>
     );
 }
 

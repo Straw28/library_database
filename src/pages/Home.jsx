@@ -10,8 +10,8 @@ import TopBar from '../components/top_bar';
 function Home() {
 
   return (
-    <div style = {{overflowX:'hidden'}}>
-      <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
+      <>
+      <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
       <div className="page-body" 
         style={{ 
           overflowX:'hidden', 
@@ -79,8 +79,7 @@ function Home() {
           </div>
         </div>
       </div>
-
-    </div>
+      </>
   );
   }
   
