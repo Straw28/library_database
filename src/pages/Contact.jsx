@@ -1,14 +1,18 @@
 import React from 'react';
 import '../styles/header_styles.css';
 import '../styles/catalog_styles.css';
+import '../styles/contact_styles.css';
 import Catalog from '../components/catalog';
 import TopBar from '../components/top_bar';
 import Filter from '../components/filter';
 
+
+
 function Contact(){
     return(   
         <>
-        <div className="contact" style={{overflowX:'hidden', marginTop:'1%'}}>
+        <div> <TopBar/> </div>
+        <div className="contact" style={{overflowX:'hidden', marginTop:'10%', position: "relative"}}>
             <h2>Contact Us</h2>
             <p>If you have any questions or need assistance, feel free to contact us:</p>
                 <ul>
@@ -26,7 +30,6 @@ function Contact(){
                 <li>Armmaan</li>
                 <li>Annette</li>
             </ul>
-            <TopBar/>
         </div>
         </>
         );

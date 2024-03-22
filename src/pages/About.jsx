@@ -10,6 +10,9 @@ function About(){
     return(
     <>
     <div> <TopBar/> </div>
+    <div className="image-container">
+      <img src="..assets/bookstack.jpg" alt="books" />
+    </div>
     <div className="about-me" style={{overflowX:'hidden', marginTop:'10%', position: "relative"}}>
       <h2>About Us</h2>
       <p>Welcome to our library! We are committed to creating a warm and enriching environment where members of our community can immerse themselves in the world of literature and knowledge.</p>
