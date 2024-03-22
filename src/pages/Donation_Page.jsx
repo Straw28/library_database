@@ -8,7 +8,7 @@ function Donation_Page() {
   return (
     <>
     {/* <div style = {{overflowX:'hidden'}}> */}
-      <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
+      <div> <TopBar/></div>
     {/* </div> */}
     </>
     );

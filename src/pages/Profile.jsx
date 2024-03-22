@@ -15,7 +15,7 @@ function Profile(){
 
     return (
         <>
-        <div style={{overflowX: 'hidden', marginTop: '100px'}}><TopBar /></div>
+        <div><TopBar /></div>
         
         </>
     );

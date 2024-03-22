@@ -15,7 +15,7 @@ function Forgot(){
 
   return(   
       <>
-      <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
+      <div> <TopBar/></div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="login-container-box">
           { <form onSubmit={handleSubmit} style={{marginTop:'6%', width:'100%'}}>

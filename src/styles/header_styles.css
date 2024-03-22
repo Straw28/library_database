@@ -31,7 +31,7 @@
   width: auto;
   will-change: transform,opacity;
   z-index: 0;
-  position: absolute;
+  position: relative;
   display: flex;
 }
 
@@ -189,8 +189,8 @@
   height:50px;
   z-index: -1;
   margin-left:-10px;
-  margin-top:10px;
-  padding:10px;
+  margin-top:7px;
+  padding:30px;
 }
 
 .desktop-nav ul {
@@ -199,6 +199,7 @@
   margin: 0;
   margin-left: 0%;
   padding-left: 0px;
+  align-items: center;
 }
 
 .desktop-nav ul li {
