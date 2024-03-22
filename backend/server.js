@@ -1,10 +1,11 @@
 // backend/server.js
 import http from 'http';
 import url from 'url';
+import MemberController from './controllers/memberController.js';
+import itemsRoute from './routes/itemsRoute.js'
+import getReqData from './utils.js';
 
-import itemsController from './controllers/itemsController.js';
-
-const server = http.createServer((req, res) => {
+const server = http.createServer(async(req, res) => {
   const path = url.parse(req.url, true).path;
   const method = req.method;
 
@@ -24,7 +25,72 @@ const server = http.createServer((req, res) => {
   } else if(path === '/api/items' && method === 'GET') {
     itemsController.getItems(req, res);
 
-  } else {
+
+  } 
+
+  
+//----------------------------Member Operations------------------------------------------------------
+ 
+else if(path === '/member' && method === 'GET'){
+    try {
+      // set the status code and content-type
+      res.writeHead(200, {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+      });
+      // get the users
+      const members =  new MemberController().getAllMembers();
+     
+      // send the data
+      res.end(JSON.stringify(members));
+  } catch (error) {
+      // set error status code and content-type
+      res.writeHead(500, { "Content-Type": "application/json" });
+      // send error
+      res.end(JSON.stringify({ message: error.message }));
+  }
+  }
+
+  else if(path === '/register' && method === 'POST'){
+    try {
+ 
+            // set the status code and content-type
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader("Access-Control-Request-Method", "POST");
+            res.setHeader("Access-Control-Request-Headers", "Content-Type");
+
+
+            // Receiving input data
+            const data = await getReqData(req);
+            console.log('Received data:', data);
+            
+            //parsing data
+            // const memberData = JSON.parse(data);
+
+            //creating new member
+            const newMember = new MemberController().createMember(data);
+        
+            res.writeHead(201);
+            res.end(JSON.stringify(newMember));
+            
+            } catch (error) {
+            res.writeHead(404, { "Content-Type": "application/json" });
+            // send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+  
+
+  }
+
+  else if(path === '/staff' && method === 'GET'){
+    // memberController.getAllMembers(req, res);
+  }
+  
+  else if(path === '/admin' && method === 'GET'){
+    // memberController.getAllMembers(req, res);
+  }
+
+  else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Route Not Found'}));
 

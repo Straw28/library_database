@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/header_styles.css'
 import TopBar from '../components/top_bar';
 
 
-function Admin_Login() {
-
-  
+function Donation_Page() {
 
   return (
     <>
+    {/* <div style = {{overflowX:'hidden'}}> */}
       <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
+    {/* </div> */}
     </>
     );
 }
 
-
-export default Admin_Login;
+export default Donation_Page;

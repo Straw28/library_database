@@ -11,7 +11,6 @@
   box-sizing: border-box;
   color: #3c4043;
   cursor: pointer;
-  display: inline-flex;
   fill: currentcolor;
   font-family: "Google Sans",Roboto,Arial,sans-serif;
   font-size: 14px;
@@ -34,7 +33,6 @@
   z-index: 0;
   position: absolute;
   display: flex;
-
 }
 
 .button-17:hover {
@@ -83,7 +81,7 @@
 .login-container{
     position:relative;
     transform: translate(-50%, -50%);
-    top: 42%;
+    top:42%;
     left:50%;
     z-index:10;
     width:300px;
@@ -95,14 +93,13 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color:#971b32a1;
   display:flex;
-  
-  flex-wrap: non-wrap;
+  flex-wrap: wrap;
   padding: 10px;
-  width:1000px;
+  width:900px;
   height:500px;
-  margin-right:45%;
-  margin-left:20%;
   margin-top: 10%;
+  margin-left:10%;
+  margin-right:10%;
   text-align: center;
   border-radius: 2%;
 }
@@ -117,8 +114,39 @@
     padding:10px;
     display:flex;
     color: #3c4043;
-  
+}
+/* Register */
 
+.register-container-box{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color:#971b32a1;
+  display:flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  width:900px;
+  height:500px;
+  margin-top: 10%;
+  margin-left:10%;
+  margin-right:10%;
+  text-align: center;
+  border-radius: 2%;
+}
+
+/* Profile */
+
+.profile-container-box{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color:#971b32a1;
+  display:flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  width:900px;
+  height:500px;
+  margin-top: 10%;
+  margin-left:10%;
+  margin-right:10%;
+  text-align: center;
+  border-radius: 2%;
 }
 
 /* Search Bar */
@@ -128,7 +156,6 @@
   margin-left:20px;
   margin-top:10px;
  border-radius:20px;
-
 }
 
 .search-container input {
@@ -244,15 +271,13 @@
   display:block;
 }
   .container {
- 
     position:relative;
-    top:-200px;
+    top: -200px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 1500px;
-    height:1000px;
-
+    height: 1000px;
   }
 
   .featured-box {
@@ -260,7 +285,7 @@
     
     display:flex;
     position:relative;
-    flex-wrap: non-wrap;
+    flex-wrap: wrap;
     padding: 20px;
     width:1200px;
     height:600px;
@@ -289,7 +314,6 @@
 
   .image-container {
     margin-top: 20px;
-    margin-right:500px;
     display: flex;
 
   }
