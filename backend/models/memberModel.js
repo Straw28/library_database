@@ -74,23 +74,26 @@ class MemberModel{
         try {
             // Parse the JSON data
             const user = JSON.parse(data);
-            console.log(user);
+            //console.log(user);
     
             // Destructure the username and password from parsed JSON
-            const { username, password } = user;
+            const { library_card_number, password } = user;
     
             // Query the database for the username and password
             const result = await pool.query(`
                 SELECT member_id
                 FROM members 
                 WHERE library_card_number = ? AND password = ?`, 
-                [username, password]
+                [library_card_number, password]
             );
-    
+            
+
             // Check if any rows are returned from the query
             if (result.length > 0) {
                 // Successful login, return member ID
-                return result[0].member_id;
+                console.log(result);
+                return result[0][0].member_id;
+                
             } else {
                 // No matching user found, throw an error
                 throw new Error('Invalid username or password.');

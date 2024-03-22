@@ -29,7 +29,9 @@ class MemberController{
     //login for a member
     async memberLogin(data){
         try {
+            console.log(data)
             let newmember = await MemberModel.memberLogin(data);
+            console.log(newmember);
             return newmember;
 
         } catch (error) {
