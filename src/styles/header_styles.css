@@ -117,15 +117,6 @@
 }
 /* Register */
 
-/* Search Bar */
-.search-container {
-  display: flex;
-  position: absolute;
-  margin-left:20px;
-  margin-top:10px;
- border-radius:20px;
-}
-
 .register-container-box{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color:#971b32a1;
@@ -139,6 +130,32 @@
   margin-right:10%;
   text-align: center;
   border-radius: 2%;
+}
+
+/* Profile */
+
+.profile-container-box{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color:#971b32a1;
+  display:flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  width:900px;
+  height:500px;
+  margin-top: 10%;
+  margin-left:10%;
+  margin-right:10%;
+  text-align: center;
+  border-radius: 2%;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  position: absolute;
+  margin-left:20px;
+  margin-top:10px;
+ border-radius:20px;
 }
 
 .search-container input {

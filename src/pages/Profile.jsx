@@ -9,13 +9,13 @@ function Profile(){
         name: 'John Doe',
         username: 'johndoe123',
         address: '123 Main St, Anytown, USA',
-        dateRegistered: '2024-03-20', // Example format: YYYY-MM-DD
-        birthdate: '1990-01-01' // Example format: YYYY-MM-DD
+        dateRegistered: '2024-03-20', 
+        birthdate: '1990-01-01' 
     };
 
     return (
         <>
-        <div style={{ overflowX: 'hidden', marginTop: '100px' }}><TopBar /></div>
+        <div style={{overflowX: 'hidden', marginTop: '100px'}}><TopBar /></div>
         
         </>
     );
