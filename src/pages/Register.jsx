@@ -81,7 +81,8 @@ function Register() {
     return(
         <>
         <div> <TopBar/></div>
-        <div className="register-container-box" style={{marginTop:'10%'}}>
+        
+        <div className="register-container-box" style={{padding:'0px', top:'50%', height: 'auto', marginLeft:'25%', position:'relative'}}>
             <div style={{marginTop:'3%', marginLeft:'35%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>eCard Registration</div>
             { <form style={{marginRight:'5%', marginLeft:'5%', width:'100%'}}>
                 <div class="input-container">
@@ -331,6 +332,7 @@ function Register() {
                 </div>
                 <button onClick={handleSubmit} type="button">Register</button>
             </form> }
+        
         </div>
         </>
     );

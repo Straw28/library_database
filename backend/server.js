@@ -51,7 +51,7 @@ const server = http.createServer(async(req, res) => {
         res.end(JSON.stringify({ message: error.message }));
     }
   }
-
+  
   else if (path === '/register' && method === 'POST') {
     try {
       // Receiving input data
@@ -67,6 +67,24 @@ const server = http.createServer(async(req, res) => {
       console.error('Error creating member:', error);
       res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ message: 'Failed to create member' }));
+    }
+  }
+
+  else if (path === '/member/login' && method === 'POST') {
+    try {
+      // Receiving input data
+      const data = await getReqData(req);
+      console.log('Received data:', data);
+
+      // Creating new member
+      const newMember = await new MemberController().memberLogin(data);
+        
+      res.writeHead(201, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(newMember));
+    } catch (error) {
+      console.error('Error Logging in member:', error);
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Failed to login member' }));
     }
   }
 

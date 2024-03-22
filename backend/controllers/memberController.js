@@ -25,6 +25,18 @@ class MemberController{
 
         }
     }
+
+    //login for a member
+    async memberLogin(data){
+        try {
+            let newmember = await MemberModel.memberLogin(data);
+            return newmember;
+
+        } catch (error) {
+            throw new Error(`Could not login.`);
+
+        }
+    }
     
 }
 

@@ -68,6 +68,39 @@ class MemberModel{
             throw new Error('Failed to create new customer.');
         }
     }
+
+    //member logs in
+    static async memberLogin(data) {
+        try {
+            // Parse the JSON data
+            const user = JSON.parse(data);
+            console.log(user);
+    
+            // Destructure the username and password from parsed JSON
+            const { username, password } = user;
+    
+            // Query the database for the username and password
+            const result = await pool.query(`
+                SELECT member_id
+                FROM members 
+                WHERE library_card_number = ? AND password = ?`, 
+                [username, password]
+            );
+    
+            // Check if any rows are returned from the query
+            if (result.length > 0) {
+                // Successful login, return member ID
+                return result[0].member_id;
+            } else {
+                // No matching user found, throw an error
+                throw new Error('Invalid username or password.');
+            }
+        } catch (err) {
+            console.log(err);
+            throw new Error('Failed to login.');
+        }
+    }
+    
 }
 
 export default MemberModel;
