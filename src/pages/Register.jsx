@@ -3,19 +3,36 @@ import '../styles/header_styles.css';
 import {Link} from 'react-router-dom';
 import TopBar from '../components/top_bar';
 
+
 function Register(){
+// library_card_number varchar(20) 
+// member_status enum('active','inactive') 
+// member_type varchar(20) 
+// first_name varchar(50) 
+// last_name varchar(50) 
+// email_address varchar(100) 
+// phone_number varchar(15) 
+// address varchar(255) 
+// date_of_birth date 
+// item_borrowing_history text 
+// device_borrowing_history text 
+// registration_date date 
+// expiration_date date 
+// requests text 
+// fine_id
     const [formData, setFormData] = useState({
-        username: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
         confirmPassword: '',
         birthdate: '',
         address: {
-            street: '',
-            unit: '',
-            city: '',
-            state: 'TX',
-            postalCode: ''
+          street: '',
+          unit: '',
+          city: '',
+          state: 'TX',
+          postalCode: ''
         }
     });
     
@@ -34,32 +51,50 @@ function Register(){
             setFormData({ ...formData, [name]: value });
         }
     };
-    
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        setFormData({
-          username: '',
-          email: '',
-          password: '',
-          confirmPassword: '',
-          birthdate: '',
-          address: {
-            street: '',
-            unit: '',
-            city: '',
-            state: 'TX',
-            postalCode: ''
-          }
-        });
+        // Adjust the formData to match your server's expected format
+        const adjustedFormData = {
+            ...formData,
+            first_name: formData.Fname,
+            last_name: formData.Lname,
+            birthdate: formData.birthdate, // Make sure the server expects this format
+            // Flatten address if necessary, or adjust as needed
+        };
+        delete adjustedFormData.Fname; // Clean up adjusted data as needed
+        delete adjustedFormData.Lname;
+        delete adjustedFormData.confirmPassword; // Typically not sent to server
+    
+        try {
+            const response = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(adjustedFormData)
+            });
+    
+            const data = await response.json(); // Assume we always get JSON back
+            if (response.ok) {
+                console.log(data);
+                alert('Registration successful');
+                // Reset formData here if necessary
+            } else {
+                // Handle non-ok responses
+                throw new Error(data.message || 'Network response was not ok');
+            }
+        } catch (error) {
+            console.error('Error registering member:', error);
+            alert('Failed to register member');
+        }
     };
 
+    
     return(
         <>
         <div style={{overflowX:'hidden', marginTop:'10px'}}><TopBar/></div>
         <div className="register-container-box" style={{marginTop:'10%'}}>
-            <div style={{marginTop:'3%', marginLeft:'35%', marginTop:'5%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>eCard Registration</div>
-            { <form onSubmit={handleSubmit} style={{marginRight:'5%', marginLeft:'5%', width:'100%'}}>
+            <div style={{marginTop:'3%', marginLeft:'35%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>eCard Registration</div>
+            { <form style={{marginRight:'5%', marginLeft:'5%', width:'100%'}}>
                 <div class="input-container">
                     <input
                         style={{
@@ -102,26 +137,6 @@ function Register(){
                     />
                 </div>
                 <div class="input-container">
-                    <input
-                        style={{
-                            width:'70%', 
-                            padding:'12px 20px', 
-                            margin:'8px 0', 
-                            boxSizing:'border-box', 
-                            position:'relative', 
-                            marginBottom:'5%', 
-                            borderRadius:'50px',
-                            textAlign:'center',
-                            marginRight:'20px'
-                        }}
-                        placeholder="Username"
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        required
-                    />
                     <input
                         style={{
                             width:'70%', 
@@ -305,7 +320,7 @@ function Register(){
                         required
                     />
                 </div>
-                <button type="submit">Register</button>
+                <button onClick={handleSubmit} type="button">Register</button>
             </form> }
         </div>
         </>

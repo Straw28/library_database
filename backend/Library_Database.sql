@@ -161,6 +161,7 @@ CREATE TABLE members (
     expiration_date DATE,
 	requests TEXT,
     fine_id INT,
+    password VARCHAR(255),
     PRIMARY KEY (member_id)
 );
 
