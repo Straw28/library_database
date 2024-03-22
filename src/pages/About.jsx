@@ -9,7 +9,8 @@ import Filter from '../components/filter';
 function About(){
     return(
     <>
-    <div className="about-me" style={{overflowX:'hidden', marginTop:'1%'}}>
+    <TopBar/>
+    <div className="about-me" style={{overflowX:'hidden', marginTop:'5%', position: "relative"}}>
       <h2>About Us</h2>
       <p>Welcome to our library! We are committed to creating a warm and enriching environment where members of our community can immerse themselves in the world of literature and knowledge.</p>
 
@@ -25,7 +26,7 @@ function About(){
       <h3>Our Services</h3>
       <p>Discover the array of services available at our library designed to enhance your reading and learning experience. Whether you're looking to borrow books, receive research assistance, or participate in our programs, our knowledgeable staff is here to assist you.</p>
 
-      <TopBar/>
+      
     </div>
     </>
     );
