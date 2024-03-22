@@ -8,8 +8,8 @@ import Filter from '../components/filter';
 
 const Book_Catalog=()=>{
     return(
-    <div >
-        <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
+    <>
+        <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
         <Filter/>
         {/* <div className="catalog-container" style ={{display:'flex', flexDirection:'column',position:'fixed', marginTop:'100px', width:'100vw', height:'80%'}}>
         
@@ -35,7 +35,7 @@ const Book_Catalog=()=>{
         
         </div> */}
 
-    </div>
+    </>
         
     );
 };

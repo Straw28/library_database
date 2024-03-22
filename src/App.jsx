@@ -12,6 +12,7 @@ import TopBar from './components/top_bar';
 import React from 'react';
 import './styles/header_styles.css'
 import Admin_Login from "./pages/Admin_Login";
+import Donation_Page from "./pages/Donation_Page";
 
 function App() {
   
@@ -31,6 +32,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/admin" element={<Admin_Login/>}/>
+          <Route path="/donations" element={<Donation_Page/>}/>
 
         </Routes>
       

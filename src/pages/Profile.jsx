@@ -27,7 +27,7 @@ function Profile(){
 
     return(
     <>
-    <div style={{overflowX:'hidden', marginTop:'100px'}}><TopBar/></div>
+    <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
     <div>
         <p>this is the profile page :)</p>
     </div>
