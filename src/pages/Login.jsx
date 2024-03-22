@@ -14,7 +14,7 @@ function Login(){
     
     return(
         <>
-        <div style={{overflowX:'hidden', marginTop:'100px'}}><TopBar/></div>
+       <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
         <div style={{display: 'flex', justifyContent: 'center' }}>
             <div className="login-container-box">
                 <form onSubmit={handleLogin} style={{marginTop:'8%', marginRight:'30%', marginLeft:'30%'}}>
