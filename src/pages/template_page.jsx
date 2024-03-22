@@ -6,9 +6,9 @@ import TopBar from '../components/top_bar';
 function template() {
 
   return (
-    <div style = {{overflowX:'hidden'}}>
-      <div style={{overflowX:'hidden', marginTop:'100px'}}><TopBar/></div>
-    </div>
+    <>
+      <div style={{overflowX:'hidden', marginTop:'1%'}}> <TopBar/></div>
+    </>
     );
 }
 
