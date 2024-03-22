@@ -8,6 +8,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Forgot from './pages/Forgot';
+import Profile from './pages/Profile';
 import TopBar from './components/top_bar';
 import React from 'react';
 import './styles/header_styles.css'
@@ -30,6 +32,8 @@ function App() {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/forgot" element={<Forgot/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="/admin" element={<Admin_Login/>}/>
 
         </Routes>

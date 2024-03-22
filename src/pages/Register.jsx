@@ -214,7 +214,7 @@ function Register(){
                             borderRadius:'50px',
                             textAlign:'center'
                         }}
-                        placeholder="TX"
+                        placeholder="State"
                         className="placeholder-black"
                         type="text"
                         id="state"
