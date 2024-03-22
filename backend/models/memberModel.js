@@ -25,10 +25,11 @@ class MemberModel{
             //data we get from user on the front end:
             const {
                 email,
+                phone_number,
                 password,
                 first_name,
                 last_name,
-                dob,
+                date_of_birth,
                 address
             } = user;
 
@@ -50,17 +51,15 @@ class MemberModel{
             // requests text 
             // fine_id int 
             // password varchar(255)
-
-            //defining the query
-            const sql = `
-            INSERT INTO members 
-                (library_card_number, member_status, member_type, first_name, last_name, email_address, address, date_of_birth, item_borrowing_history, device_borrowing_history, registration_date, expiration_date, requests, fine_id, password) 
-            VALUES 
-                (UUID(), 'active', 'regular', '${first_name}', '${last_name}', '${email}', '${address}', '${dob}', NULL, NULL, CURDATE(), NULL, NULL, NULL, '${password}');
-        `;
            
         //executing the query
-            await pool.query(sql);
+            await pool.query(`
+                INSERT INTO members 
+                    (library_card_number, member_status, member_type, first_name, last_name, email_address, phone_number, address, date_of_birth, item_borrowing_history, device_borrowing_history, registration_date, expiration_date, requests, fine_id, password) 
+                VALUES 
+                (UUID(), 'active', 'regular', '${first_name}', '${last_name}', '${email}', '${phone_number}', '${address}', '${date_of_birth}', NULL, NULL, CURDATE(), NULL, NULL, NULL, '${password}');
+            `);
+            
             console.log('New member created successfully.');
             return { message: 'New member created successfully.' };
         
