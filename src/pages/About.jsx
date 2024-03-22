@@ -4,13 +4,13 @@ import '../styles/catalog_styles.css';
 import Catalog from '../components/catalog';
 import TopBar from '../components/top_bar';
 import Filter from '../components/filter';
-//import 'About.css';
+import './About.css';
 
 function About(){
     return(
     <>
-    <TopBar/>
-    <div className="about-me" style={{overflowX:'hidden', marginTop:'5%', position: "relative"}}>
+    <div> <TopBar/> </div>
+    <div className="about-me" style={{overflowX:'hidden', marginTop:'10%', position: "relative"}}>
       <h2>About Us</h2>
       <p>Welcome to our library! We are committed to creating a warm and enriching environment where members of our community can immerse themselves in the world of literature and knowledge.</p>
 
