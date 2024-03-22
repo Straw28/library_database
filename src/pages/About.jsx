@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/header_styles.css';
 import '../styles/catalog_styles.css';
+import '../styles/about_styles.css';
 import Catalog from '../components/catalog';
 import TopBar from '../components/top_bar';
 import Filter from '../components/filter';
-import './About.css';
 
 function About(){
     return(
@@ -28,7 +28,11 @@ function About(){
 
       
     </div>
+    
     </>
+
+
+    
     );
 }
 
