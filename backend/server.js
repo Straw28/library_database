@@ -2,7 +2,7 @@
 import http from 'http';
 import url from 'url';
 import MemberController from './controllers/memberController.js';
-import itemsController from './controllers/itemsController.js';
+import itemsRoute from './routes/itemsRoute.js'
 import getReqData from './utils.js';
 
 const server = http.createServer(async(req, res) => {

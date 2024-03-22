@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import MenuItems from './menu_items';
 
 const Dropdown = ({ submenus, dropdown }) => {

@@ -13,8 +13,17 @@ function Login(){
     };
     
     return(
-        <>
+        <div style = {{overflowX:'hidden'}}>
         <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
+        <div className="page-body" 
+        style={{ 
+          overflowX:'hidden', 
+          overflowY:'hidden',  
+          position:'absolute', width:'100vw', 
+          marginTop:'1%', 
+          top:'150px', 
+          marginLeft:'1%'
+        }}></div>
         <div className="login-container-box">
         <form onSubmit={handleLogin} style={{marginTop:'15%', marginLeft:'10%'}}>
                         <label>
@@ -32,7 +41,7 @@ function Login(){
            <div style={{position:'relative',display:'flex',left:'-100%', marginTop:'175%'}}>Don't have an account? Register here</div> 
         </Link>
         </div>
-        </>
+        </div>
     );
 }
 
