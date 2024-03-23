@@ -59,7 +59,7 @@ function Home() {
                 </div>
               </Link>
                     
-              <Link to="/" style={{ textDecoration:'none'}}>
+              <Link to="/" style={{textDecoration:'none'}}>
                 <img src={flowers} alt="Image 3"className='featured-image' />
                 <div 
                   style={{

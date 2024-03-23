@@ -15,6 +15,7 @@ import React from 'react';
 import './styles/header_styles.css'
 import Admin_Login from "./pages/Admin_Login";
 import Donation_Page from "./pages/Donation_Page";
+import Holds from "./pages/Holds";
 
 function App() {
   
@@ -37,6 +38,8 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/admin" element={<Admin_Login/>}/>
           <Route path="/donations" element={<Donation_Page/>}/>
+          {/* <Route path="/profile" exact component={<Profile/>} />
+          <Route path="/profile/holds" component={<Holds/>} /> */}
 
         </Routes>
       
