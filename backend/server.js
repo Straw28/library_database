@@ -40,7 +40,7 @@ const server = http.createServer(async(req, res) => {
 
   } else if (path.includes('/api/member')) {
     MemberRoute(req, res, path, method);
-   
+
   } else if (path.includes('/api/staff')) {
     StaffRoute(req, res, path, method);
 
