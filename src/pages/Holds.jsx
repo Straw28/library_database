@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import '../styles/header_styles.css';
 import TopBar from '../components/top_bar';
 
-function Profile(){
+function Holds(){
 
     // Example user object (replace with actual user data)
     const user = {
@@ -54,13 +54,7 @@ function Profile(){
                 <div>
                     <div className="profile-container-box">
                     <div style={{marginLeft:'20px', fontSize:'20px', color:'#3c4043'}}>
-                        <h1 style={{marginTop:'5%'}}>User Profile</h1>
-                        <p style={{marginTop:'5%'}}><strong>Name:</strong> {user.name}</p>
-                        <p style={{marginTop:'2%'}}><strong>Barcode:</strong> {user.barcode}</p>
-                        <p style={{marginTop:'2%'}}><strong>Username:</strong> {user.username}</p>
-                        <p style={{marginTop:'2%'}}><strong>Address:</strong> {user.address}</p>
-                        <p style={{marginTop:'2%'}}><strong>Date Registered:</strong> {user.dateRegistered}</p>
-                        <p style={{marginTop:'2%'}}><strong>Birthdate:</strong> {user.birthdate}</p>
+                        <h1 style={{marginTop:'5%'}}>Holds</h1>
                     </div>
                     </div>
                     <div style={{marginTop:'3%', marginLeft:'5%'}}>
@@ -88,16 +82,4 @@ function Profile(){
     );
 }
 
-export default Profile;
-
-/* 
-{showDropdown && (
-                        <div className="dropdown-info-container">
-                            <p>{user.name}</p>
-                            <p>{user.username}</p>
-                            <p>{user.address}</p>
-                            <p>{user.dateRegistered}</p>
-                            <p>{user.birthdate}</p>
-                        </div>
-                    )}
-*/
+export default Holds;
