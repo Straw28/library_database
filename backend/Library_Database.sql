@@ -8,7 +8,7 @@ CREATE TABLE items (
     item_type VARCHAR(20) NOT NULL, -- This column specifies the type of item (book, ebook, dvd, etc.)
     barcode INT NOT NULL UNIQUE,
     creation_date DATE,
-    item_status ENUM('available', 'unavailable', 'on hold'),
+    item_status ENUM('available', 'checked out', 'on hold'),
     location VARCHAR(20),
     reservation_id VARCHAR(100) DEFAULT NULL,
     PRIMARY KEY (item_id)
@@ -148,10 +148,10 @@ CREATE TABLE members (
 	member_id INT AUTO_INCREMENT UNIQUE,
     library_card_number VARCHAR(20) UNIQUE,
     member_status ENUM('active', 'inactive'),
-	member_type VARCHAR(20),
+	member_type ENUM('regular'),
     first_name VARCHAR(50),
 	last_name VARCHAR(50),
-    email_address VARCHAR(100),
+    email_address VARCHAR(100) UNIQUE,
     phone_number VARCHAR(15),
     address VARCHAR(255),
 	date_of_birth DATE,

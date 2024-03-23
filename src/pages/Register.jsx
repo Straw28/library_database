@@ -3,7 +3,23 @@ import '../styles/header_styles.css';
 import { Link } from 'react-router-dom';
 import TopBar from '../components/top_bar';
 
-function Register() {
+
+function Register(){
+// library_card_number varchar(20) 
+// member_status enum('active','inactive') 
+// member_type varchar(20) 
+// first_name varchar(50) 
+// last_name varchar(50) 
+// email_address varchar(100) 
+// phone_number varchar(15) 
+// address varchar(255) 
+// date_of_birth date 
+// item_borrowing_history text 
+// device_borrowing_history text 
+// registration_date date 
+// expiration_date date 
+// requests text 
+// fine_id
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -39,20 +55,31 @@ function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // Adjust the formData to match your server's expected format
+        const adjustedFormData = {
+            ...formData,
+            first_name: formData.Fname,
+            last_name: formData.Lname,
+            birthdate: formData.birthdate, // Make sure the server expects this format
+            // Flatten address if necessary, or adjust as needed
+        };
+        delete adjustedFormData.Fname; // Clean up adjusted data as needed
+        delete adjustedFormData.Lname;
+        delete adjustedFormData.confirmPassword; // Typically not sent to server
+    
         try {
-            console.log('Form submitted:', formData);
-            // sending data to server
-            const response = await fetch("http://localhost:5000/register", {
+            const response = await fetch("http://localhost:5000/api/member/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(adjustedFormData)
             });
-
+    
+            const data = await response.json(); // Assume we always get JSON back
             if (response.ok) {
-                // Request was successful
-                console.log('Registration successful');
-                 // Optionally, you can reset the form data after successful registration
-                 setFormData({
+                console.log(data);
+                alert('Registration successful');
+                // Reset formData here if necessary
+                setFormData({
                     first_name: '',
                     last_name: '',
                     email: '',
@@ -69,12 +96,12 @@ function Register() {
                 });
 
             } else {
-                // Request failed
-                console.error('Registration failed');
+                // Handle non-ok responses
+                throw new Error(data.message || 'Network response was not ok');
             }
         } catch (error) {
-            // Handle any network or fetch-related errors
-            console.error('Error:', error);
+            console.error('Error registering member:', error);
+            alert('Failed to register member');
         }
     };
     
