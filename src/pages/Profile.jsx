@@ -27,9 +27,9 @@ function Profile(){
     };
 
     return (
-        <>
+        <div style={{flex:'column'}}>
             <div><TopBar/></div>
-            <div className = "profile-container" style = {{display: 'flex', marginLeft:'15%'}}>
+            <div className = "profile-container" style = {{top:'100px',position:'relative', height:'auto', display: 'flex', marginLeft:'15%',zIndex:'-199'}}>
                 <div className="profile-sidebar-container" style={{marginBottom:'3%'}}>
                     <div className="sidebar-container-box" style={{width:'auto', height:'auto', marginTop:'10%'}}>
                         <div style={{marginLeft:'2%', color:'#3c4043'}}>
@@ -85,7 +85,7 @@ function Profile(){
 
             </div>
 
-        </>
+        </div>
     );
 }
 
