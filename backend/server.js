@@ -2,11 +2,11 @@
 import http from 'http';
 import url from 'url';
 
-import itemsRoute from './routes/itemsRoute.js'
-import MemberController from './controllers/memberController.js';
-
-import { init_jwt, authenticate } from './jwt.js';
-import getReqData from './utils.js';
+import ItemsRoute from './routes/itemsRoute.js';
+import FinesRoute from './routes/finesRoute.js';
+import MemberRoute from './routes/memberRoute.js';
+import StaffRoute from './routes/staffRoute.js';
+import AdminRoute from './routes/adminRoute.js';
 
 const server = http.createServer(async(req, res) => {
   const path = url.parse(req.url, true).path;
@@ -25,78 +25,29 @@ const server = http.createServer(async(req, res) => {
     res.end();
     return;
 
-  } else if(path === '/api/items') {
-    itemsRoute(req, res, path, method);
-  } 
+  } else if (path.includes('/api/items')) {
+    ItemsRoute(req, res, path, method);
 
-  
-//----------------------------Member Operations------------------------------------------------------
- 
-  else if (path === '/member' && method === 'GET') {
-      try {
-        // set the status code and content-type
-        res.writeHead(200, {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-        });
-        // get the users
-        const members =  new MemberController().getAllMembers();
-      
-        // send the data
-        res.end(JSON.stringify(members));
-    } catch (error) {
-        // set error status code and content-type
-        res.writeHead(500, { "Content-Type": "application/json" });
-        // send error
-        res.end(JSON.stringify({ message: error.message }));
-    }
-  }
-  
-  else if (path === '/register' && method === 'POST') {
-    try {
-      // Receiving input data
-      const data = await getReqData(req);
-      console.log('Received data:', data);
+  // add books, ebooks, dvds, and more items
 
-      // Creating new member
-      const newMember = await new MemberController().createMember(data);
-        
-      res.writeHead(201, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(newMember));
-    } catch (error) {
-      console.error('Error creating member:', error);
-      res.writeHead(500, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ message: 'Failed to create member' }));
-    }
-  }
 
-  else if (path === '/member/login' && method === 'POST') {
-    try {
-      // Receiving input data
-      const data = await getReqData(req);
-      console.log('Received data:', data);
+  // add printers, laptops, and more ultilies
 
-      // Creating new member
-      const newMember = await new MemberController().memberLogin(data);
-        
-      res.writeHead(201, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(newMember));
-    } catch (error) {
-      console.error('Error Logging in member:', error);
-      res.writeHead(500, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ message: 'Failed to login member' }));
-    }
-  }
 
-  // else if(path === '/staff' && method === 'GET'){
-  //   // memberController.getAllMembers(req, res);
-  // }
-  
-  // else if(path === '/admin' && method === 'GET'){
-  //   // memberController.getAllMembers(req, res);
-  // }
 
-  else {
+  } else if (path.includes('/api/fines')) {
+    FinesRoute(req, res, path, method);
+
+  } else if (path.includes('/api/member')) {
+    MemberRoute(req, res, path, method);
+   
+  } else if (path.includes('/api/staff')) {
+    StaffRoute(req, res, path, method);
+
+  } else if (path.includes('/api/admin')) {
+    AdminRoute(req, res, path, method);
+    
+  } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Route Not Found'}));
 
@@ -106,5 +57,3 @@ const server = http.createServer(async(req, res) => {
 const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-

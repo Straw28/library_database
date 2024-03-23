@@ -1,0 +1,43 @@
+.about-me {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 50px 0;
+    border: 10px solid #ccc;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 300px;
+    max-width: 200%;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.about-me h2, .about-me h3 {
+    color: #333;
+}
+.about-me h2 {
+    font-size: 40px;
+    font-style: italic;
+}
+.about-me p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-me:hover {
+    color: #f00;
+    background-color: #f8f8f8;
+}
+
+
+
+
+  

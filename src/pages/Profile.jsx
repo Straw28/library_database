@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import '../styles/header_styles.css';
 import TopBar from '../components/top_bar';
 
@@ -15,51 +15,77 @@ function Profile(){
         birthdate: '1990-01-01' 
     };
 
-    const [showDropdown, setShowDropdown] = useState(false);
-
-    const toggleDropdown = () => {
-        setShowDropdown(!showDropdown);
-    };
+    const [showMessagesDropdown, setShowMessagesDropdown] = useState(false);
+    const [showUserDropdown, setShowUserDropdown] = useState(false);
 
     const toggleMessagesDropdown = () => {
         setShowMessagesDropdown(!showMessagesDropdown);
     };
 
+    const toggleUserDropdown = () => {
+        setShowUserDropdown(!showUserDropdown);
+    };
+
     return (
-        <>
-        <div><TopBar /></div>
-            <div className="profile-sidebar-container" style={{marginBottom:'3%'}}>
-                <div className="sidebar-container-box"></div>
-                <div>
-                    <div className="profile-container-box">
-                    <div style={{ marginLeft: '20px' }}>
-                        <h1 style={{marginTop:'5%'}}>User Profile</h1>
-                        <p style={{marginTop:'5%'}}><strong>Name:</strong> {user.name}</p>
-                        <p style={{marginTop:'2%'}}><strong>Barcode:</strong> {user.barcode}</p>
-                        <p style={{marginTop:'2%'}}><strong>Username:</strong> {user.username}</p>
-                        <p style={{marginTop:'2%'}}><strong>Address:</strong> {user.address}</p>
-                        <p style={{marginTop:'2%'}}><strong>Date Registered:</strong> {user.dateRegistered}</p>
-                        <p style={{marginTop:'2%'}}><strong>Birthdate:</strong> {user.birthdate}</p>
+        <div style={{flex:'column'}}>
+            <div><TopBar/></div>
+            <div className = "profile-container" style = {{top:'100px',position:'relative', height:'auto', display: 'flex', marginLeft:'15%',zIndex:'-199'}}>
+                <div className="profile-sidebar-container" style={{marginBottom:'3%'}}>
+                    <div className="sidebar-container-box" style={{width:'auto', height:'auto', marginTop:'10%'}}>
+                        <div style={{marginLeft:'2%', color:'#3c4043'}}>
+                            <h1 style={{fontSize:'20px', marginTop:'2%'}}>My Account</h1>
+                            <p style={{fontSize:'20px', marginTop:'5%'}}>{user.name}</p>
+                            <Link to='/' style={{textDecoration:'none', color:'#3c4043'}}>
+                                <div style={{fontSize:'16px', marginTop:'5%', marginLeft:'10%'}}>My Record</div>
+                            </Link>
+                            <Link to='/' style={{textDecoration:'none', color:'#3c4043'}}>
+                                <div style={{fontSize:'16px', marginTop:'5%', marginLeft:'10%'}}>Items Out</div>
+                            </Link>
+                            <Link to='/profile/holds' style={{textDecoration:'none', color:'#3c4043'}}>
+                                <div style={{fontSize:'16px', marginTop:'5%', marginLeft:'10%'}}>Holds</div>
+                            </Link>
+                            <Link to='/' style={{textDecoration:'none', color:'#3c4043'}}>
+                                <div style={{fontSize:'16px', marginTop:'5%', marginLeft:'10%'}}>Fines</div>
+                            </Link>
+                            <Link to='/' style={{textDecoration:'none', color:'#3c4043'}}>
+                                <div style={{fontSize:'16px', marginTop:'5%'}}>Logout</div>
+                            </Link>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="profile-container-box">
+                        <div style={{marginLeft:'20px', fontSize:'20px', color:'#3c4043'}}>
+                            <h1 style={{marginTop:'5%'}}>User Profile</h1>
+                            <p style={{marginTop:'5%'}}><strong>Name:</strong> {user.name}</p>
+                            <p style={{marginTop:'2%'}}><strong>Barcode:</strong> {user.barcode}</p>
+                            <p style={{marginTop:'2%'}}><strong>Username:</strong> {user.username}</p>
+                            <p style={{marginTop:'2%'}}><strong>Address:</strong> {user.address}</p>
+                            <p style={{marginTop:'2%'}}><strong>Date Registered:</strong> {user.dateRegistered}</p>
+                            <p style={{marginTop:'2%'}}><strong>Birthdate:</strong> {user.birthdate}</p>
+                        </div>
+                        </div>
+                        <div style={{marginTop:'3%', marginLeft:'5%'}}>
+                            <button onClick={toggleMessagesDropdown}>Messages</button>
+                            {showMessagesDropdown && (
+                                <div className="dropdown-info-container" style={{marginLeft:'0%'}}>
+                                    <p style={{marginTop:'1%', marginBottom:'1%', marginLeft:'1%'}}>message :p</p>
+                                </div>
+                            )}
+                        </div>
+                        <div style={{marginTop:'3%', marginLeft:'5%'}}>
+                            <button onClick={toggleUserDropdown}>Change User/Password</button>
+                            {showUserDropdown && (
+                                <div className="dropdown-info-container">
+                                    {/* Dropdown content for Change User/Password */}
+                                </div>
+                            )}
+                        </div>
                     </div>
                     </div>
-                    <div className="dropdown-container-box">
-                        <button onClick={toggleDropdown}>Messages</button>
-                        {showDropdown && (
-                            <div className="dropdown-info-container"></div>
-                        )}
-                    </div>
-                    <div className="dropdown-container-box">
-                    <button onClick={toggleDropdown}>Change User/Password</button>
-                        {showDropdown && (
-                            <div className="dropdown-info-container"></div>
-                        )}
-                    </div>
-                </div>
-                
 
             </div>
 
-        </>
+        </div>
     );
 }
 

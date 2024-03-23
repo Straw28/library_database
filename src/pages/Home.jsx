@@ -33,7 +33,7 @@ function Home() {
             </div>
 
             <div className="image-container">
-              <Link to="/books" style={{ textDecoration:'none'}}>
+              <Link to="/search" style={{ textDecoration:'none'}}>
                 <img src={bookstack} alt="Image 1" className='featured-image'/>
                 <div 
                   style={{ 
@@ -59,7 +59,7 @@ function Home() {
                 </div>
               </Link>
                     
-              <Link to="/" style={{ textDecoration:'none'}}>
+              <Link to="/donations" style={{textDecoration:'none'}}>
                 <img src={flowers} alt="Image 3"className='featured-image' />
                 <div 
                   style={{

@@ -17,14 +17,14 @@ function TopBar() {
 
     return (
         <>
-        <div className='top-container' style={{width:'auto', height: '65px', top:'0%', display:'flex', overflowX:'hidden', overflowY:'hidden', marginBottom:'1%', position:'relative'}}>
+        <div className='top-container' style={{width:'auto', height: '65px', top:'0%', display:'flex', overflowX:'hidden', overflowY:'hidden', position:'relative', backgroundClor:'aqua'}}>
             
             <div className='topbar-buttons-container' style={{ marginTop: '0%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', width: '99.5%' }}>
                 <Link to='/login'> <button className='button-17'  style={{ }}>Login</button> </Link> 
                 <button className='button-17' onClick={toggleHours} style={{marginLeft:'25px'}}>Hours</button>
             </div>
             
-            <div className='lib-logo-and-text' >Madea Public Library</div>
+            <div className='lib-logo-and-text' style={{marginLeft:'1.5%'}}>Madea Public Library</div>
         </div>
 
         <div>

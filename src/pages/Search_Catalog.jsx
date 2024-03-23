@@ -6,9 +6,9 @@ import TopBar from '../components/top_bar';
 import Filter from '../components/filter';
 
 
-const Book_Catalog=()=>{
+const Search_Catalog=()=>{
     return(
-    <>
+    <div>
         <div> <TopBar/></div>
         <Filter/>
         {/* <div className="catalog-container" style ={{display:'flex', flexDirection:'column',position:'fixed', marginTop:'100px', width:'100vw', height:'80%'}}>
@@ -35,9 +35,9 @@ const Book_Catalog=()=>{
         
         </div> */}
 
-    </>
+    </div>
         
     );
 };
 
-export default Book_Catalog;
+export default Search_Catalog;
