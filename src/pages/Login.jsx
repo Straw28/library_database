@@ -5,11 +5,38 @@ import TopBar from '../components/top_bar';
 
 function Login(){
     
-    const [loginVisible, setLoginVisible] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        // Your login logic here
+        try {
+            const response = await fetch('http://localhost:5000/api/member/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Login failed');
+            }
+
+            const data = await response.json();
+            const token = data.token;
+
+            // Store token in localStorage or sessionStorage
+            localStorage.setItem('token', token);
+
+            // Redirect or perform any other actions upon successful login
+        } catch (error) {
+            console.error('Login failed:', error);
+            alert('Failed to login');
+        }
     };
     
     return(
