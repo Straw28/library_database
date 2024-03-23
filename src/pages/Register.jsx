@@ -67,7 +67,7 @@ function Register(){
         delete adjustedFormData.confirmPassword; // Typically not sent to server
     
         try {
-            const response = await fetch("http://localhost:5000/register", {
+            const response = await fetch("http://localhost:5000/api/member/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(adjustedFormData)
@@ -78,6 +78,21 @@ function Register(){
                 console.log(data);
                 alert('Registration successful');
                 // Reset formData here if necessary
+                setFormData({
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                    birthdate: '',
+                    address: {
+                        street: '',
+                        unit: '',
+                        city: '',
+                        state: 'TX',
+                        postalCode: ''
+                    }
+                });
             } else {
                 // Handle non-ok responses
                 throw new Error(data.message || 'Network response was not ok');

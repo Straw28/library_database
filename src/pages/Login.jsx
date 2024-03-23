@@ -27,7 +27,7 @@ function Login(){
         <div className="login-container-box">
         <form onSubmit={handleLogin} style={{marginTop:'15%', marginLeft:'10%'}}>
                         <label>
-                            <div style={{fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontSize: '20px',fontWeight: '500'}}>Username:</div>
+                            <div style={{fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontSize: '20px',fontWeight: '500'}}>Email:</div>
                             <input type="text" style={{width: '100%', padding: '12px 20px', margin: '8px 0', boxSizing: 'border-box', position:'relative', marginBottom:'5%'}} />
                         </label>
                         <label>

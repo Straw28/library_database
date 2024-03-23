@@ -1,12 +1,14 @@
 // backend/routes/itemsRoute.js
-import itemsController from '../controllers/itemsController.js';
+import ItemsController from '../controllers/itemsController.js';
 
 function itemsRoute(req, res, path, method) {
   if (path === '/api/items' && method === 'GET') {
-    itemsController.getItems(req, res);
+    ItemsController.getAllItems(req, res);
+  } else if (path === '/api/items/checked-out' && method === 'GET') {
+    ItemsController.getAllCheckedOutItems(req,res);
   } else if (path === '/api/items' && method === 'POST') {
     const itemData = JSON.parse(req.body);
-    itemsController.createItem(req,res,itemData);
+    ItemsController.createItem(req,res,itemData);
   } else {
     // Handle other HTTP methods if needed
     res.writeHead(405, { 'Content-Type': 'application/json' });
