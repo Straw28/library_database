@@ -1,33 +1,17 @@
 import React, { useState } from 'react';
-import '../styles/header_styles.css';
-import { Link } from 'react-router-dom';
+import '../styles/header_styles.css'
 import TopBar from '../components/top_bar';
 
 
-function Register(){
-// library_card_number varchar(20) 
-// member_status enum('active','inactive') 
-// member_type varchar(20) 
-// first_name varchar(50) 
-// last_name varchar(50) 
-// email_address varchar(100) 
-// phone_number varchar(15) 
-// address varchar(255) 
-// date_of_birth date 
-// item_borrowing_history text 
-// device_borrowing_history text 
-// registration_date date 
-// expiration_date date 
-// requests text 
-// fine_id
+function Donation_Page() {
+
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
         email: '',
         password: '',
         confirmPassword: '',
-        date_of_birth: '',
-        phone: '',
+        birthdate: '',
         address: {
             street: '',
             unit: '',
@@ -55,37 +39,26 @@ function Register(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Adjust the formData to match your server's expected format
-        const adjustedFormData = {
-            ...formData,
-            first_name: formData.Fname,
-            last_name: formData.Lname,
-            birthdate: formData.birthdate, // Make sure the server expects this format
-            // Flatten address if necessary, or adjust as needed
-        };
-        delete adjustedFormData.Fname; // Clean up adjusted data as needed
-        delete adjustedFormData.Lname;
-        delete adjustedFormData.confirmPassword; // Typically not sent to server
-    
         try {
-            const response = await fetch("http://localhost:5000/api/member/register", {
+            console.log('Form submitted:', formData);
+            // sending data to server
+            const response = await fetch("http://localhost:5000/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(adjustedFormData)
+                body: JSON.stringify(formData)
             });
     
-            const data = await response.json(); // Assume we always get JSON back
             if (response.ok) {
-                console.log(data);
-                alert('Registration successful');
-                // Reset formData here if necessary
+                // Request was successful
+                console.log('Registration successful');
+                // Optionally, you can reset the form data after successful registration
                 setFormData({
                     first_name: '',
                     last_name: '',
                     email: '',
                     password: '',
                     confirmPassword: '',
-                    date_of_birth: '',
+                    birthdate: '',
                     address: {
                         street: '',
                         unit: '',
@@ -94,25 +67,46 @@ function Register(){
                         postalCode: ''
                     }
                 });
-
             } else {
-                // Handle non-ok responses
-                throw new Error(data.message || 'Network response was not ok');
+                // Request failed
+                console.error('Registration failed');
             }
         } catch (error) {
-            console.error('Error registering member:', error);
-            alert('Failed to register member');
+            // Handle any network or fetch-related errors
+            console.error('Error:', error);
         }
     };
-    
-    return(
-        <>
-        <div> <TopBar/></div>
-        
-        <div className="register-container-box" style={{padding:'0px', top:'50%', height: 'auto', marginLeft:'25%', position:'relative'}}>
-            <div style={{marginTop:'3%', marginLeft:'35%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>eCard Registration</div>
-            { <form style={{marginRight:'5%', marginLeft:'5%', width:'100%'}}>
-                <div class="input-container">
+
+  return (
+    <div style={{flex:'column'}}>
+        <div><TopBar/></div>
+        <div className='thank-you-container' style={{ width: 'auto', height: 'auto', marginTop: '5%', display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center' }}>
+            <h1 style={{ textAlign: 'center', fontFamily:'"Google Sans",Roboto,Arial,sans-serif', color:'#3c4043' }}>Thank you for supporting the Madea Public Library!</h1>
+            <p style={{ fontWeight:'bold',marginTop:'3%', textAlign: 'center', fontFamily:'"Google Sans",Roboto,Arial,sans-serif', color:'#3c4043', paddingBottom:'20px'}}>Scroll down to make an online donation, or click here to learn about other ways to make a gift such as through estate planning, gifts of stock, or a Donor Advised Fund.</p>
+            <hr class="horizontal-line" style={{borderTop: '2px solid rgb(96, 179, 206)', width:'80%'}}></hr>
+        </div>
+        <div className='donation-container' style={{width: 'auto', height: 'auto',marginTop: '2%', display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center'}}>
+            <p style={{marginTop:'3%', marginRight:'65%', textAlign: 'center', fontFamily:'"Google Sans",Roboto,Arial,sans-serif', color:'#316a86', marginBottom:'10px', fontSize:'27px'}}>Gift Amount</p>
+            <hr style={{borderTop:'2px solid black', width:'70%', align:'center'}}></hr>
+            <div className='gift-amount-container' style={{display:'flex', padding:'20px', marginTop:'1px', flexDirection:'column'}}>
+                <div className='one-time-or-recurring-donation' style={{justifyContent:'left'}}>
+                    <button className="donation-button" style={{}}>One-time donation</button>
+                    <button className="donation-button" style = {{marginLeft:'20px'}}>Recurring donation</button>
+                </div>
+                <div className='donation-amount' style={{marginTop:'10px', display:'flex', paddingBottom:'20px'}}>
+                    <button className="donation-button" style = {{marginRight:'10px', padding:'10 10', fontSize:'30px'}}>$65</button>
+                    <button className="donation-button" style = {{marginRight:'10px', padding:'10 10', fontSize:'30px'}}>$100</button>
+                    <button className="donation-button" style = {{marginRight:'10px', padding:'10 10', fontSize:'30px'}}>$250</button>
+                    <button className="donation-button" style = {{marginRight:'10px', padding:'10 10,', fontSize:'30px'}}>$500</button>
+                    <button className="donation-button" style = {{marginRight:'10px', padding:'10 10',  fontSize:'30px'}}>Other</button>
+                    
+                </div>
+            </div>
+            <p style={{marginTop:'3%', marginRight:'62%', textAlign: 'center', fontFamily:'"Google Sans",Roboto,Arial,sans-serif', color:'#316a86', marginBottom:'10px', fontSize:'27px'}}>Donor Information</p>
+            <hr style={{borderTop:'2px solid black', width:'70%', align:'center'}}></hr>
+            <div className='donor-information-container' style={{marginRight:'10%'}}>
+            { <form>
+                <div class="input-container" style = {{display:'flex'}}>
                     <input
                         style={{
                             width:'70%', 
@@ -123,13 +117,14 @@ function Register(){
                             marginBottom:'5%', 
                             borderRadius:'50px',
                             textAlign:'center',
-                            marginRight:'20px'
+                            marginRight:'20px',
+                            align: 'center'
                         }}
                         placeholder="First Name"
                         type="text"
-                        id="first_name"
-                        name="first_name"
-                        value={formData.first_name}
+                        id="Fname"
+                        name="Fname"
+                        value={formData.Fname}
                         onChange={handleChange}
                         required
                     />
@@ -142,13 +137,14 @@ function Register(){
                             position:'relative', 
                             marginBottom:'5%', 
                             borderRadius:'50px',
-                            textAlign:'center'
+                            textAlign:'center',
+                            align: 'center'
                         }}
                         placeholder="Last Name"
                         type="text"
-                        id="last_name"
-                        name="last_name"
-                        value={formData.last_name}
+                        id="Lname"
+                        name="Lname"
+                        value={formData.Lname}
                         onChange={handleChange}
                         required
                     />
@@ -173,28 +169,8 @@ function Register(){
                         onChange={handleChange}
                         required
                     />
-                    <input
-                        style={{
-                            width: '70%',
-                            padding: '12px 20px',
-                            margin: '8px 0',
-                            boxSizing: 'border-box',
-                            position: 'relative',
-                            marginBottom: '5%',
-                            borderRadius: '50px',
-                            textAlign: 'center',
-                            marginRight: '20px'
-                        }}
-                        placeholder="Phone Number"
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                    />
                 </div>
-                <div class="input-container">
+                <div class="input-container" style={{display:'flex'}}>
                     <input
                         style={{
                             width:'70%', 
@@ -207,7 +183,7 @@ function Register(){
                             textAlign:'center',
                             marginRight:'20px'
                         }}
-                        placeholder="StreetAddress"
+                        placeholder="Address"
                         type="text"
                         id="street"
                         name="address.street"
@@ -234,7 +210,7 @@ function Register(){
                         onChange={handleChange}
                     />
                 </div>
-                <div class="input-container">
+                <div class="input-container" style = {{display:'flex'}}>
                     <input
                         style={{
                             width:'70%', 
@@ -296,73 +272,23 @@ function Register(){
                         onChange={handleChange}
                         required
                     />
-                    <input
-                        style={{
-                            width:'70%', 
-                            padding:'12px 20px', 
-                            margin:'8px 0', 
-                            boxSizing:'border-box', 
-                            position:'relative', 
-                            marginBottom:'5%', 
-                            borderRadius:'50px',
-                            textAlign:'center'
-                        }}
-                        placeholder="Birthdate"
-                        type="date"
-                        id="date_of_birth"
-                        name="date_of_birth"
-                        value={formData.date_of_birth}
-                        onChange={handleChange}
-                        required
-                    />
                 </div>
-                <div class="input-container">
-                    <input
-                        style={{
-                            width:'70%', 
-                            padding:'12px 20px', 
-                            margin:'8px 0', 
-                            boxSizing:'border-box', 
-                            position:'relative', 
-                            marginBottom:'5%', 
-                            borderRadius:'50px',
-                            textAlign:'center',
-                            marginRight:'20px'
-                        }}
-                        placeholder="Password"
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        style={{
-                            width:'70%', 
-                            padding:'12px 20px', 
-                            margin:'8px 0', 
-                            boxSizing:'border-box', 
-                            position:'relative', 
-                            marginBottom:'5%', 
-                            borderRadius:'50px',
-                            textAlign:'center'
-                        }}
-                        placeholder="Confrim Password"
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button onClick={handleSubmit} type="button">Register</button>
+                <label style={{ display: 'block', padding:'10px' }}><input name="anonGift" type="checkbox" style={{ width: '30px', height: '30px', textAlign:'center' }}></input>I would like the gift to remain anonymous</label>
+                <label style={{ display: 'block', padding:'10px'  }}><input name="dedGift" type="checkbox" style={{ width: '30px', height: '30px', textAlign:'center' }}></input>I would like to dedicate this gift</label>
             </form> }
-        
+            </div>   
+            
+            <p style={{marginTop:'3%', marginRight:'67%', textAlign: 'center', fontFamily:'"Google Sans",Roboto,Arial,sans-serif', color:'#316a86', marginBottom:'10px', fontSize:'27px'}}>Payment</p>
+            <hr style={{borderTop:'2px solid black', width:'70%', align:'center'}}></hr>
+            <div className = 'payment-method-container' style={{marginRight:'11%'}}>
+                <h3 style={{fontFamily:'"Google Sans",Roboto,Arial,sans-serif', color:'#316a86', display:'flex'}}>Choose payment method:</h3>
+                <label style={{ display: 'block', padding:'10px' }}><input name="credcard" type="checkbox" style={{ width: '30px', height: '30px', textAlign:'center' }}></input> Use a credit card or wallet</label>
+                <label style={{ display: 'block', padding:'10px'  }}><input name="bank-account" type="checkbox" style={{ width: '30px', height: '30px', textAlign:'center' }}></input> Use a bank account (direct debit)</label>
+                <button className="donation-button" style={{marginTop:'20px', marginBottom:'20px'}}>Give Securely via Credit Card, Debit Card or Paypal</button>
+            </div>
         </div>
-        </>
+    </div>
     );
 }
 
-export default Register;
+export default Donation_Page;

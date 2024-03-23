@@ -23,10 +23,11 @@ class MemberModel{
             //data we get from user on the front end:
             const {
                 email,
+                phone_number,
                 password,
                 first_name,
                 last_name,
-                dob,
+                date_of_birth,
                 address
             } = user;
 

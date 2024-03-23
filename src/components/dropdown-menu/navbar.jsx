@@ -7,18 +7,8 @@ const menuItemsData = [
     },
       
     {
-      title: 'Books',
-      url: '/books',
-    },
-
-    {
-      title: 'EBooks',
-      url: '/ebooks',
-    },
-
-    {
-      title: 'DVDs',
-      url: '/dvds',
+      title: 'Search',
+      url: '/search',
     },
             
     {
