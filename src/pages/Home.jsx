@@ -33,7 +33,7 @@ function Home() {
             </div>
 
             <div className="image-container">
-              <Link to="/books" style={{ textDecoration:'none'}}>
+              <Link to="/search" style={{ textDecoration:'none'}}>
                 <img src={bookstack} alt="Image 1" className='featured-image'/>
                 <div 
                   style={{ 

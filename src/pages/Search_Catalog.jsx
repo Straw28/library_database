@@ -8,7 +8,7 @@ import Filter from '../components/filter';
 
 const Search_Catalog=()=>{
     return(
-    <>
+    <div>
         <div> <TopBar/></div>
         <Filter/>
         {/* <div className="catalog-container" style ={{display:'flex', flexDirection:'column',position:'fixed', marginTop:'100px', width:'100vw', height:'80%'}}>
@@ -35,7 +35,7 @@ const Search_Catalog=()=>{
         
         </div> */}
 
-    </>
+    </div>
         
     );
 };
