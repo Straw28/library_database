@@ -1,3 +1,4 @@
+// backend/controllers/itemsController.js
 import ItemsModel from '../models/itemsModel.js';
 
 class ItemsController {

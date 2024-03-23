@@ -249,6 +249,7 @@ body {
   height:50px;
   z-index: -1;
   margin-top:7px;
+  margin-bottom:10px;
   padding:30px;
 }
 
@@ -383,4 +384,29 @@ body {
     margin: 0 25px; /* Add space between images */
   }
 
-
+  .donation-button {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(96, 179, 206);
+    border-color: rgb(96, 179, 206);
+    padding:25px;
+    border-radius: 15px;
+    cursor: pointer;
+    fill: currentcolor;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+  }
+  
+  .donation-button:hover {
+    background-color: #5b9bbb;
+    border-color: #5b9bbb;
+  }
+  
+  .donation-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(96, 179, 206, 0.5);
+  }
+  
+  .donation-button:active {
+    background-color: #468192;
+    border-color: #468192;
+  }
+  

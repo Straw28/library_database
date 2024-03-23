@@ -1,41 +1,26 @@
 import React, { useState } from 'react';
 import '../styles/header_styles.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import TopBar from '../components/top_bar';
 
-
-function Register(){
-//     library_card_number varchar(20) 
-// member_status enum('active','inactive') 
-// member_type varchar(20) 
-// first_name varchar(50) 
-// last_name varchar(50) 
-// email_address varchar(100) 
-// phone_number varchar(15) 
-// address varchar(255) 
-// date_of_birth date 
-// item_borrowing_history text 
-// device_borrowing_history text 
-// registration_date date 
-// expiration_date date 
-// requests text 
-// fine_id
+function Register() {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
         email: '',
         password: '',
         confirmPassword: '',
-        birthdate: '',
+        date_of_birth: '',
+        phone: '',
         address: {
-          street: '',
-          unit: '',
-          city: '',
-          state: 'TX',
-          postalCode: ''
+            street: '',
+            unit: '',
+            city: '',
+            state: 'TX',
+            postalCode: ''
         }
     });
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name.includes('address.')) {
@@ -62,18 +47,18 @@ function Register(){
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)
             });
-    
+
             if (response.ok) {
                 // Request was successful
                 console.log('Registration successful');
-                // Optionally, you can reset the form data after successful registration
-                setFormData({
+                 // Optionally, you can reset the form data after successful registration
+                 setFormData({
                     first_name: '',
                     last_name: '',
                     email: '',
                     password: '',
                     confirmPassword: '',
-                    birthdate: '',
+                    date_of_birth: '',
                     address: {
                         street: '',
                         unit: '',
@@ -82,6 +67,7 @@ function Register(){
                         postalCode: ''
                     }
                 });
+
             } else {
                 // Request failed
                 console.error('Registration failed');
@@ -91,12 +77,12 @@ function Register(){
             console.error('Error:', error);
         }
     };
-
     
     return(
         <>
         <div> <TopBar/></div>
-        <div className="register-container-box" style={{marginTop:'10%'}}>
+        
+        <div className="register-container-box" style={{padding:'0px', top:'50%', height: 'auto', marginLeft:'25%', position:'relative'}}>
             <div style={{marginTop:'3%', marginLeft:'35%', fontWeight:'700', fontSize:'30px', fontFamily: '"Google Sans",Roboto,Arial,sans-serif'}}>eCard Registration</div>
             { <form style={{marginRight:'5%', marginLeft:'5%', width:'100%'}}>
                 <div class="input-container">
@@ -114,9 +100,9 @@ function Register(){
                         }}
                         placeholder="First Name"
                         type="text"
-                        id="Fname"
-                        name="Fname"
-                        value={formData.Fname}
+                        id="first_name"
+                        name="first_name"
+                        value={formData.first_name}
                         onChange={handleChange}
                         required
                     />
@@ -133,9 +119,9 @@ function Register(){
                         }}
                         placeholder="Last Name"
                         type="text"
-                        id="Lname"
-                        name="Lname"
-                        value={formData.Lname}
+                        id="last_name"
+                        name="last_name"
+                        value={formData.last_name}
                         onChange={handleChange}
                         required
                     />
@@ -157,6 +143,26 @@ function Register(){
                         id="email"
                         name="email"
                         value={formData.email}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        style={{
+                            width: '70%',
+                            padding: '12px 20px',
+                            margin: '8px 0',
+                            boxSizing: 'border-box',
+                            position: 'relative',
+                            marginBottom: '5%',
+                            borderRadius: '50px',
+                            textAlign: 'center',
+                            marginRight: '20px'
+                        }}
+                        placeholder="Phone Number"
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleChange}
                         required
                     />
@@ -276,9 +282,9 @@ function Register(){
                         }}
                         placeholder="Birthdate"
                         type="date"
-                        id="birthdate"
-                        name="birthdate"
-                        value={formData.birthdate}
+                        id="date_of_birth"
+                        name="date_of_birth"
+                        value={formData.date_of_birth}
                         onChange={handleChange}
                         required
                     />
@@ -326,6 +332,7 @@ function Register(){
                 </div>
                 <button onClick={handleSubmit} type="button">Register</button>
             </form> }
+        
         </div>
         </>
     );

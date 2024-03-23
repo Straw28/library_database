@@ -1,0 +1,46 @@
+.contact {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact h2, .contact h3 {
+    color: #007BFF;
+}
+
+.contact p, .contact ul {
+    line-height: 1.6;
+}
+
+.contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact li {
+    margin-bottom: 10px;
+    padding-left: 1.5em;
+    text-indent: -0.5em;
+}
+
+.contact li::before {
+    content: "•";
+    color: #007BFF;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.contact h3 + ul li::before {
+    content: "👤";
+    color: #6c757d;
+}
+
+.top-bar {
+    margin-bottom: 20px;
+}
