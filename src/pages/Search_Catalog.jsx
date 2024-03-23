@@ -6,7 +6,7 @@ import TopBar from '../components/top_bar';
 import Filter from '../components/filter';
 
 
-const Book_Catalog=()=>{
+const Search_Catalog=()=>{
     return(
     <>
         <div> <TopBar/></div>
@@ -40,4 +40,4 @@ const Book_Catalog=()=>{
     );
 };
 
-export default Book_Catalog;
+export default Search_Catalog;

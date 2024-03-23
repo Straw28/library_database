@@ -24,7 +24,7 @@ function TopBar() {
                 <button className='button-17' onClick={toggleHours} style={{marginLeft:'25px'}}>Hours</button>
             </div>
             
-            <div className='lib-logo-and-text' >Madea Public Library</div>
+            <div className='lib-logo-and-text'>Madea Public Library</div>
         </div>
 
         <div>

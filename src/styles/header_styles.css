@@ -110,7 +110,7 @@
     font-weight: 700;
     font-size: 30px;
     position:absolute;
-    top:1%;
+    top:10%;
     z-index: 10;
     padding:10px;
     display:flex;
@@ -242,7 +242,6 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px;
   display:flex;
   justify-content: flex-start;
-  /* left:10px; */
   top:60px;
   position:absolute;
   width:100vw;
