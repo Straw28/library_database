@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import TopBar from '../components/top_bar';
 
+function Login(){
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigateTo = useNavigate(); // Get the history object
 
+    const handleLogin = async (e) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -70,6 +75,59 @@ function Login() {
                                 </Link>
                             </div>
                         </div>
+        try {
+            const response = await fetch('http://localhost:5000/api/member/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Login failed');
+            }
+
+            const data = await response.json();
+            const token = data.token;
+
+            // Store token in localStorage or sessionStorage
+            localStorage.setItem('token', token);
+
+            // Redirect or perform any other actions upon successful login
+        } catch (error) {
+            console.error('Login failed:', error);
+            alert('Failed to login');
+        }
+    };
+    
+    return(
+        <div style = {{overflowX:'hidden'}}>
+        <div style={{overflowX:'hidden', marginTop:'100px'}}> <TopBar/></div>
+        <div className="page-body" 
+        style={{ 
+          overflowX:'hidden', 
+          overflowY:'hidden',  
+          position:'absolute', width:'100vw', 
+          marginTop:'1%', 
+          top:'150px', 
+          marginLeft:'1%'
+        }}></div>
+        <div className="login-container-box">
+        <form onSubmit={handleLogin} style={{marginTop:'15%', marginLeft:'10%'}}>
+                        <label>
+                            <div style={{fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontSize: '20px',fontWeight: '500'}}>Email:</div>
+                            <input type="text" style={{width: '100%', padding: '12px 20px', margin: '8px 0', boxSizing: 'border-box', position:'relative', marginBottom:'5%'}} />
+                        </label>
+                        <label>
+                            <div style={{fontFamily: '"Google Sans",Roboto,Arial,sans-serif', fontSize: '20px',fontWeight: '500'}}>Password:</div>
+                            <input type="password" style={{width: '100%', padding: '12px 20px', margin: '8px 0', boxSizing: 'border-box', position:'relative'}}/>
+                        </label>
+                        <button type="submit" className='button-17' style={{marginTop:'5%', marginLeft:'-9%'}}>Login</button>
+                        <div style={{height: '400px', width:'1px', backgroundColor:'black', marginLeft:'120%', marginTop:'-110%', display:'flex'}}></div>
                     </form>
                 </div>
             </div>

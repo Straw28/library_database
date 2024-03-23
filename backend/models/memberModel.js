@@ -54,7 +54,7 @@ class MemberModel{
 
     static async findMemberByEmail(email) {
         try {
-            const [result] = await pool.query(`Select * FROM members WHERE email_address = ${email};`);
+            const [result] = await pool.query(`Select * FROM members WHERE email_address = '${email}';`);
             return result;
         } catch (err) {
             console.log(err);
