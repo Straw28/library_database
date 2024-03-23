@@ -12,7 +12,7 @@ function Login() {
         e.preventDefault();
         try {
             const body = {
-                library_card_number: username,
+                email: username,
                 password: password,
             };
 
