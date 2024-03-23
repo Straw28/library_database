@@ -64,8 +64,7 @@ function Register(){
             date_of_birth: formData.date_of_birth, // Make sure the server expects this format
             // Flatten address if necessary, or adjust as needed
         };
-        delete adjustedFormData.Fname; // Clean up adjusted data as needed
-        delete adjustedFormData.Lname;
+
         delete adjustedFormData.confirmPassword; // Typically not sent to server
     
         try {
