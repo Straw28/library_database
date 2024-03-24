@@ -68,7 +68,7 @@ function Register(){
         delete adjustedFormData.confirmPassword; // Typically not sent to server
     
         try {
-            const response = await fetch("https://library-database-git-main-straw28s-projects.vercel.app/register", {
+            const response = await fetch("http://localhost:5000/api/member/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(adjustedFormData)
