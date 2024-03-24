@@ -1,6 +1,7 @@
 // backend/server.js
 import http from 'http';
 import url from 'url';
+const cors = require('cors');
 
 import ItemsRoute from './routes/itemsRoute.js';
 import FinesRoute from './routes/finesRoute.js';
@@ -8,7 +9,10 @@ import MemberRoute from './routes/memberRoute.js';
 import StaffRoute from './routes/staffRoute.js';
 import AdminRoute from './routes/adminRoute.js';
 
+
+const corsMiddleware = cors();
 const server = http.createServer(async(req, res) => {
+  corsMiddleware(req, res, () => {
   const path = url.parse(req.url, true).path;
   const method = req.method;
 
@@ -52,7 +56,9 @@ const server = http.createServer(async(req, res) => {
     res.end(JSON.stringify({ message: 'Route Not Found'}));
 
   }
-})
+});
+
+});
 
 const PORT = process.env.PORT || 5000;
 
