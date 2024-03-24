@@ -68,7 +68,7 @@ function Register(){
         delete adjustedFormData.confirmPassword; // Typically not sent to server
     
         try {
-            const response = await fetch("http://localhost:5000/api/member/register", {
+            const response = await fetch("http://localhost:5001/api/member/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(adjustedFormData)
