@@ -28,9 +28,10 @@ async function memberRoute(req, res, path, method) {
             // parse input data
             const data = await getReqData(req);
             const { email, password } = JSON.parse(data);
-
+            console.log(data);
             // authenticate user
             const member = await MemberController.authenticateMember(email, password);
+            
             if (!member) {
                 res.writeHead(401, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ message: 'Invalid email or password' }));

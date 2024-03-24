@@ -45,10 +45,13 @@ class MemberController{
         try {
             // Find member by email
             const member = await MemberModel.findMemberByEmail(email);
+            console.log(member);
             if (!member) return null;
 
             // Compare passwords
-            const match = await bcrypt.compare(password, member.password);
+            
+            console.log(typeof member[0].password);
+            const match = await bcrypt.compare(password, member[0].password);
             if (!match) return null;
 
             return member;

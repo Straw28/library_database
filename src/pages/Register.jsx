@@ -23,6 +23,7 @@ function Register(){
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
+        phone_number: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -58,17 +59,16 @@ function Register(){
         // Adjust the formData to match your server's expected format
         const adjustedFormData = {
             ...formData,
-            first_name: formData.Fname,
-            last_name: formData.Lname,
-            birthdate: formData.birthdate, // Make sure the server expects this format
+            first_name: formData.first_name,
+            last_name: formData.last_name,
+            date_of_birth: formData.date_of_birth, // Make sure the server expects this format
             // Flatten address if necessary, or adjust as needed
         };
-        delete adjustedFormData.Fname; // Clean up adjusted data as needed
-        delete adjustedFormData.Lname;
+
         delete adjustedFormData.confirmPassword; // Typically not sent to server
     
         try {
-            const response = await fetch("http://localhost:5000/api/member/register", {
+            const response = await fetch("http://localhost:5001/api/member/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(adjustedFormData)
@@ -83,6 +83,7 @@ function Register(){
                     first_name: '',
                     last_name: '',
                     email: '',
+                    phone_number: '',
                     password: '',
                     confirmPassword: '',
                     date_of_birth: '',
@@ -189,7 +190,7 @@ function Register(){
                         type="tel"
                         id="phone"
                         name="phone"
-                        value={formData.phone}
+                        value={formData.phone_number}
                         onChange={handleChange}
                         required
                     />
