@@ -1,0 +1,6 @@
+services:
+  - name: madea
+    buildCommand: npm run build
+    env:
+      - key: NODE_ENV
+        value: production
