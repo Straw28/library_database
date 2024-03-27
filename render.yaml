@@ -1,3 +1,0 @@
-services:
-  - name: madea
-    buildCommand: npm run build
