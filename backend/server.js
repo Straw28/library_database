@@ -11,7 +11,7 @@ import AdminRoute from './routes/adminRoute.js';
 
 
 //const corsMiddleware = cors();
-const server = http.createServer(async(req, res) => {
+const server = http.createServer(async (req, res) => {
   //corsMiddleware(req, res, () => {
   const path = url.parse(req.url, true).path;
   const method = req.method;
@@ -32,10 +32,10 @@ const server = http.createServer(async(req, res) => {
   } else if (path.includes('/api/items')) {
     ItemsRoute(req, res, path, method);
 
-  // add books, ebooks, dvds, and more items
+    // add books, ebooks, dvds, and more items
 
 
-  // add printers, laptops, and more ultilies
+    // add printers, laptops, and more ultilies
 
 
 
@@ -50,16 +50,16 @@ const server = http.createServer(async(req, res) => {
 
   } else if (path.includes('/api/admin')) {
     AdminRoute(req, res, path, method);
-    
+
   } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: 'Route Not Found'}));
+    res.end(JSON.stringify({ message: 'Route Not Found' }));
 
   }
 });
 
 //});
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
