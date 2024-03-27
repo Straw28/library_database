@@ -1,27 +1,16 @@
-// for aws config, uncomment when ready to launch
-
-// import mysql from '../node_modules/mysql2/promise.js';
-
-// const pool = mysql.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME,
-//   connectionLimit: 10,
-// });
-
-// export default pool;
-
-
-// local mysql workbench
 // backend/database.js
+import dotenv from 'dotenv';
+dotenv.config();
+
 import mysql from 'mysql2/promise.js';
 
+console.log(process.env)
+
 const pool = mysql.createPool({
-  host: 'db-meada.cdmimase86m5.us-east-2.rds.amazonaws.com', 
-  user: 'meada_maria', // your username
-  password: 'p@ssW03d', // your password
-  database: 'Library_Database', 
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
